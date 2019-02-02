@@ -13,9 +13,7 @@ export class Auth5Guard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     
-  	if(!this.auth.isloggedin())
-  	this.router.navigate(['login']);
-  	else if(!this.auth.isdemoresult())
+   if(!this.auth.isdemoresult())
   	this.router.navigate(['']);
     return true;
 

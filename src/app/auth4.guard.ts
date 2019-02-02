@@ -12,10 +12,8 @@ export class Auth4Guard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-   
-  	if(!this.auth.isloggedin())
-  	this.router.navigate(['login']);
-  	else if(!this.auth.isdemoexamin())
+
+  	if(!this.auth.isdemoexamin())
   	this.router.navigate(['']);
     return true;
 

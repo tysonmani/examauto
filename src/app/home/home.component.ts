@@ -61,6 +61,21 @@ this.spinner1 = false;
   const db = firebase.firestore();
   var hello = this;
    localStorage.setItem("epid1",'QP59212');
+   if(localStorage.getItem("random") === null)
+   {
+     var ran = Math.floor(10000 + Math.random() * 90000);
+      var rdom = '' + ran;
+      localStorage.setItem("random",rdom);
+      hello.auth.setdemoexamin(true);
+      setTimeout(()=>{
+    $('#myModal').modal('hide');
+    $('#myModal9').modal('hide');
+    this.spinner1 = true;
+    this.router.navigate(['demo']);
+      }, 2000) 
+   }
+   else
+   {
         db.collection('DemoAnswers').doc(localStorage.getItem("random"))
         .collection(localStorage.getItem("epid1"))
       .get()
@@ -89,6 +104,8 @@ localStorage.setItem("random",rdom);
     this.spinner1 = true;
     this.router.navigate(['demo']);
       }, 2000) 
+
+   }
 }
 
 
