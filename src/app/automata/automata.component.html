@@ -13,7 +13,7 @@
 	font-weight: 700;">@ 2018<span style="color: black;">ExamAutomata</span></p>
 </div>
 <br><br>
-  	<h1 id ="sin" style="color: #3CB371;">Your Existing<span style="color:black">QuestionPapers</span><span style="color:#3CB371;">!!</span></h1>
+  	<h1 id ="sin" id="zoom" style="color: #3CB371;">Your Existing<span style="color:black">QuestionPapers</span><span style="color:#3CB371;">!!</span></h1>
   	<br>
   	 <input class="form-control" *ngIf="!zip1" (keyup)="onKey($event)" type="text" placeholder="Search By QuestionPaper Name....."><br *ngIf="!zip1">
      <div *ngIf="spinner" class="sk-circle">
@@ -39,8 +39,8 @@
 		<span id = "ging">{{que.pid}}</span>
 	</h2>	
 <br>
-<a id = "fur" id ="fasak" (click)="contest(que.pid)" class="button button1">Conduct or Update Contest</a>&nbsp;&nbsp;
-  <a id = "fur" id ="fasak" (click)="update(que.pid)" class="button button1">Update</a>
+<a id = "fur" id ="fasak1" (click)="contest(que.pid)" class="button button1">Conduct or Update Contest</a>&nbsp;&nbsp;
+  <a id = "fur" id ="fasak1" (click)="update(que.pid)" class="button button1">Update</a>
   	</div>
   		<br><br>
   </ng-container>

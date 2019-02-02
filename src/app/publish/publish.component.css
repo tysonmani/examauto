@@ -180,11 +180,47 @@
             transform: scale(1);
   }
 }
-#sin
+@media only screen and (max-width: 550px) 
 {
-	text-align: center;
+      h1#sin
+  {
+    text-align: center;
+  }
+  h1#zoom
+  {
+    font-size: 140%;
+    text-align: center;
+  }
+
+  a#fasak
+  {
+    font-size: 110%;
+  }
+  form#zoom
+  {
+    font-size: 50%;
+  }
+  h2#zoom
+{
+  font-size:120%;
 }
 
+h4#zoom
+{
+  font-size:90%;
+}
+}
+@media only screen and (min-width: 550px)
+{
+    h1#sin
+  {
+    text-align: center;
+  }
+      h1#zoom
+  {
+    text-align: center;
+  }
+}
 div.heck
 {
   color:black;
@@ -236,6 +272,12 @@ a#fur:hover
     font-size: 25px;
     font-weight: 600;
     padding:8px
+}
+#fasak1
+{
+    font-size: 60%;
+    font-weight: 600;
+    padding:1%;
 }
    i#wro
   {

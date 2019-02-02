@@ -13,6 +13,7 @@ loggedinstatus = JSON.parse(localStorage.getItem('loggedin') || 'false');
 examinstatus = JSON.parse(localStorage.getItem('examin'+localStorage.getItem("epid")) || 'false');
 oldexaminstatus = JSON.parse(localStorage.getItem('oldexamin'+localStorage.getItem("epid2")) || 'false');
 demoexaminstatus = JSON.parse(localStorage.getItem('demoexamin'+localStorage.getItem("epid1")) || 'false');
+demoresultstatus = JSON.parse(localStorage.getItem('demoresult'+localStorage.getItem("random")) || 'false');
   constructor(private http: HttpClient,private afs: AngularFirestore) { }
 
 sendmail(email123:string) {
@@ -80,6 +81,15 @@ sendmail(email123:string) {
       isdemoexamin()
       {
       return JSON.parse(localStorage.getItem('demoexamin'+localStorage.getItem("epid1")) || 'false');
+      }
+      setdemoresult(value:boolean)
+      {
+        this.demoresultstatus = value;
+        localStorage.setItem('demoresult'+localStorage.getItem("random"),'true');
+      }
+      isdemoresult()
+      {
+      return JSON.parse(localStorage.getItem('demoresult'+localStorage.getItem("random")) || 'false');
       }
       setloggeduser(data:string,email123:string)
       {

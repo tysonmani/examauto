@@ -72,7 +72,7 @@ spinner:boolean = true;
           localStorage.setItem("user321",'DemoUser');
          // console.log(localStorage.getItem("user321"));
 hello.papid = JSON.parse(localStorage.getItem('case'
-  +hello.auth.getuser()
+  +localStorage.getItem("random")
   +'QP59212') || 'false');
 //console.log(hello.papid);
 if(hello.papid == false)
@@ -138,13 +138,13 @@ if(hello.papid == false)
         }
           
             //console.log(hello.ptime);
-      localStorage.setItem("hrs"+hello.auth.getuser()
+      localStorage.setItem("hrs"+localStorage.getItem("random")
   +'QP59212',hr);
-      localStorage.setItem("mins"+hello.auth.getuser()
+      localStorage.setItem("mins"+localStorage.getItem("random")
   +'QP59212',hello.ptime.toString());
-      localStorage.setItem("secs"+hello.auth.getuser()
+      localStorage.setItem("secs"+localStorage.getItem("random")
   +'QP59212',sec);
-    localStorage.setItem("case"+hello.auth.getuser()
+    localStorage.setItem("case"+localStorage.getItem("random")
   +'QP59212','true');
 
 }
@@ -154,9 +154,9 @@ else{
 
 
 // Set the date we're counting down to
-var countDownDate = new Date(month+day+","+year+" "+parseInt(localStorage.getItem("hrs"+hello.auth.getuser()
-  +'QP59212'))+":"+parseInt(localStorage.getItem("mins"+hello.auth.getuser()
-  +'QP59212'))+":"+parseInt(localStorage.getItem("secs"+hello.auth.getuser()
+var countDownDate = new Date(month+day+","+year+" "+parseInt(localStorage.getItem("hrs"+localStorage.getItem("random")
+  +'QP59212'))+":"+parseInt(localStorage.getItem("mins"+localStorage.getItem("random")
+  +'QP59212'))+":"+parseInt(localStorage.getItem("secs"+localStorage.getItem("random")
   +'QP59212'))).getTime();
 
       hello.papid123 = JSON.parse(localStorage.getItem('king123') || 'false');
@@ -268,7 +268,7 @@ optchecker1(quesid:string)
 {
 const db = firebase.firestore();
 var hello = this;
-      db.collection('DemoAnswers').doc(this.auth.getuser()).collection(localStorage.getItem("epid1"))
+      db.collection('DemoAnswers').doc(localStorage.getItem("random")).collection(localStorage.getItem("epid1"))
       .where('qid', '==',quesid).get()
       .then((querySnapshot)=> {
    if (querySnapshot.size > 0) {
@@ -317,7 +317,7 @@ db.collection('UserQuestionPaper')
          });
 
 
-      db.collection('DemoAnswers').doc(this.auth.getuser()).collection(localStorage.getItem("epid1"))
+      db.collection('DemoAnswers').doc(localStorage.getItem("random")).collection(localStorage.getItem("epid1"))
       .where('qid', '==',quesid).get()
       .then((querySnapshot)=> {
    if (querySnapshot.size > 0) {
@@ -335,7 +335,7 @@ db.collection('UserQuestionPaper')
       }
         if(hello.vary == false)
   {
-      db.collection('DemoAnswers').doc(hello.auth.getuser()).collection(localStorage.getItem("epid1"))
+      db.collection('DemoAnswers').doc(localStorage.getItem("random")).collection(localStorage.getItem("epid1"))
       .add({
       qid:quesid,
       ans:answer,
@@ -350,7 +350,7 @@ db.collection('UserQuestionPaper')
   }
   else
   {
-     db.collection('DemoAnswers').doc(hello.auth.getuser()).collection(localStorage.getItem("epid1"))
+     db.collection('DemoAnswers').doc(localStorage.getItem("random")).collection(localStorage.getItem("epid1"))
       .where('qid','==',quesid).get()
       .then((querySnapshot)=> {
     querySnapshot.forEach((doc)=> {
@@ -433,7 +433,7 @@ previous()
 deselect(quesid:string)
 {
   const db = firebase.firestore();
-        db.collection('DemoAnswers').doc(this.auth.getuser()).collection(localStorage.getItem("epid1"))
+        db.collection('DemoAnswers').doc(localStorage.getItem("random")).collection(localStorage.getItem("epid1"))
       .where('qid','==',quesid).get()
       .then((querySnapshot)=> {
     querySnapshot.forEach(function(doc) {
@@ -447,7 +447,7 @@ deselect(quesid:string)
 }
 resultcal()
 {
-
+  this.auth.setdemoresult(true);
   const db = firebase.firestore();
   var hello = this;
 
@@ -456,20 +456,20 @@ var sco=0,totsco=0;
 localStorage.removeItem('paperber1'+localStorage.getItem("epid2")+localStorage.getItem("user321"));
   localStorage.removeItem('numblimit1'+localStorage.getItem("epid")+localStorage.getItem("user321"));
 localStorage.removeItem('demoexamin'+localStorage.getItem("epid1"));
- localStorage.removeItem('case'+hello.auth.getuser()
+ localStorage.removeItem('case'+localStorage.getItem("random")
   +localStorage.getItem("epid1"));
-localStorage.removeItem('hrs'+hello.auth.getuser()
+localStorage.removeItem('hrs'+localStorage.getItem("random")
   +localStorage.getItem("epid1"));
-localStorage.removeItem('mins'+hello.auth.getuser()
+localStorage.removeItem('mins'+localStorage.getItem("random")
   +localStorage.getItem("epid1"));
-localStorage.removeItem('secs'+hello.auth.getuser()
+localStorage.removeItem('secs'+localStorage.getItem("random")
   +localStorage.getItem("epid1"));
 localStorage.removeItem('examin'+localStorage.getItem("epid1"));
 localStorage.removeItem('paperber'+localStorage.getItem("epid1")+localStorage.getItem("user321"));
 localStorage.removeItem('numblimit'+localStorage.getItem("epid1")+localStorage.getItem("user321"));
 
 
- db.collection('DemoAnswers').doc(this.auth.getuser())
+ db.collection('DemoAnswers').doc(localStorage.getItem("random"))
   .collection(localStorage.getItem("epid1"))
   .where('corr', '==',1).get()
         .then((querySnapshot)=> {
@@ -490,25 +490,10 @@ localStorage.removeItem('numblimit'+localStorage.getItem("epid1")+localStorage.g
     });
      if(hello.yoyo1 == true && hello.yoyo2 == true)
      {
-       //console.log("puck1");
-      db.collection('DemoResults').doc(localStorage.getItem("epid1"))
-      .collection("Results").where('user', '==',hello.auth.getuser()).get()
-      .then((querySnapshot)=> {
-   if (querySnapshot.size > 0) {
-         querySnapshot.forEach((doc)=> {
-           //console.log("bufoon1");
-           doc.ref.update({score:sco,totscore:totsco});
-                    this.spinner = false;
-    this.router.navigate(['demoresults']);
-         });
-       }
-       else
-       {
-         //console.log("bufoon2");
         db.collection('DemoResults').doc(localStorage.getItem("epid1"))
       .collection("Results")
       .add({
-      user:hello.auth.getuser(),
+      user:localStorage.getItem("random"),
       score:sco,
       totscore:totsco,
       rank:0
@@ -520,9 +505,7 @@ localStorage.removeItem('numblimit'+localStorage.getItem("epid1")+localStorage.g
     .catch(function(error) {
         //console.error("Error adding document: ", error);
       }); 
-
-       }
-     });       
+       
          }
       } 
     else {
@@ -545,25 +528,10 @@ localStorage.removeItem('numblimit'+localStorage.getItem("epid1")+localStorage.g
     });
      if(hello.yoyo1 == true && hello.yoyo2 == true)
      {
-       //console.log("puck2");
-      db.collection('DemoResults').doc(localStorage.getItem("epid1"))
-      .collection("Results").where('user', '==',hello.auth.getuser()).get()
-      .then((querySnapshot)=> {
-   if (querySnapshot.size > 0) {
-         querySnapshot.forEach((doc)=> {
-           //console.log("bufoon1");
-           doc.ref.update({score:sco,totscore:totsco});
-                    this.spinner = false;
-    this.router.navigate(['demoresults']);
-         });
-       }
-       else
-       {
-         //console.log("bufoon2");
         db.collection('DemoResults').doc(localStorage.getItem("epid1"))
       .collection("Results")
       .add({
-      user:hello.auth.getuser(),
+      user:localStorage.getItem("random"),
       score:sco,
       totscore:totsco,
       rank:0
@@ -576,8 +544,6 @@ localStorage.removeItem('numblimit'+localStorage.getItem("epid1")+localStorage.g
         //console.error("Error adding document: ", error);
       }); 
 
-       }
-     });
   }
       } 
     else {

@@ -18,6 +18,7 @@ import { Auth1Guard } from './auth1.guard';
 import { Auth2Guard } from './auth2.guard';
 import { Auth3Guard } from './auth3.guard';
 import { Auth4Guard } from './auth4.guard';
+import { Auth5Guard } from './auth5.guard';
 import { HeaderComponent } from './header/header.component';
 import { PublishComponent } from './publish/publish.component';
 import { DemoComponent } from './demo/demo.component';
@@ -126,7 +127,7 @@ import { PasswordComponent } from './password/password.component';
       {
         path: 'demoresults',
         component: DemoresultsComponent,
-        canActivate:[Auth1Guard]
+        canActivate:[Auth5Guard]
       },
       {
         path: 'dashboard',
@@ -157,7 +158,7 @@ import { PasswordComponent } from './password/password.component';
       }
     ])
   ],
-  providers: [AuthService,AuthGuard,Auth1Guard,Auth2Guard,Auth3Guard,Auth4Guard],
+  providers: [AuthService,AuthGuard,Auth1Guard,Auth2Guard,Auth3Guard,Auth4Guard,Auth5Guard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

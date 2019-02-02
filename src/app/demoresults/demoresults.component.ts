@@ -44,7 +44,7 @@ var hello = this;
 setTimeout(()=>{
 db.collection('DemoResults').doc(localStorage.getItem("epid1"))
 .collection("Results")
-.where('user', '==', this.auth.getuser()).get()
+.where('user', '==', localStorage.getItem("random")).get()
         .then((querySnapshot)=> {
    if (querySnapshot.size > 0) {
          querySnapshot.forEach((doc)=> {
@@ -149,7 +149,7 @@ answers(quesid:string)
 
 const db = firebase.firestore();
 var hello = this;
-   db.collection('DemoAnswers').doc(this.auth.getuser())
+   db.collection('DemoAnswers').doc(localStorage.getItem("random"))
    .collection(localStorage.getItem("epid1"))
    .where('qid','==',quesid).get()
    .then((querySnapshot)=> {

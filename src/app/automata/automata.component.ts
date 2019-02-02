@@ -203,10 +203,10 @@ demo123()
 start()
 {
 this.spinner1 = false;
- localStorage.setItem("epid1",'QP59212');
   const db = firebase.firestore();
   var hello = this;
-        db.collection('DemoAnswers').doc(this.auth.getuser())
+   localStorage.setItem("epid1",'QP59212');
+        db.collection('DemoAnswers').doc(localStorage.getItem("random"))
         .collection(localStorage.getItem("epid1"))
       .get()
       .then((querySnapshot)=> {
@@ -214,6 +214,19 @@ this.spinner1 = false;
     doc.ref.delete();
   });
 });
+    db.collection('DemoResults').doc(localStorage.getItem("epid1"))
+    .collection("Results").where('user', '==',localStorage.getItem("random")).get()
+    .then((querySnapshot)=> {
+         querySnapshot.forEach((doc)=> {
+    doc.ref.delete();
+  });
+});
+localStorage.removeItem('random');
+var ran = Math.floor(10000 + Math.random() * 90000);
+var rdom = '' + ran;
+localStorage.setItem("random",rdom);
+
+      localStorage.removeItem('demoresult'+localStorage.getItem("random"));
       hello.auth.setdemoexamin(true);
       setTimeout(()=>{
     $('#myModal2').modal('hide');

@@ -21,31 +21,31 @@
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
 <br><br>
     <h1 id ="sin" id="zoom" style="color: #3CB371;">QuestionPaperId:<span style="color:black">{{paperID}}</span></h1>
-<h1 id="sin" *ngIf="!bool">{{days}}days{{hours}}hrs{{minutes}}mins{{seconds}}secs
+<h1 id="sin" id="zoom" *ngIf="!bool">{{days}}days{{hours}}hrs{{minutes}}mins{{seconds}}secs
 </h1>
 <h1 *ngIf="bool">{{mess}}</h1>
 <!--<ng-container *ngFor="let quest of best">-->
   	    <form novalidate [formGroup]="OptionForm" (ngSubmit)="savenext(quest.qid)">
     <div class="heck">
-	<h2>
+	<h2 id="zoom">
 		<span id = "ping">Question</span>
 		<span id = "ging">Id :</span>
 		<span id = "ging">{{quest.qid}}</span>
 	</h2>
-	<h2>
+	<h2 id="zoom">
 		<span id = "ping">{{quest.ques}}
 			<span id = "ging"> ?</span></span>
 	</h2>
-  <h4>
+  <h4 id="zoom">
   	<input type="radio" class="rButton" [value]="quest.op1" formControlName="opt" ><span class="convText" id = "ging">{{quest.op1}}</span>
 </h4>
-  <h4>
+  <h4 id="zoom">
   	<input type="radio" class="rButton" [value]="quest.op2" formControlName="opt" ><span class="convText" id = "ging">{{quest.op2}}</span>
 </h4>
-  <h4>
+  <h4 id="zoom">
   	<input type="radio" class="rButton" [value]="quest.op3" formControlName="opt" ><span class="convText" id = "ging">{{quest.op3}}</span>
 </h4>
-  <h4>
+  <h4 id="zoom">
     <input type="radio" class="rButton" [value]="quest.op4" formControlName="opt" ><span class="convText" id = "ging">{{quest.op4}}</span>
 </h4>
 <h1 id ="sin"><a  id = "fur" id ="fasak" (click)="deselect(quest.qid)" class="button button1">DeselectOptions</a></h1>

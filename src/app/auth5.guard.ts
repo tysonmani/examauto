@@ -7,15 +7,15 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class Auth4Guard implements CanActivate {
-	constructor(private auth:AuthService,private router: Router){}
+export class Auth5Guard implements CanActivate {
+  constructor(private auth:AuthService,private router: Router){}
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-   
+    
   	if(!this.auth.isloggedin())
   	this.router.navigate(['login']);
-  	else if(!this.auth.isdemoexamin())
+  	else if(!this.auth.isdemoresult())
   	this.router.navigate(['']);
     return true;
 

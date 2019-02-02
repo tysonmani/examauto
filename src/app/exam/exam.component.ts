@@ -231,6 +231,7 @@ if(this.paperber == false)
         this.optchecker1(this.lost[parseInt(this.numblimit)].qid);
         this.count = data123.length;
         this.quest = this.lost[parseInt(this.numblimit)];
+               this.spinner = false;
                 if(parseInt(this.numblimit)>0)
           this.horror = true;
         else
@@ -257,6 +258,7 @@ else
     this.count = this.lost.length;
     this.optchecker1(this.lost[parseInt(this.numblimit)].qid);
     this.quest = this.lost[parseInt(this.numblimit)];
+            this.spinner = false;
             if(parseInt(this.numblimit)>0)
           this.horror = true;
         else
