@@ -1,0 +1,272 @@
+<app-header></app-header>
+<div class="container-fluid" >
+<div class="row">
+	  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <br><br>
+	    <h1 id ="sin" style="color: #3CB371;">DASH<span style="color:black">BOARD</span></h1>
+	</div>
+	</div>
+</div>
+<br>
+<div class="container-fluid" >
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2"></div>
+  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+  	<div class="heck1">
+<h2 id="sin"><img src="assets/1276524.svg" alt="Cinque Terre" width="100" height="100">
+<hr>
+<a id = "fur" id ="fasak1" routerLink="/publish" class="button button1">CreateExam</a></h2>
+</div><br>
+</div>
+  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+  	  	<div class="heck1">
+<h2 id="sin"><img src="assets/31866.svg" alt="Cinque Terre" width="100" height="100">
+<hr>
+<a id = "fur" id ="fasak1" (click)="showpaper()" class="button button1">CreatedExams</a></h2>
+</div><br>
+  	</div>
+  </div>
+</div>
+<br>
+<div class="container-fluid" >
+<div class="row">
+	<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2"></div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="heck1">
+<h2 id="sin"><img src="assets/1170611.svg" alt="Cinque Terre" width="100" height="100">
+<hr>
+<a id = "fur" id ="fasak1" (click)="leaderboard()" class="button button1">LeaderBoard</a></h2>
+</div><br>
+</div>
+  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+  	<div class="heck1">
+<h2 id="sin"><img src="assets/167750.svg" alt="Cinque Terre" width="100" height="100">
+<hr>
+<a id = "fur" id ="fasak1" (click)="details()" class="button button1">UserDetails</a></h2>
+</div>
+<br>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2"></div>
+</div>
+</div>
+<br><br>
+
+
+
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h3 class="modal-title" id="sin"><div class="sk-cube-grid">
+  <div class="sk-cube sk-cube1"></div>
+  <div class="sk-cube sk-cube2"></div>
+  <div class="sk-cube sk-cube3"></div>
+  <div class="sk-cube sk-cube4"></div>
+  <div class="sk-cube sk-cube5"></div>
+  <div class="sk-cube sk-cube6"></div>
+  <div class="sk-cube sk-cube7"></div>
+  <div class="sk-cube sk-cube8"></div>
+  <div class="sk-cube sk-cube9"></div>
+</div><span style="color:#3CB371;">YourExam</span>Papers</h3>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+        	
+<input class="form-control" *ngIf="!zip1" (keyup)="onKey($event)" type="text" placeholder="Search By QuestionPaper Name....."><br *ngIf="!zip1">
+      <div class="hello" *ngIf="!zip">
+  	<ng-container *ngFor="let que of quest">
+  	<div class="heck">
+          <h1 id="sin"><a id = "fur"  id ="fasak1" (click)="deletepap(que.pid)" class="button button1" ><i class="fa fa-close" style="font-size:36px"></i></a></h1>
+	<h2 id="sin">
+		<span id = "ping">Id:</span>
+		<span id = "ging">{{que.pid}}</span>
+	</h2>	
+<br>
+<h1 id="sin"><a id = "fur" id ="fasak" (click)="contest(que.pid)" class="button button1">Conduct or Update Contest</a>&nbsp;
+  <a id = "fur" id ="fasak" (click)="update(que.pid)" class="button button1">Update</a>&nbsp;
+    <a id = "fur" id ="fasak" (click)="leader(que.pid)" class="button button1">LeaderBoard</a>
+</h1>
+  	</div>
+  		<br><br>
+  </ng-container>
+        </div>
+          	  <h1 *ngIf="zip" id = "sin">{{exists}}</h1>
+  	  <br>
+    </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+    <div class="modal fade" id="myModal1">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title"><div class="sk-cube-grid">
+  <div class="sk-cube sk-cube1"></div>
+  <div class="sk-cube sk-cube2"></div>
+  <div class="sk-cube sk-cube3"></div>
+  <div class="sk-cube sk-cube4"></div>
+  <div class="sk-cube sk-cube5"></div>
+  <div class="sk-cube sk-cube6"></div>
+  <div class="sk-cube sk-cube7"></div>
+  <div class="sk-cube sk-cube8"></div>
+  <div class="sk-cube sk-cube9"></div>
+</div><span style="color:#3CB371;">Exam</span>Automata</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="hello2">
+<form novalidate [formGroup]="NumForm" (ngSubmit)="onSubmit123()">
+   <h4><span style="color:#3CB371;">Set your Examination</span>  Date And Time:</h4>
+         <input style="padding:1%;border-radius:5px;" type="date" formControlName="date" id="date-input" min={{hello}} required />
+      <input style="padding:1%;border-radius:5px;" type="time" formControlName="time" id="myTime" required /><br>
+                  <h4><span style="color:#3CB371;">Exam</span>Duration(in Minutes)</h4>
+         <input style="padding:1%;border-radius:5px;" data-toggle="tooltip" data-placement="right" type="number" id="limit1" min="1" max="60" pattern="([1-9]|[1-5][0-9]|60)" title="Maximum 60 minutes"  formControlName="dur" placeholder="ExamDuration....." required>
+         <h4><span style="color:#3CB371;">Exam</span>Alive</h4>
+         <input style="padding:1%;border-radius:5px;" data-toggle="tooltip" data-placement="right" title="Exam will be discarded from contests after this time exhausts(in Minutes)" type="number" id="limit1" min="1" max="60" pattern="([1-9]|[1-5][0-9]|60)"   formControlName="alive" placeholder="ExamAlive....." required>
+      <br *ngIf="!NumForm.invalid"><br>
+  <h4><span style="color:#3CB371;">Proccess</span> Status :
+    <span *ngIf="bool1"><i class="fa fa-check-square-o" style="font-size:24px;color:green;"></i></span>
+<span *ngIf="bool2"><i id="wro" class="fa fa-times-circle" style="font-size:36px"></i></span>
+  {{ero}}</h4>
+  <button type="submit" id="submit123" id ="fasak1" class="button button1" *ngIf="!NumForm.invalid">Set</button><br *ngIf="!NumForm.invalid"><br>
+    </form>
+  </div>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+<div class="modal fade" id="myModal2">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h3 class="modal-title" id="sin"><div class="sk-cube-grid">
+  <div class="sk-cube sk-cube1"></div>
+  <div class="sk-cube sk-cube2"></div>
+  <div class="sk-cube sk-cube3"></div>
+  <div class="sk-cube sk-cube4"></div>
+  <div class="sk-cube sk-cube5"></div>
+  <div class="sk-cube sk-cube6"></div>
+  <div class="sk-cube sk-cube7"></div>
+  <div class="sk-cube sk-cube8"></div>
+  <div class="sk-cube sk-cube9"></div>
+</div><span style="color:#3CB371;">Participated</span>Exams</h3>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+        	
+<input class="form-control" *ngIf="!zip1q" (keyup)="onKeyq($event)" type="text" placeholder="Search By QuestionPaper Name....."><br *ngIf="!zip1q">
+<div class="container-fluid" >
+<div class="row">
+	  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="hello1" *ngIf="!zipq">
+  	<ng-container *ngFor="let queq of questq">
+  	<div class="heck">
+	<h2>
+		<img src="assets/1156977.svg" alt="Cinque Terre" width="50" height="50">
+		<span id = "ping">Id:</span>
+		<span id = "ging">{{queq.pid}}</span>&nbsp;
+		<span><a id = "fur" id ="fasak" (click)="leadselect(queq.pid)" class="button button1">Select</a></span>
+	</h2>
+  	</div>
+  		<br><br>
+  </ng-container>
+        </div>
+    </div>
+</div>
+</div>
+<h1 *ngIf="zipq" id = "sin">{{existsq}}</h1>
+  	  <br>
+    </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal3">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h3 class="modal-title" id="sin"><div class="sk-cube-grid">
+  <div class="sk-cube sk-cube1"></div>
+  <div class="sk-cube sk-cube2"></div>
+  <div class="sk-cube sk-cube3"></div>
+  <div class="sk-cube sk-cube4"></div>
+  <div class="sk-cube sk-cube5"></div>
+  <div class="sk-cube sk-cube6"></div>
+  <div class="sk-cube sk-cube7"></div>
+  <div class="sk-cube sk-cube8"></div>
+  <div class="sk-cube sk-cube9"></div>
+</div><span style="color:#3CB371;">User</span>Details</h3>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+                              <h3 *ngIf="!spinner1" id ="sin" style="color: #3CB371;">Load<span style="color: black;">ing......</span></h3>
+          <div *ngIf="!spinner1" class="spinner1">
+  <div class="rect1"></div>
+  <div class="rect2"></div>
+  <div class="rect3"></div>
+  <div class="rect4"></div>
+  <div class="rect5"></div>
+</div>
+<div *ngIf="spinner1" class="container-fluid" >
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <ng-container *ngFor="let udet of udetails">
+    <div class="heck">
+  <h2>
+    <span id = "ping">Name:</span>
+    <span id = "ging">{{udet.name}}</span>
+  </h2>
+    <h2>
+    <span id = "ping">Email:</span>
+    <span id = "ging" id="shake" style="color:white">{{udet.email}}</span>
+  </h2>
+    </div>
+      <br><br>
+  </ng-container>
+        </div>
+    </div>
+</div>
+</div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>

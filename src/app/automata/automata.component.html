@@ -1,0 +1,185 @@
+<app-header></app-header>
+<div class="container-fluid" >
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+</div>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+  	<br><br>
+  	<h1 id ="sin" style="color: #3CB371;">EXAM<span style="color:black">AUTOMATA</span></h1><br>
+<div class="heck">
+  <h6 id="zoom"><a id = "fur" id ="fasak" routerLink="/publish" class="button button1">PublishExamPaper</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a id = "fur" id ="fasak" (click)="demo123()" class="button button1">DemoExamPaper</a></h6><br><br><br>
+  <p id ="sin" style="color:white;font-size: 120%;
+	font-weight: 700;">@ 2018<span style="color: black;">ExamAutomata</span></p>
+</div>
+<br><br>
+  	<h1 id ="sin" style="color: #3CB371;">Your Existing<span style="color:black">QuestionPapers</span><span style="color:#3CB371;">!!</span></h1>
+  	<br>
+  	 <input class="form-control" *ngIf="!zip1" (keyup)="onKey($event)" type="text" placeholder="Search By QuestionPaper Name....."><br *ngIf="!zip1">
+     <div *ngIf="spinner" class="sk-circle">
+  <div class="sk-circle1 sk-child"></div>
+  <div class="sk-circle2 sk-child"></div>
+  <div class="sk-circle3 sk-child"></div>
+  <div class="sk-circle4 sk-child"></div>
+  <div class="sk-circle5 sk-child"></div>
+  <div class="sk-circle6 sk-child"></div>
+  <div class="sk-circle7 sk-child"></div>
+  <div class="sk-circle8 sk-child"></div>
+  <div class="sk-circle9 sk-child"></div>
+  <div class="sk-circle10 sk-child"></div>
+  <div class="sk-circle11 sk-child"></div>
+  <div class="sk-circle12 sk-child"></div>
+</div>
+      <div *ngIf="!zip">
+  	<ng-container *ngFor="let que of quest">
+  	<div *ngIf="!spinner" class="heck1">
+          <a id = "fur" id ="fasak1" (click)="deletepap(que.pid)" class="button button1" ><i class="fa fa-close" style="font-size:36px"></i></a>
+	<h2>
+		<span id = "ping">Id:</span>
+		<span id = "ging">{{que.pid}}</span>
+	</h2>	
+<br>
+<a id = "fur" id ="fasak" (click)="contest(que.pid)" class="button button1">Conduct or Update Contest</a>&nbsp;&nbsp;
+  <a id = "fur" id ="fasak" (click)="update(que.pid)" class="button button1">Update</a>
+  	</div>
+  		<br><br>
+  </ng-container>
+</div>
+  	  <h1 *ngIf="zip" id = "sin">{{exists}}</h1>
+  	  <br>
+</div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+</div>
+</div>
+</div>
+      <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title"><div class="sk-cube-grid">
+  <div class="sk-cube sk-cube1"></div>
+  <div class="sk-cube sk-cube2"></div>
+  <div class="sk-cube sk-cube3"></div>
+  <div class="sk-cube sk-cube4"></div>
+  <div class="sk-cube sk-cube5"></div>
+  <div class="sk-cube sk-cube6"></div>
+  <div class="sk-cube sk-cube7"></div>
+  <div class="sk-cube sk-cube8"></div>
+  <div class="sk-cube sk-cube9"></div>
+</div><span style="color:#3CB371;">Exam</span>Automata</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <h2 id="spa" style="color: #3CB371;"><i id="gre" class="fa fa-check" style="font-size:36px" ></i>Check Your MailBox!!<span style="color: black;">Password is sent to access QP{{paper}}</span></h2><br>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal1">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title"><div class="sk-cube-grid">
+  <div class="sk-cube sk-cube1"></div>
+  <div class="sk-cube sk-cube2"></div>
+  <div class="sk-cube sk-cube3"></div>
+  <div class="sk-cube sk-cube4"></div>
+  <div class="sk-cube sk-cube5"></div>
+  <div class="sk-cube sk-cube6"></div>
+  <div class="sk-cube sk-cube7"></div>
+  <div class="sk-cube sk-cube8"></div>
+  <div class="sk-cube sk-cube9"></div>
+</div><span style="color:#3CB371;">Exam</span>Automata</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="hello2">
+<form novalidate [formGroup]="NumForm" (ngSubmit)="onSubmit123()">
+   <h4><span style="color:#3CB371;">Set your Examination</span>  Date And Time:</h4>
+         <input style="padding:1%;border-radius:5px;" type="date" formControlName="date" id="date-input" min={{hello}} required />
+      <input style="padding:1%;border-radius:5px;" type="time" formControlName="time" id="myTime" required /><br>
+                  <h4><span style="color:#3CB371;">Exam</span>Duration(in Minutes)</h4>
+         <input style="padding:1%;border-radius:5px;" data-toggle="tooltip" data-placement="right" type="number" id="limit1" min="1" max="60" pattern="([1-9]|[1-5][0-9]|60)" title="Maximum 60 minutes"  formControlName="dur" placeholder="ExamDuration....." required>
+         <h4><span style="color:#3CB371;">Exam</span>Alive</h4>
+         <input style="padding:1%;border-radius:5px;" data-toggle="tooltip" data-placement="right" title="Exam will be discarded from contests after this time exhausts(in Minutes)" type="number" id="limit1" min="1" max="60" pattern="([1-9]|[1-5][0-9]|60)"   formControlName="alive" placeholder="ExamAlive....." required>
+      <br *ngIf="!NumForm.invalid"><br>
+  <h4><span style="color:#3CB371;">Proccess</span> Status :
+    <span *ngIf="bool1"><i class="fa fa-check-square-o" style="font-size:24px;color:green;"></i></span>
+<span *ngIf="bool2"><i id="wro" class="fa fa-times-circle" style="font-size:36px"></i></span>
+  {{ero}}</h4>
+  <button type="submit" id="submit123" id ="fasak1" class="button button1" *ngIf="!NumForm.invalid">Set</button><br *ngIf="!NumForm.invalid"><br>
+    </form>
+  </div>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+   <div class="modal fade" id="myModal2">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title"><div class="sk-cube-grid">
+  <div class="sk-cube sk-cube1"></div>
+  <div class="sk-cube sk-cube2"></div>
+  <div class="sk-cube sk-cube3"></div>
+  <div class="sk-cube sk-cube4"></div>
+  <div class="sk-cube sk-cube5"></div>
+  <div class="sk-cube sk-cube6"></div>
+  <div class="sk-cube sk-cube7"></div>
+  <div class="sk-cube sk-cube8"></div>
+  <div class="sk-cube sk-cube9"></div>
+</div><span style="color:#3CB371;">Exam</span>Automata</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+        <h3 *ngIf="!spinner1" id ="sin" style="color: #3CB371;">Load<span style="color: black;">ing......</span></h3>
+        <h4 *ngIf="!spinner1" id ="sin"><span style="color: #3CB371;">F</span>asten <span style="color: #3CB371;">Y</span>our <span style="color: #3CB371;">S</span>eat<span style="color: #3CB371;">B</span>elts<span style="color: #3CB371;">!!</span></h4>
+  <div *ngIf="!spinner1" class="spinner1">
+  <div class="rect1"></div>
+  <div class="rect2"></div>
+  <div class="rect3"></div>
+  <div class="rect4"></div>
+  <div class="rect5"></div>
+</div>
+<div *ngIf="spinner1">
+          <h3 id="sin">
+            Time limit for the exam:<span style="color: #3CB371;"> 10 minutes</span>
+          </h3>
+          <h5 id="sin">You have 10 minutes to complete the exam. At the end of the exam you will inmediately receive your score!</h5>
+          <h1 id="sin"><a id = "fur" id ="fasak2" (click)="start()" class="button button1">Start</a></h1>
+</div>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>

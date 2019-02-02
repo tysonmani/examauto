@@ -1,0 +1,214 @@
+<app-header></app-header>
+<br *ngIf="spinner"><br *ngIf="spinner"><br *ngIf="spinner"><br *ngIf="spinner">
+<div *ngIf="spinner" class="sk-circle">
+  <div class="sk-circle1 sk-child"></div>
+  <div class="sk-circle2 sk-child"></div>
+  <div class="sk-circle3 sk-child"></div>
+  <div class="sk-circle4 sk-child"></div>
+  <div class="sk-circle5 sk-child"></div>
+  <div class="sk-circle6 sk-child"></div>
+  <div class="sk-circle7 sk-child"></div>
+  <div class="sk-circle8 sk-child"></div>
+  <div class="sk-circle9 sk-child"></div>
+  <div class="sk-circle10 sk-child"></div>
+  <div class="sk-circle11 sk-child"></div>
+  <div class="sk-circle12 sk-child"></div>
+</div>
+<br *ngIf="spinner"><br *ngIf="spinner"><br *ngIf="spinner"><br *ngIf="spinner"><br *ngIf="spinner">
+<div *ngIf="!spinner" class="container-fluid" >
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+</div>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+  	<br><br>
+  	<h1 id ="sin" style="color: #3CB371;">EXAM<span style="color:black">AUTOMATA</span></h1><br>
+      <h1 id ="sin"><a id = "fur" id ="fasak1" routerLink="/oldcontests" class="button button1">Archived Contests</a></h1><br>
+  	<h1 id ="sin" style="color: #3CB371;">Active Contests<span style="color:black">!!</span></h1>
+  	<br>
+  	 <input class="form-control" *ngIf="!zip1" (keyup)="onKey($event)" type="text" placeholder="Search By QuestionPaper Name....."><br *ngIf="!zip1">
+      <div *ngIf="!zip">
+  	<ng-container *ngFor="let que of quest">
+  	<div class="heck">
+  		<a id = "fur"*ngIf="boom" id ="fasak1" (click)="deletecont(que.pid)" class="button button1" ><i class="fa fa-close" style="font-size:36px"></i></a>
+	<h2>
+		<span id = "ping">Id:</span>
+		<span id = "ging">{{que.pid}}</span>
+	</h2>	
+<br>
+<a id = "fur" id ="fasak" (click)="contest(que.pid)" class="button button1">TakeTest</a>&nbsp;&nbsp;
+<a id = "fur" id ="fasak" (click)="alive123(que.pid)" class="button button1">AliveTime</a>
+  	</div>
+  		<br><br>
+  </ng-container>
+</div>
+  	  <h1 *ngIf="zip" id = "sin">{{exists}}</h1>
+  	  <br>
+</div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+</div>
+</div>
+</div>
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title"><div class="sk-cube-grid">
+  <div class="sk-cube sk-cube1"></div>
+  <div class="sk-cube sk-cube2"></div>
+  <div class="sk-cube sk-cube3"></div>
+  <div class="sk-cube sk-cube4"></div>
+  <div class="sk-cube sk-cube5"></div>
+  <div class="sk-cube sk-cube6"></div>
+  <div class="sk-cube sk-cube7"></div>
+  <div class="sk-cube sk-cube8"></div>
+  <div class="sk-cube sk-cube9"></div>
+</div><span style="color:#3CB371;">Exam</span>Automata</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+        <h3 *ngIf="!spinner1" id ="sin" style="color: #3CB371;">Load<span style="color: black;">ing......</span></h3>
+        <h4 *ngIf="!spinner1" id ="sin"><span style="color: #3CB371;">F</span>asten <span style="color: #3CB371;">Y</span>our <span style="color: #3CB371;">S</span>eat<span style="color: #3CB371;">B</span>elts<span style="color: #3CB371;">!!</span></h4>
+          <div *ngIf="!spinner1" class="spinner1">
+  <div class="rect1"></div>
+  <div class="rect2"></div>
+  <div class="rect3"></div>
+  <div class="rect4"></div>
+  <div class="rect5"></div>
+</div>
+<div *ngIf="spinner1">
+          <h1 *ngIf="!bomb1" style="color: #3CB371;">{{days}}days{{hours}}hrs{{minutes}}mins{{seconds}}secs</h1><br>
+          <h1 *ngIf="bomb2" >{{exp}}</h1>
+
+               <form *ngIf="bomb" novalidate [formGroup]="PassForm" (ngSubmit)="start()">
+   <h4><span style="color:#3CB371;">Enter</span> SecretKey</h4>
+    <input style="padding:1%;border-radius:5px;" type="password" pattern="[0-9]*" formControlName="password" title="SecretKey!!" placeholder="SecretKey...." required><br *ngIf="!PassForm.invalid"><br>
+  <h4><span style="color:#3CB371;">Process</span> Status :
+    <span *ngIf="bool2"><i class="fa fa-check-square-o" style="font-size:24px;color:green;"></i></span>
+<span *ngIf="bool1"><i id="wro" class="fa fa-times-circle" style="font-size:36px"></i></span>
+  {{middle}}</h4>
+  <button type="submit" id ="fasak" class="button button1" *ngIf="!PassForm.invalid">StartTest</button><br *ngIf="!PassForm.invalid"><br>
+    </form>
+  </div>
+          <!--<h1 *ngIf="bomb"><a id = "fur" id ="fasak" (click)="start()" class="button button1">StartTest</a></h1>-->
+          <h1 *ngIf="jog"><a id = "fur" id ="fasak" (click)="login()" class="button button1">login</a></h1>
+      
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title"><div class="sk-cube-grid">
+  <div class="sk-cube sk-cube1"></div>
+  <div class="sk-cube sk-cube2"></div>
+  <div class="sk-cube sk-cube3"></div>
+  <div class="sk-cube sk-cube4"></div>
+  <div class="sk-cube sk-cube5"></div>
+  <div class="sk-cube sk-cube6"></div>
+  <div class="sk-cube sk-cube7"></div>
+  <div class="sk-cube sk-cube8"></div>
+  <div class="sk-cube sk-cube9"></div>
+</div><span style="color:#3CB371;">Exam</span>Automata</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+        	
+		<h1 id ="sin" style="color: #3CB371;">Only the Admin who created<span style="color:black"> this contest has rights</span> to delete!!</h1>
+      
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+    <div class="modal fade" id="myModal2">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title"><div class="sk-cube-grid">
+  <div class="sk-cube sk-cube1"></div>
+  <div class="sk-cube sk-cube2"></div>
+  <div class="sk-cube sk-cube3"></div>
+  <div class="sk-cube sk-cube4"></div>
+  <div class="sk-cube sk-cube5"></div>
+  <div class="sk-cube sk-cube6"></div>
+  <div class="sk-cube sk-cube7"></div>
+  <div class="sk-cube sk-cube8"></div>
+  <div class="sk-cube sk-cube9"></div>
+</div><span style="color:#3CB371;">Exam</span>Automata</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          
+    <h1 id ="sin" style="color: #3CB371;">{{days1}}days{{hours1}}hrs{{minutes1}}mins{{seconds1}}secs</h1>
+      
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+      <div class="modal fade" id="myModal3">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title"><div class="sk-cube-grid">
+  <div class="sk-cube sk-cube1"></div>
+  <div class="sk-cube sk-cube2"></div>
+  <div class="sk-cube sk-cube3"></div>
+  <div class="sk-cube sk-cube4"></div>
+  <div class="sk-cube sk-cube5"></div>
+  <div class="sk-cube sk-cube6"></div>
+  <div class="sk-cube sk-cube7"></div>
+  <div class="sk-cube sk-cube8"></div>
+  <div class="sk-cube sk-cube9"></div>
+</div><span style="color:#3CB371;">Exam</span>Automata</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+        <h1 id ="sin">You Have Completed The Exam!!</h1>
+        <h1 id ="sin"><a id = "fur" id ="fasak1" click="leader()" class="button button1">LeaderBoard</a></h1>
+      
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>

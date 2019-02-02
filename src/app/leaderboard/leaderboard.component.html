@@ -1,0 +1,45 @@
+<app-header></app-header>
+<div class="container-fluid" >
+<div class="row">
+	  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <br><br>
+	    <h1 id ="sin" style="color: #3CB371;">LEADER<span style="color:black">BOARD</span></h1><br>
+	    <h2 id ="sin">
+		<img src="assets/1156977.svg" alt="Cinque Terre" width="50" height="50">
+		<span id = "ping">Id:</span>&nbsp;
+		<span><a id = "fur" id ="fasak" class="button button1">{{QID}}</a></span>
+	</h2><br>
+	</div>
+	</div>
+</div>
+<div class="container-fluid" >
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+</div>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
+	<input class="form-control" *ngIf="!zip1" (keyup)="onKey($event)" type="text" placeholder="Search By UserName....."><br>
+	  <table *ngIf="!zip"  class='table table-bordered table-striped'>
+  <thead>
+      <tr>
+        <th><h2>Name</h2></th>
+        <th><h2>Score</h2></th>
+        <!--<th><h2>Rank</h2></th>-->
+      </tr>
+    </thead>
+    <tbody id='myTable'>
+  <tr *ngFor="let ques of quest; let i = index">
+    <td><h2>{{ques.user}}</h2></td>
+    <td><h2>{{ques.score}}</h2></td>
+    <!--<td><h2>{{ques.rank}}</h2></td> --> 
+    </tr>
+    </tbody>
+    </table>
+      	  <h1 *ngIf="zip" id = "sin">{{exists}}</h1>
+  	  <br><br *ngIf="zip"><br *ngIf="zip"><br *ngIf="zip">
+  	<br *ngIf="zip"><br *ngIf="zip"><br *ngIf="zip">
+    </div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+</div>
+</div>
+</div>
+<app-footer></app-footer>

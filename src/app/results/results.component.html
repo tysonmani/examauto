@@ -1,0 +1,79 @@
+<app-header></app-header>
+<div *ngIf="spinner" class="sk-circle">
+  <div class="sk-circle1 sk-child"></div>
+  <div class="sk-circle2 sk-child"></div>
+  <div class="sk-circle3 sk-child"></div>
+  <div class="sk-circle4 sk-child"></div>
+  <div class="sk-circle5 sk-child"></div>
+  <div class="sk-circle6 sk-child"></div>
+  <div class="sk-circle7 sk-child"></div>
+  <div class="sk-circle8 sk-child"></div>
+  <div class="sk-circle9 sk-child"></div>
+  <div class="sk-circle10 sk-child"></div>
+  <div class="sk-circle11 sk-child"></div>
+  <div class="sk-circle12 sk-child"></div>
+</div>
+<br *ngIf="spinner"><br *ngIf="spinner"><br *ngIf="spinner"><br *ngIf="spinner">
+<div *ngIf="!spinner" class="container-fluid" >
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+</div>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
+<br><br><br>
+  	  	    <div class="heck1">
+  	  	    	<h1 id="sin" id="zoom">Congratulations!!&nbsp;&nbsp;<span>
+                <a id = "fur" id ="fasak1" (click)="leader(paperID)" class="button button1">LeaderBoard</a>&nbsp;<a id = "fur" id ="fasak1" routerLink="/oldcontests" class="button button1">Practice</a></span></h1>
+  	  	    	  <h1 id="zoom1"><img class="block" src="assets/861506.svg" alt="Cinque Terre" width="25%" height="25%"><span style="font-size:150%;">Your Score: {{sco}}/{{totsco}}</span></h1>
+                <h1 id="sin" id="zoom">QuestionPaperId:{{paperID}}</h1>
+  	  	    </div><br>
+  	  	    <h1 id="sin" id="zoom" style="color: #3CB371;">QuestionPaper<span style="color:black">Correct</span><span style="color:black;">Answers</span></h1><br>
+  	  	    <div class="heck">
+	<h2>
+		<span id = "ping">Question</span>
+		<span id = "ging">Id :</span>
+		<span id = "ging">{{quest.qid}}</span>
+	</h2>
+	<h2>
+		<span id = "ping">{{quest.ques}}
+			<span id = "ging"> ?</span></span>
+	</h2>
+<ol>
+  <h4>
+  	<li>
+  	<span id = "ging">{{quest.op1}}</span>
+  </li>
+</h4>
+  <h4>
+  	<li>
+  	<span id = "ging">{{quest.op2}}</span>
+  </li>
+</h4>
+  <h4>
+  	<li>
+  	<span id = "ging">{{quest.op3}}</span>
+  </li>
+</h4>
+  <h4>
+    <li>
+    <span id = "ging">{{quest.op4}}</span>
+  </li>
+</h4>
+	</ol>
+		<h3>
+	<span id = "ping">CorrectAnswer:</span>
+	<span id = "ging">{{corans}}</span>&nbsp;&nbsp;
+	<span id = "ping">YourAnswer:</span>
+	<span id = "ging">{{ans}}</span>
+</h3>
+<h3>Status:<span style="color:white" *ngIf="status1"><i class="fa fa-check-square-o" style="font-size:120%;color:green;"></i>CorrectAnswer</span><span style="color:white" *ngIf="status2"><i id="wro" class="fa fa-times-circle" style="font-size:36px"></i>WrongAnswer</span><span style="color:white" *ngIf="status3">NULL</span></h3>
+
+  	</div><br>
+  	<h1 id ="sin"><a *ngIf="horror" id = "fur" id ="fasak1" (click)="previous()" class="button button1">GoBack</a>&nbsp;
+<a *ngIf="!horror1" id = "fur" id ="fasak1" (click)="next()" class="button button1">Next</a>
+</h1><br>
+  	  	</div>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
+</div>
+</div>
+</div>
+<app-footer></app-footer>

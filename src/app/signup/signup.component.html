@@ -1,0 +1,169 @@
+<app-header></app-header>
+<br><br>
+<div class="container-fluid" >
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+</div>
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+  	<h1 id ="sin" style="color: #3CB371;">SIGN <span style="color:black">UP</span></h1>
+  	<div class="heck">
+  		     <form novalidate [formGroup]="SignupForm" (ngSubmit)="onSubmit()">
+  		     	<label for="name" >Name :</label><br>
+  <input data-toggle="tooltip" data-placement="top" pattern=".{6,}" title="Must contain minimum length of 6 characters" type="name"  formControlName="name" placeholder="Name...." required><br>
+    		     	<label for="password" >Password :</label>
+  <input data-toggle="tooltip" data-placement="bottom" type="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  formControlName="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Password...." required><br>
+
+    		     	<label for="cpassword" >ConfirmPassword :</label>
+  <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  formControlName="cpassword" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="ConfirmPassword...." required><br><br>
+
+  <button type="submit" id ="fasak" class="button button1" *ngIf="!SignupForm.invalid">SignUp</button><br>
+  <br *ngIf="!SignupForm.invalid">
+	<h3 style="color:black;">AlreadySignedUp?</h3><a id = "fur" routerLink="/login" class="button button1"><h3>Login</h3></a><br><br>
+  <p id ="sin" style="color:white;font-size: 120%;
+	font-weight: 700;">@ 2018<span style="color: black;">ExamAutomata</span></p>
+</form>
+  	</div>
+  </div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+</div>
+</div>
+</div><br><br>
+
+<div class="modal fade" id="myModal1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title"><div class="sk-cube-grid">
+  <div class="sk-cube sk-cube1"></div>
+  <div class="sk-cube sk-cube2"></div>
+  <div class="sk-cube sk-cube3"></div>
+  <div class="sk-cube sk-cube4"></div>
+  <div class="sk-cube sk-cube5"></div>
+  <div class="sk-cube sk-cube6"></div>
+  <div class="sk-cube sk-cube7"></div>
+  <div class="sk-cube sk-cube8"></div>
+  <div class="sk-cube sk-cube9"></div>
+</div><span style="color:#3CB371;">Exam</span>Automata</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <h2 id="spa"><i class="fa fa-check-square-o" style="font-size:120%;color:green;"></i>You Have Succesfully Signed Up!!</h2>
+          <br><div id="spa"><a id = "fur" routerLink="/login" data-dismiss="modal" class="button button1"><h3>Login</h3></a></div>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="myModal2">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title"><div class="sk-cube-grid">
+  <div class="sk-cube sk-cube1"></div>
+  <div class="sk-cube sk-cube2"></div>
+  <div class="sk-cube sk-cube3"></div>
+  <div class="sk-cube sk-cube4"></div>
+  <div class="sk-cube sk-cube5"></div>
+  <div class="sk-cube sk-cube6"></div>
+  <div class="sk-cube sk-cube7"></div>
+  <div class="sk-cube sk-cube8"></div>
+  <div class="sk-cube sk-cube9"></div>
+</div><span style="color:#3CB371;">Exam</span>Automata</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <h2><i id="wro" class="fa fa-times-circle" style="font-size:120%"></i>Password and ConfirmPassword are not Same!!</h2>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal3">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title"><div class="sk-cube-grid">
+  <div class="sk-cube sk-cube1"></div>
+  <div class="sk-cube sk-cube2"></div>
+  <div class="sk-cube sk-cube3"></div>
+  <div class="sk-cube sk-cube4"></div>
+  <div class="sk-cube sk-cube5"></div>
+  <div class="sk-cube sk-cube6"></div>
+  <div class="sk-cube sk-cube7"></div>
+  <div class="sk-cube sk-cube8"></div>
+  <div class="sk-cube sk-cube9"></div>
+</div><span style="color:#3CB371;">Exam</span>Automata</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <h2 id="spa"><i class="fa fa-check-square-o" style="font-size:24px;color:green;"></i>You already got registered with us</h2>
+          	<br><div id="spa"><a id = "fur" routerLink="/login" data-dismiss="modal" class="button button1"><h3>Login</h3></a></div>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal4">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title"><div class="sk-cube-grid">
+  <div class="sk-cube sk-cube1"></div>
+  <div class="sk-cube sk-cube2"></div>
+  <div class="sk-cube sk-cube3"></div>
+  <div class="sk-cube sk-cube4"></div>
+  <div class="sk-cube sk-cube5"></div>
+  <div class="sk-cube sk-cube6"></div>
+  <div class="sk-cube sk-cube7"></div>
+  <div class="sk-cube sk-cube8"></div>
+  <div class="sk-cube sk-cube9"></div>
+</div><span style="color:#3CB371;">Exam</span>Automata</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <h2 id="spa"><i id="wro" class="fa fa-exclamation-circle" style="font-size:36px"></i>The Username is already created by someother try another name!!</h2>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+  

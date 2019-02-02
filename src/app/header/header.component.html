@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-md navbar-light  fixed-top sidebarNavigation">
+  <img class="block" style="cursor:pointer;" src="assets/1276524.svg" alt="Cinque Terre" width="40" height="40">&nbsp;
+<h3 class="block"><a style="color: #3CB371;font-size:100%;cursor:pointer;" class="nav-link" routerLink="/"><span style="font-family: 'Righteous', Sans Serif;">Exam</span><span style="color:black;">Automata</span></a></h3>
+      <button class="navbar-toggler leftNavbarToggler"  type="button" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-between" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a routerLink="/contests" class="button2" >Contests</a>
+          </li><br>
+          <li class="nav-item">
+            <a routerLink="/dashboard" class="button2">DashBoard</a>
+          </li><br>
+          <li class="nav-item">
+            <a routerLink="/automata" class="button2">Automata</a>
+          </li><br>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a *ngIf="!bool"  routerLink="/login" class="button2">{{user}}</a>
+          </li><br>
+         <li class="nav-item">
+         	  <div class="dropdown">
+            <a style="cursor:pointer" class="dropbtn" *ngIf="bool" class="button2" >{{user}}<i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+      <a style="cursor:pointer;" (click)="logout()"><i  class="fa fa-power-off" style="font-size:120%" ></i>&nbsp;Logout</a>
+    		</div>
+  			</div>
+          </li>
+        </ul>
+      </div>
+    </nav><br><br>

@@ -1,0 +1,68 @@
+<app-header></app-header>
+<div class="container-fluid" >
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+</div>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+  	<br>
+    <br><br>
+    <h1 id ="sin" style="color: #3CB371;">LOGIN<span style="color:black">!!</span></h1>
+  	<div class="heck">
+  		     <form novalidate [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
+  		     	<label for="email" >Email :</label><br>
+  <input type="email"  formControlName="email" placeholder="Email...." email required><br>
+<label for="password" >Password :</label>
+  <input data-toggle="tooltip" data-placement="bottom" type="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  formControlName="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Password...." required>
+
+    		     	<br><br *ngIf="!LoginForm.invalid">
+
+  <button type="submit" id ="fasak" class="button button1" *ngIf="!LoginForm.invalid">Login</button><br>
+  <br *ngIf="!LoginForm.invalid">
+	<h3 style="color:black;">ForgotPassword?</h3>
+<a id = "fur" routerLink="/password" class="button button1"><h3>Generate</h3></a><br><br>
+<a routerLink="/verify" style="color:white;font-size: 130%;">NewUser?SignUp</a><br><br>
+  <p id ="sin" style="color:white;font-size: 20px;
+	font-weight: 700;">@ 2018<span style="color: black;">ExamAutomata</span></p>
+</form>
+  	</div>
+  </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+</div>
+</div>
+</div>
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title"><div class="sk-cube-grid">
+  <div class="sk-cube sk-cube1"></div>
+  <div class="sk-cube sk-cube2"></div>
+  <div class="sk-cube sk-cube3"></div>
+  <div class="sk-cube sk-cube4"></div>
+  <div class="sk-cube sk-cube5"></div>
+  <div class="sk-cube sk-cube6"></div>
+  <div class="sk-cube sk-cube7"></div>
+  <div class="sk-cube sk-cube8"></div>
+  <div class="sk-cube sk-cube9"></div>
+</div><span style="color:#3CB371;">Exam</span>Automata</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <h2 id="spa"><i id="wro" class="fa fa-user-times" style="font-size:36px"></i>You are not registered with us </h2><h2 id="spa">or Password may be Wrong</h2><br>
+           <div id="spa"><a id = "fur" routerLink="/verify" class="button button1" data-dismiss="modal"><h3>Signup</h3></a></div>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div><br><br><br>
+  <app-footer></app-footer>
