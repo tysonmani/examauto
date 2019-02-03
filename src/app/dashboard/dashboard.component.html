@@ -80,15 +80,15 @@
       <div class="hello" *ngIf="!zip">
   	<ng-container *ngFor="let que of quest">
   	<div class="heck">
-          <h1 id="sin"><a id = "fur"  id ="fasak1" (click)="deletepap(que.pid)" class="button button1" ><i class="fa fa-close" style="font-size:36px"></i></a></h1>
-	<h2 id="sin">
+          <h1 id="sin" id="zoom"><a id = "fur"  id ="fasak1" (click)="deletepap(que.pid)" class="button button1" ><i class="fa fa-close" style="font-size:36px"></i></a></h1>
+	<h2 id="sin" id="zoom">
 		<span id = "ping">Id:</span>
 		<span id = "ging">{{que.pid}}</span>
 	</h2>	
 <br>
-<h1 id="sin"><a id = "fur" id ="fasak" (click)="contest(que.pid)" class="button button1">Conduct or Update Contest</a>&nbsp;
-  <a id = "fur" id ="fasak" (click)="update(que.pid)" class="button button1">Update</a>&nbsp;
-    <a id = "fur" id ="fasak" (click)="leader(que.pid)" class="button button1">LeaderBoard</a>
+<h1 id="sin"><a id = "fur" id ="fasak3" (click)="contest(que.pid)" class="button button1">Conduct or Update Contest</a>&nbsp;
+  <a id = "fur" id ="fasak3" (click)="update(que.pid)" class="button button1">Update</a>&nbsp;
+    <a id = "fur" id ="fasak3" (click)="leader(que.pid)" class="button button1">LeaderBoard</a>
 </h1>
   	</div>
   		<br><br>
@@ -185,11 +185,11 @@
       <div class="hello1" *ngIf="!zipq">
   	<ng-container *ngFor="let queq of questq">
   	<div class="heck">
-	<h2>
-		<img src="assets/1156977.svg" alt="Cinque Terre" width="50" height="50">
+	<h2 id="zoom">
+		<img id="zoom" src="assets/1156977.svg" alt="Cinque Terre" width="50" height="50">
 		<span id = "ping">Id:</span>
 		<span id = "ging">{{queq.pid}}</span>&nbsp;
-		<span><a id = "fur" id ="fasak" (click)="leadselect(queq.pid)" class="button button1">Select</a></span>
+		<span><a id = "fur" id ="fasak2" (click)="leadselect(queq.pid)" class="button button1">Select</a></span>
 	</h2>
   	</div>
   		<br><br>
@@ -246,11 +246,11 @@
     <ng-container *ngFor="let udet of udetails">
     <div class="heck">
   <h2>
-    <span id = "ping">Name:</span>
-    <span id = "ging">{{udet.name}}</span>
+    <span id = "ping" id="shake">Name:</span>
+    <span id = "ging" id="shake">{{udet.name}}</span>
   </h2>
     <h2>
-    <span id = "ping">Email:</span>
+    <span id = "ping" id="shake">Email:</span>
     <span id = "ging" id="shake" style="color:white">{{udet.email}}</span>
   </h2>
     </div>

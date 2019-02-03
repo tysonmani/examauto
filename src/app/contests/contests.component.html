@@ -80,8 +80,8 @@
   <div class="rect5"></div>
 </div>
 <div *ngIf="spinner1">
-          <h1 *ngIf="!bomb1" style="color: #3CB371;">{{days}}days{{hours}}hrs{{minutes}}mins{{seconds}}secs</h1><br>
-          <h1 *ngIf="bomb2" >{{exp}}</h1>
+          <h1 id="zoom" *ngIf="!bomb1" style="color: #3CB371;">{{days}}days{{hours}}hrs{{minutes}}mins{{seconds}}secs</h1><br>
+          <h1 *ngIf="bomb2" id="zoom" >{{exp}}</h1>
 
                <form *ngIf="bomb" novalidate [formGroup]="PassForm" (ngSubmit)="start()">
    <h4><span style="color:#3CB371;">Enter</span> SecretKey</h4>
@@ -164,7 +164,7 @@
         <!-- Modal body -->
         <div class="modal-body">
           
-    <h1 id ="sin" style="color: #3CB371;">{{days1}}days{{hours1}}hrs{{minutes1}}mins{{seconds1}}secs</h1>
+    <h1 id ="sin" id="zoom" style="color: #3CB371;">{{days1}}days{{hours1}}hrs{{minutes1}}mins{{seconds1}}secs</h1>
       
         </div>
         

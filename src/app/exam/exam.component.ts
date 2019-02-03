@@ -80,6 +80,58 @@ spinner:boolean = true;
          	hello.ptime2 = doc.data().time;
          	hello.userc  =doc.data().user;
           localStorage.setItem("user123",doc.data().user);
+hello.paperber = JSON.parse(localStorage.getItem('paperber'+localStorage.getItem("epid")+localStorage.getItem("user123")) || 'false');
+hello.numblimit = JSON.parse(localStorage.getItem('numblimit'+localStorage.getItem("epid")+localStorage.getItem("user123")) || '0');
+if(hello.paperber == false)
+{
+  //console.log(hello.paperber);
+  setTimeout(()=>{
+        hello.auth.getpap(localStorage.getItem("epid"),localStorage.getItem("user123")).subscribe(data123 => {
+      if(data123!='')
+      {
+        localStorage.setItem("Data",JSON.stringify(data123));
+        hello.lost=JSON.parse(localStorage.getItem("Data"));
+        hello.optchecker1(hello.lost[parseInt(hello.numblimit)].qid);
+        hello.count = data123.length;
+        hello.quest = hello.lost[parseInt(hello.numblimit)];
+               hello.spinner = false;
+                if(parseInt(hello.numblimit)>0)
+          hello.horror = true;
+        else
+          hello.horror = false;
+       if(parseInt(hello.numblimit)+1 == hello.count)
+          hello.horror1 = true;
+        else
+          hello.horror1 = false;
+        //console.log("Working!!",hello.lost,hello.count);
+      }
+      else
+      {
+        //console.log("ERROR!!");
+      }
+    });
+      }, 1000);
+}
+else
+{
+  //localStorage.removeItem('paperber'+localStorage.getItem("epid")+localStorage.getItem("user123"));
+//localStorage.removeItem('numblimit'+localStorage.getItem("epid")+localStorage.getItem("user123"));
+    //console.log(hello.numblimit);
+    hello.lost=JSON.parse(localStorage.getItem("Data"));
+    hello.count = hello.lost.length;
+    hello.optchecker1(hello.lost[parseInt(hello.numblimit)].qid);
+    hello.quest = hello.lost[parseInt(hello.numblimit)];
+            hello.spinner = false;
+            if(parseInt(hello.numblimit)>0)
+          hello.horror = true;
+        else
+          hello.horror = false;
+       if(parseInt(hello.numblimit)+1 == hello.count)
+          hello.horror1 = true;
+        else
+          hello.horror1 = false;
+    //console.log(hello.quest,hello.count,hello.lost[0]);
+}
          // console.log(localStorage.getItem("user123"));
 hello.papid = JSON.parse(localStorage.getItem('case'
 	+hello.auth.getuser()
@@ -202,7 +254,7 @@ hello.num = window.setInterval(()=> {
     clearInterval(hello.num);
     hello.mess = "ExamOver!!";
     hello.bool = true;
-    this.spinner = true;
+    hello.spinner = true;
     setTimeout(()=>{
     hello.resultcal();
     }, 1000);
@@ -217,58 +269,6 @@ hello.num = window.setInterval(()=> {
      }
          });
           this.createform();
-this.paperber = JSON.parse(localStorage.getItem('paperber'+localStorage.getItem("epid")+localStorage.getItem("user123")) || 'false');
-this.numblimit = JSON.parse(localStorage.getItem('numblimit'+localStorage.getItem("epid")+localStorage.getItem("user123")) || '0');
-if(this.paperber == false)
-{
-  //console.log(this.paperber);
-  setTimeout(()=>{
-        this.auth.getpap(localStorage.getItem("epid"),localStorage.getItem("user123")).subscribe(data123 => {
-      if(data123!='')
-      {
-        localStorage.setItem("Data",JSON.stringify(data123));
-        this.lost=JSON.parse(localStorage.getItem("Data"));
-        this.optchecker1(this.lost[parseInt(this.numblimit)].qid);
-        this.count = data123.length;
-        this.quest = this.lost[parseInt(this.numblimit)];
-               this.spinner = false;
-                if(parseInt(this.numblimit)>0)
-          this.horror = true;
-        else
-          this.horror = false;
-       if(parseInt(this.numblimit)+1 == this.count)
-          this.horror1 = true;
-        else
-          this.horror1 = false;
-        //console.log("Working!!",this.lost,this.count);
-      }
-      else
-      {
-        //console.log("ERROR!!");
-      }
-    });
-      }, 1000);
-}
-else
-{
-  //localStorage.removeItem('paperber'+localStorage.getItem("epid")+localStorage.getItem("user123"));
-//localStorage.removeItem('numblimit'+localStorage.getItem("epid")+localStorage.getItem("user123"));
-    //console.log(this.numblimit);
-    this.lost=JSON.parse(localStorage.getItem("Data"));
-    this.count = this.lost.length;
-    this.optchecker1(this.lost[parseInt(this.numblimit)].qid);
-    this.quest = this.lost[parseInt(this.numblimit)];
-            this.spinner = false;
-            if(parseInt(this.numblimit)>0)
-          this.horror = true;
-        else
-          this.horror = false;
-       if(parseInt(this.numblimit)+1 == this.count)
-          this.horror1 = true;
-        else
-          this.horror1 = false;
-    //console.log(this.quest,this.count,this.lost[0]);
-}
 
         //this.optchecker1(this.lost[parseInt(this.numblimit)].qid);
   }

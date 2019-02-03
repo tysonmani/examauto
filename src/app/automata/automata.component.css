@@ -232,6 +232,12 @@
             transform: scale(1);
   }
 }
+@media only screen and (min-width: 550px) 
+{
+div.sk-cube-grid{
+display:none;
+}
+}
 #sin
 {
     text-align: center;
@@ -246,6 +252,10 @@ h6#zoom
 {
   font-size:50%;
 }
+  h1#sin
+  {
+    text-align: center;
+  }
 h1#zoom
 {
   font-size:150%;
@@ -254,12 +264,27 @@ h1#zoom
 }
 @media only screen and (min-width: 601px) and (max-width: 768px)
 {
+  h1#zoom
+  {
+    text-align: center;
+  }
 h6#zoom{
 font-size:80%;
 }
 }
-@media only screen and (min-width: 900px) and (max-width: 1400px) 
+@media only screen and (min-width: 769px) and (max-width: 899px)
 {
+    h1#zoom
+  {
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 900px) 
+{
+  h1#zoom
+  {
+    text-align: center;
+  }
 h6#zoom{
 font-size:80%;
 }

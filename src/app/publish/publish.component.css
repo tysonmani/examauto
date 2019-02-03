@@ -182,6 +182,14 @@
 }
 @media only screen and (max-width: 550px) 
 {
+  button#fasak
+  {
+    font-size: 100%;
+  }
+  form#zoom
+  {
+    font-size: 100%;
+  }
       h1#sin
   {
     text-align: center;

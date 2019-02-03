@@ -115,32 +115,118 @@
 {
 	text-align: center;
 }
-@media only screen and (max-width: 600px) 
+@media only screen and (min-width: 550px) 
+{
+div.sk-cube-grid{
+display:none;
+}
+}
+@media only screen and (max-width: 500px) 
+{
+    img#zoom{
+  width:15%;
+  height:15%;
+  }
+      h2#zoom{
+font-size:145%;
+  }
+  a#fasak2
+  {
+font-size:35%;
+  }
+    a#fasak3
+  {
+font-size:15%;
+  }
+#shake
+{
+  font-size:35%;
+}
+h2#zoom
+{
+  text-align: center;
+}
+h1#zoom
+{
+  text-align: center;
+}
+}
+@media only screen and (min-width: 501px) and (max-width: 767px)
+{
+#shake
+{
+  font-size:45%;
+}
+      h2#zoom{
+font-size:145%;
+  }
+    a#fasak3
+  {
+font-size:30%;
+  }
+h2#zoom
+{
+  text-align: center;
+}
+h1#zoom
+{
+  text-align: center;
+}
+}
+@media only screen and (min-width: 768px) and (max-width: 991px)
 {
 #shake
 {
   font-size:50%;
 }
+      h2#zoom{
+font-size:145%;
+  }
+    a#fasak3
+  {
+font-size:33%;
+  }
+h2#zoom
+{
+  text-align: center;
 }
-@media only screen and (min-width: 600px) 
+h1#zoom
 {
-#shake
-{
-  font-size:60%;
+  text-align: center;
 }
 }
-@media only screen and (min-width: 768px) 
+@media only screen and (min-width: 992px) and (max-width: 1020px)
 {
-#shake
+      h2#zoom{
+font-size:145%;
+  }
+    a#fasak3
+  {
+font-size:35%;
+  }
+
+h2#zoom
 {
-  font-size:65%;
+  text-align: center;
+}
+h1#zoom
+{
+  text-align: center;
 }
 }
 @media only screen and (min-width: 992px) 
 {
 #shake
 {
-  font-size:100%;
+  font-size:85%;
+}
+h2#zoom
+{
+  text-align: center;
+}
+h1#zoom
+{
+  text-align: center;
 }
 }
 /*@media only screen and (min-width: 1200px) 
@@ -202,6 +288,18 @@ a#fur:hover
     background-color: black; 
 }
 #fasak
+{
+    font-size: 25px;
+    font-weight: 600;
+    padding:8px
+}
+#fasak2
+{
+    font-size: 25px;
+    font-weight: 600;
+    padding:8px
+}
+#fasak3
 {
     font-size: 25px;
     font-weight: 600;

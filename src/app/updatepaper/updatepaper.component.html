@@ -5,9 +5,9 @@
 </div>
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
 <br><br>
-  	<div class="heck">
-  		     <form novalidate [formGroup]="QuesForm" (ngSubmit)="onSubmit()">
-  		     	<label for="ques" >Question :</label><br>
+    <div class="heck">
+           <form id="zoom" novalidate [formGroup]="QuesForm" (ngSubmit)="onSubmit()">
+            <label for="ques" >Question :</label><br>
   <input type="text"  formControlName="ques"  placeholder="Question...." required><br>
 <label for="ans" >Answers :</label><br>
   <input type="text" id="limit"  formControlName="op1" placeholder="Option1...." required><br>
@@ -21,19 +21,20 @@
 
     <a id = "fur" id ="fasak" data-toggle="modal" data-target="#myModal2" class="button button1">Update Number of Questions</a><br>
      <p  style="color:black;font-size: 20px;
-	font-weight: 700;">Present&nbsp;<span style="color: white;">{{nostatus}}</span><span style="color: white;"> questions</span></p>
+  font-weight: 700;">Present&nbsp;<span style="color: white;">{{nostatus}}</span><span style="color: white;"> questions</span></p>
   <p id ="sin" style="color:white;font-size: 20px;
-	font-weight: 700;">@ 2018<span style="color: black;">ExamAutomata</span></p>
+  font-weight: 700;">@ 2018<span style="color: black;">ExamAutomata</span></p>
 </form>
-  	</div>
+    </div>
   </div>
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
 </div>
 </div>
 </div>
 <br><br>
-  	<h1 id ="sin" style="color: #3CB371;">Your<span style="color:black">QuestionPaper</span><span style="color:#3CB371;">!!</span></h1>
-  	<br>
+        <h1 id ="sin"><a id = "fur" id ="fasak1" routerLink="/automata" class="button button1">GoBack</a></h1><br>
+    <h1 id ="sin" id="zoom" style="color: #3CB371;">Your<span style="color:black">QuestionPaper</span><span style="color:#3CB371;">!!</span></h1>
+    <br>
     <div *ngIf="spinner" class="sk-circle">
   <div class="sk-circle1 sk-child"></div>
   <div class="sk-circle2 sk-child"></div>
@@ -53,55 +54,55 @@
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-1">
 </div>
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
-  	  <input class="form-control" *ngIf="!zip1" (keyup)="onKey($event)" type="text" placeholder="Search By Question Name....."><br *ngIf="!zip1">
+      <input class="form-control" *ngIf="!zip1" (keyup)="onKey($event)" type="text" placeholder="Search By Question Name....."><br *ngIf="!zip1">
       <div *ngIf="!zip">
-  	<ng-container *ngFor="let que of quest">
-  	<div class="heck" id="myTable">
-	<h2>
-		<span id = "ping">Question</span>
-		<span id = "ging">Id :</span>
-		<span id = "ging">{{que.qid}}</span>
-	</h2>
-	<h2>
-		<span id = "ping">{{que.ques}}
-			<span id = "ging"> ?</span></span>
-	</h2>
-	<ol>
-  <h4>
-  	<li>
-  	<span id = "ging">{{que.op1}}</span>
+    <ng-container *ngFor="let que of quest">
+    <div class="heck" id="myTable">
+  <h2 id="zoom">
+    <span id = "ping">Question</span>
+    <span id = "ging">Id :</span>
+    <span id = "ging">{{que.qid}}</span>
+  </h2>
+  <h2 id="zoom">
+    <span id = "ping">{{que.ques}}
+      <span id = "ging"> ?</span></span>
+  </h2>
+  <ol>
+  <h4 id="zoom">
+    <li>
+    <span id = "ging">{{que.op1}}</span>
   </li>
 </h4>
-  <h4>
-  	<li>
-  	<span id = "ging">{{que.op2}}</span>
+  <h4 id="zoom">
+    <li>
+    <span id = "ging">{{que.op2}}</span>
   </li>
 </h4>
-  <h4>
-  	<li>
-  	<span id = "ging">{{que.op3}}</span>
+  <h4 id="zoom">
+    <li>
+    <span id = "ging">{{que.op3}}</span>
   </li>
 </h4>
-  <h4>
+  <h4 id="zoom">
     <li>
     <span id = "ging">{{que.op4}}</span>
   </li>
 </h4>
-	</ol>
-	<h4>
-	<span id = "ping">Answer:</span>
-	<span id = "ging">{{que.answer}}</span>
+  </ol>
+  <h4 id="zoom">
+  <span id = "ping">Answer:</span>
+  <span id = "ging">{{que.answer}}</span>
 </h4>
 <br>
   <a id = "fur" id ="fasak" (click)="updateques(que.qid,que.ques,que.op1,que.op2,que.op3,que.op4,que.answer)" data-toggle="modal" data-target="#myModal3"  class="button button1">Update</a>&nbsp;&nbsp;
   <a id = "fur" id ="fasak" (click)="deleteques(que.qid)" class="button button1">Delete</a>
-  	</div>
-  		<br><br>
+    </div>
+      <br><br>
   </ng-container>
 </div>
-            <h1 id ="sin"><a id = "fur" id ="fasak" (click)="pubques()" *ngIf="pubex" class="button button1">GoBack</a></h1>
+            <h1 id ="sin"><a id = "fur" id ="fasak1" (click)="pubques()" *ngIf="pubex" class="button button1">Publish</a></h1>
       <br>
-  <h1 *ngIf="zip" id = "sin">{{exists}}</h1>
+  <h1 *ngIf="zip" id = "sin">{{exists}}</h1><br>
 </div>
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-1">
 </div>
@@ -227,16 +228,26 @@
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title"><span style="color:#3CB371;">Exam</span>Automata</h4>
+          <h4 class="modal-title"><div class="sk-cube-grid">
+  <div class="sk-cube sk-cube1"></div>
+  <div class="sk-cube sk-cube2"></div>
+  <div class="sk-cube sk-cube3"></div>
+  <div class="sk-cube sk-cube4"></div>
+  <div class="sk-cube sk-cube5"></div>
+  <div class="sk-cube sk-cube6"></div>
+  <div class="sk-cube sk-cube7"></div>
+  <div class="sk-cube sk-cube8"></div>
+  <div class="sk-cube sk-cube9"></div>
+</div><span style="color:#3CB371;">Exam</span>Automata</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
         <!-- Modal body -->
         <div class="modal-body">
     <div class="container-fluid" >
-    <h1 id ="sin" style="color: #3CB371;">Update<span style="color:black">ExamPaper</span><span style="color:#3CB371;">!!</span></h1>
+    <h1 id ="sin" id="zoom" style="color: #3CB371;">Update<span style="color:black">ExamPaper</span><span style="color:#3CB371;">!!</span></h1>
     <div class="heck">
-           <form novalidate [formGroup]="UpdForm" (ngSubmit)="onUpdate()">
+           <form id="zoom" novalidate [formGroup]="UpdForm" (ngSubmit)="onUpdate()">
             <label for="ques" >Question :</label><br>
   <input type="text"  formControlName="quesa" placeholder="Question...." required><br>
 <label for="ans" >Answers :</label><br>

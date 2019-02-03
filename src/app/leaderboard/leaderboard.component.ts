@@ -20,10 +20,12 @@ startobs = this.startAt.asObservable();
   endobs = this.endAt.asObservable();
 zip:boolean = false;
 zip1:boolean = false;
+king:boolean = false;
 QID:string;
 name:string;
 score:number;
 rank:number[]=[];
+email:string[]=[];
 quest;
 exists:string;
 i:number=0;
@@ -55,9 +57,33 @@ this.QID=localStorage.getItem("leadpap");
       }
          });*/
         	        this.quest = data123;
+                  //this.email[0]=this.quest[0].user;
+                  //console.log(this.quest[0],this.email[0]);
+  //console.log(hello.LoginForm.value.password);
+  for(let i=0;i<this.quest.length;i++)
+  {
+    db.collection('UserDetails')
+    .where("name", "==", this.quest[i].user)
+  .get()
+  .then(function(querySnapshot) {
+   if (querySnapshot.size > 0) {
+  querySnapshot.forEach((doc)=> {
+     hello.email[i]=doc.data().email;
+  });
+      } 
+    else {
+
+      }
+    })
+    .catch(function(error) {
+        //console.log("Error getting documents: ", error);
+    });
     //this.rank[i]=i+1;
    // console.log(this.rank[0],this.quest[0].user);
 	}
+
+}
+
 	else
 	{
 		this.zip1 = true;

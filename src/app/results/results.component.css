@@ -137,6 +137,10 @@ height:15%;
   {
     font-size:70%;
   }
+    h1#sin
+  {
+    text-align: center;
+  }
 h1#zoom
 {
   font-size:120%;
@@ -165,6 +169,10 @@ img.block{
 width:25%;
 height:25%;
 }
+  h1#sin
+  {
+    text-align: center;
+  }
 h1#zoom
 {
   font-size:150%;
@@ -184,6 +192,10 @@ height:25%;
 h1#zoom1{
 font-size:280%;
 }
+  h1#sin
+  {
+    text-align: center;
+  }
 h1#zoom
 {
   font-size:150%;
@@ -199,8 +211,13 @@ height:25%;
 h1#zoom1{
 font-size:280%;
 }
+  h1#sin
+  {
+    text-align: center;
+  }
 h1#zoom{
 font-size:180%;
+text-align: center;
 }
 }
 #sin
@@ -213,6 +230,10 @@ font-size:180%;
 width:25%;
 height:25%;
 }
+  h1#zoom
+  {
+    text-align: center;
+  }
 h1#zoom1{
 font-size:350%;
 }
