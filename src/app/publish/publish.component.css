@@ -180,6 +180,12 @@
             transform: scale(1);
   }
 }
+@media only screen and (min-width: 550px) 
+{
+div.sk-cube-grid{
+display:none;
+}
+}
 @media only screen and (max-width: 550px) 
 {
   button#fasak

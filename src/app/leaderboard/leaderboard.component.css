@@ -35,7 +35,12 @@ h2#zoom1
 {
 	text-align: center;
 }
-
+@media only screen and (min-width: 550px) 
+{
+div.sk-cube-grid{
+display:none;
+}
+}
 div.heck
 {
   color:black;

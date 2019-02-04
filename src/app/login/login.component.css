@@ -59,6 +59,12 @@
             transform: scale3D(0, 0, 1);
   } 
 }
+@media only screen and (min-width: 550px) 
+{
+div.sk-cube-grid{
+display:none;
+}
+}
 #sin
 {
 	text-align: center;

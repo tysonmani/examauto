@@ -119,6 +119,7 @@
             transform: scale(1);
   }
 }
+
 @media only screen and (max-width: 550px) 
 {
     div h1 a#fasak
