@@ -378,6 +378,19 @@ onSubmit123()
       this.ero = "Enter Correct Year!!";
       this.bool2 = true;
   }
+    else if(monthos<month1)
+  {
+      this.spinner1=true;
+      this.ero = "Enter Correct Month!!";
+      this.bool2 = true;
+  }
+  else if(day<day1)
+  {
+      this.spinner1=true;
+      this.ero = "Enter Correct Day!!";
+      this.bool2 = true;
+  }
+
   else
   {
     this.drink = true;

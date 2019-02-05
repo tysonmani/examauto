@@ -656,7 +656,10 @@ this.PassForm = this.formBuilder.group({
   {
   const db = firebase.firestore();
   var hello = this;
-    db.collection('ExamComp').doc(this.auth.getuser())
+
+    if(hello.auth.isloggedin())
+    {
+          db.collection('ExamComp').doc(this.auth.getuser())
     .collection(pid).where('exam','==',1)
     .get()
         .then((querySnapshot)=> {
@@ -664,7 +667,20 @@ this.PassForm = this.formBuilder.group({
      $('#myModal3').modal('show');
       } 
     else {
-
+    hello.cool(pid);
+    }
+    });  
+    }
+    else
+    { 
+    hello.cool(pid);       
+    }
+      }
+      
+cool(pid:string)
+{
+    const db = firebase.firestore();
+  var hello = this;
  hello.bool1 = false;
 hello.bool2  =false;
 hello.middle = "Nothing";
@@ -815,10 +831,7 @@ hello.num = window.setInterval(() => {
 }, 1000);
 
 }
-      }
-         });
-
-  }
+}
 
 start()
 {
