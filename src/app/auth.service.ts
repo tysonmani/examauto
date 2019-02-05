@@ -14,6 +14,8 @@ examinstatus = JSON.parse(localStorage.getItem('examin'+localStorage.getItem("ep
 oldexaminstatus = JSON.parse(localStorage.getItem('oldexamin'+localStorage.getItem("epid2")) || 'false');
 demoexaminstatus = JSON.parse(localStorage.getItem('demoexamin'+localStorage.getItem("epid1")) || 'false');
 demoresultstatus = JSON.parse(localStorage.getItem('demoresult'+localStorage.getItem("random")) || 'false');
+oldresultstatus = JSON.parse(localStorage.getItem('oldresult'+localStorage.getItem("epid2")) || 'false');
+resultstatus = JSON.parse(localStorage.getItem('result'+localStorage.getItem("epid")) || 'false');
   constructor(private http: HttpClient,private afs: AngularFirestore) { }
 
 sendmail(email123:string) {
@@ -90,6 +92,24 @@ sendmail(email123:string) {
       isdemoresult()
       {
       return JSON.parse(localStorage.getItem('demoresult'+localStorage.getItem("random")) || 'false');
+      }
+      setoldresult(value:boolean)
+      {
+        this.oldresultstatus = value;
+        localStorage.setItem('oldresult'+localStorage.getItem("epid2"),'true');
+      }
+      isoldresult()
+      {
+      return JSON.parse(localStorage.getItem('oldresult'+localStorage.getItem("epid2")) || 'false');
+      }
+      setresult(value:boolean)
+      {
+        this.resultstatus = value;
+        localStorage.setItem('result'+localStorage.getItem("epid"),'true');
+      }
+      isresult()
+      {
+      return JSON.parse(localStorage.getItem('result'+localStorage.getItem("epid")) || 'false');
       }
       setloggeduser(data:string,email123:string)
       {

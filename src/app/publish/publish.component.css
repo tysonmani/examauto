@@ -188,6 +188,14 @@ display:none;
 }
 @media only screen and (max-width: 550px) 
 {
+    h5#zoom
+{
+  font-size:170%;
+}
+    h4#zoom
+{
+  font-size:100%;
+}
   button#fasak
   {
     font-size: 100%;

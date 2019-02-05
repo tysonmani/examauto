@@ -203,10 +203,10 @@
 	   <form novalidate [formGroup]="NumForm" (ngSubmit)="onSubmit123()">
    <label for="ans" >Number of Questions :</label><br>
   <input type="number" id="limit1" min="3" max="30"pattern="([3-9]|[1-2][0-9]|30)"   formControlName="num" placeholder="Questions number...." required><br *ngIf="!NumForm.invalid"><br>
-  <h3>Update Status :
+  <h4>Update Status :
     <span *ngIf="bool2"><i class="fa fa-check-square-o" style="font-size:24px;color:green;"></i></span>
 <span *ngIf="bool1"><i id="wro" class="fa fa-times-circle" style="font-size:36px"></i></span>
-  {{middle}}</h3>
+  {{middle}}</h4>
   <button type="submit" id ="fasak" class="button button1" *ngIf="!NumForm.invalid" >Publish</button><br *ngIf="!NumForm.invalid"><br>
     </form>
          <p  style="color:black;font-size: 20px;
@@ -259,8 +259,8 @@
       <input type="text" id="limit"  formControlName="opac" placeholder="CorrectOption...." required><br>
       <br *ngIf="!UpdForm.invalid">
   <button type="submit" id ="fasak" class="button button1" *ngIf="!UpdForm.invalid">Publish</button><br *ngIf="!UpdForm.invalid"><br>
-  <h3 *ngIf="bool3" style="color:black;"><i class="fa fa-check-square-o" style="font-size:24px;color:green;"></i>{{stat}}</h3>
-    <h3 *ngIf="bool4" style="color:black;"><i id="wro" class="fa fa-times-circle" style="font-size:36px"></i>{{stat}}</h3>
+  <h5 id="zoom" *ngIf="bool3" style="color:black;"><i class="fa fa-check-square-o" style="font-size:24px;color:green;"></i>{{stat}}</h5>
+    <h5 id="zoom" *ngIf="bool4" style="color:black;"><i id="wro" class="fa fa-times-circle" style="font-size:36px"></i>{{stat}}</h5>
   <p id ="sin" style="color:white;font-size: 20px;
   font-weight: 700;">@ 2018<span style="color: black;">ExamAutomata</span></p>
 </form>

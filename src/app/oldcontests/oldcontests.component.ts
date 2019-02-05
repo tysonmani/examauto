@@ -154,6 +154,7 @@ this.PassForm = this.formBuilder.group({
 
 start()
 {
+  localStorage.removeItem('oldresult'+localStorage.getItem("epid2"));
 this.spinner1 = false;
 const db = firebase.firestore();
   var hello = this;

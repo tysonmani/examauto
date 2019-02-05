@@ -37,6 +37,7 @@ NumForm: FormGroup;
   constructor(private router: Router,private formBuilder: FormBuilder,private afs: AngularFirestore,private auth:AuthService) { }
 
   ngOnInit() {
+console.log("sup");
         $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();   
 });
@@ -109,6 +110,7 @@ if(localStorage.getItem("bool") == "true")
       }
       })
     })
+    
   }
 
 createform()
@@ -206,6 +208,21 @@ this.spinner1 = false;
   const db = firebase.firestore();
   var hello = this;
    localStorage.setItem("epid1",'QP59212');
+   if(localStorage.getItem("random") === null)
+   {
+     var ran = Math.floor(10000 + Math.random() * 90000);
+      var rdom = '' + ran;
+      localStorage.setItem("random",rdom);
+      hello.auth.setdemoexamin(true);
+      setTimeout(()=>{
+    $('#myModal2').modal('hide');
+    $('#myModal9').modal('hide');
+    this.spinner1 = true;
+    this.router.navigate(['demo']);
+      }, 2000) 
+   }
+   else
+   {
         db.collection('DemoAnswers').doc(localStorage.getItem("random"))
         .collection(localStorage.getItem("epid1"))
       .get()
@@ -230,20 +247,27 @@ localStorage.setItem("random",rdom);
       hello.auth.setdemoexamin(true);
       setTimeout(()=>{
     $('#myModal2').modal('hide');
+    $('#myModal9').modal('hide');
     this.spinner1 = true;
     this.router.navigate(['demo']);
       }, 2000) 
+
+   }
 }
 
 contest(pid1:string)
 {
   localStorage.setItem("papid",pid1);
+      localStorage.removeItem("case1"
+  +pid1);
+     console.log("delted");
       this.pappo = pid1;
       $('#myModal1').modal('show');
 }
 
 onSubmit123()
 {
+  this.spinner1 = false;
   $('[data-toggle="tooltip"]').tooltip('dispose');
   const db = firebase.firestore();
   var hello = this;
@@ -321,7 +345,7 @@ onSubmit123()
   month1 = d.getMonth() + 1;
   year1 = d.getFullYear();
   var ion = time.split(':');
-    console.log(day,month1,year,ion[0],ion[1]);
+    //console.log(day,month1,year,ion[0],ion[1]);
     if(year==year1 && monthos==month1 && day==day1)
     {
   if(ion[0]==hr1)
@@ -332,6 +356,7 @@ onSubmit123()
     }
     else
     {
+      this.spinner1=true;
       this.ero = "Enter the Correct Time(Minutes)!!";
       this.bool2 = true;
     }
@@ -342,12 +367,14 @@ onSubmit123()
   }
   else
   {
+    this.spinner1=true;
       this.ero = "Enter the Correct Time(Hours and Minutes)!!";
       this.bool2 = true;
   }
   }
   else if(year<year1)
   {
+      this.spinner1=true;
       this.ero = "Enter Correct Year!!";
       this.bool2 = true;
   }
@@ -357,17 +384,33 @@ onSubmit123()
   }
   if(this.drink == true)
   {
-    localStorage.setItem("%day"+localStorage.getItem("papid"),day);
+      db.collection('ContestsTimes')
+      .add({
+      pid:localStorage.getItem("papid"),
+      day:day,
+      month:monthNames[date.getMonth()],
+      year:year,
+      hour:ion[0],
+      min:ion[1]
+    }).then(function(docRef) {
+    hello.spinner1=true;  
+    hello.ero = "Timings are setted perfectly!!";
+    hello.bool1 = true;
+      setTimeout(()=>{
+    $('#myModal1').modal('hide');
+    hello.router.navigate(['contests']);
+      }, 500) 
+        //console.log("Document written with ID: ", docRef.id);
+    })
+    .catch(function(error) {
+        //console.error("Error adding document: ", error);
+      });
+
+    /*localStorage.setItem("%day"+localStorage.getItem("papid"),day);
       localStorage.setItem("%month"+localStorage.getItem("papid"),monthNames[date.getMonth()]);
       localStorage.setItem("%year"+localStorage.getItem("papid"),year);
       localStorage.setItem("%hour"+localStorage.getItem("papid"),ion[0]);
-      localStorage.setItem("%min"+localStorage.getItem("papid"),ion[1]);
-      this.ero = "Timings are setted perfectly!!";
-    this.bool1 = true;
-      setTimeout(()=>{
-    $('#myModal1').modal('hide');
-    this.router.navigate(['contests']);
-      }, 2000)       
+      localStorage.setItem("%min"+localStorage.getItem("papid"),ion[1]);*/      
 
   }
 

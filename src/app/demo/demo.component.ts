@@ -137,7 +137,7 @@ if(hello.papid == false)
           hello.ptime%=60;
         }
           
-            //console.log(hello.ptime);
+            console.log(hr,hello.ptime,day,month);
       localStorage.setItem("hrs"+localStorage.getItem("random")
   +'QP59212',hr);
       localStorage.setItem("mins"+localStorage.getItem("random")

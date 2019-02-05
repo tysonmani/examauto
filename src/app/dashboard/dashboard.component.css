@@ -123,6 +123,10 @@ display:none;
 }
 @media only screen and (max-width: 500px) 
 {
+    a#fasak5
+  {
+    font-size:70%;
+  }
     img#zoom{
   width:15%;
   height:15%;
@@ -304,6 +308,12 @@ a#fur:hover
     font-size: 25px;
     font-weight: 600;
     padding:8px
+}
+#fasak5
+{
+    font-size: 120%;
+    font-weight: 600;
+    padding:3%;
 }
 #fasak1
 {

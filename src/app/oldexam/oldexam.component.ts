@@ -463,7 +463,7 @@ deselect(quesid:string)
 }
 resultcal()
 {
-
+this.auth.setoldresult(true);
   const db = firebase.firestore();
   var hello = this;
 

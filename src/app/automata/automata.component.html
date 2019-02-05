@@ -107,7 +107,15 @@
         
         <!-- Modal body -->
         <div class="modal-body">
-          <div class="hello2">
+        <h3 *ngIf="!spinner1" id ="sin" style="color: #3CB371;">Load<span style="color: black;">ing......</span></h3>
+      <div *ngIf="!spinner1" class="spinner1">
+  <div class="rect1"></div>
+  <div class="rect2"></div>
+  <div class="rect3"></div>
+  <div class="rect4"></div>
+  <div class="rect5"></div>
+</div>
+          <div *ngIf="spinner1" class="hello2">
 <form novalidate [formGroup]="NumForm" (ngSubmit)="onSubmit123()">
    <h4><span style="color:#3CB371;">Set your Examination</span>  Date And Time:</h4>
          <input style="padding:1%;border-radius:5px;" type="date" formControlName="date" id="date-input" min={{hello}} required />
@@ -115,7 +123,7 @@
                   <h4><span style="color:#3CB371;">Exam</span>Duration(in Minutes)</h4>
          <input style="padding:1%;border-radius:5px;" data-toggle="tooltip" data-placement="right" type="number" id="limit1" min="1" max="60" pattern="([1-9]|[1-5][0-9]|60)" title="Maximum 60 minutes"  formControlName="dur" placeholder="ExamDuration....." required>
          <h4><span style="color:#3CB371;">Exam</span>Alive</h4>
-         <input style="padding:1%;border-radius:5px;" data-toggle="tooltip" data-placement="right" title="Exam will be discarded from contests after this time exhausts(in Minutes)" type="number" id="limit1" min="1" max="60" pattern="([1-9]|[1-5][0-9]|60)"   formControlName="alive" placeholder="ExamAlive....." required>
+         <input style="padding:1%;border-radius:5px;" data-toggle="tooltip" data-placement="top" title="Maximum 60 minutes and Exam will be discarded from contests after this time exhausts" type="number" id="limit1" min="1" max="60" pattern="([1-9]|[1-5][0-9]|60)"   formControlName="alive" placeholder="ExamAlive....." required>
       <br *ngIf="!NumForm.invalid"><br>
   <h4><span style="color:#3CB371;">Proccess</span> Status :
     <span *ngIf="bool1"><i class="fa fa-check-square-o" style="font-size:24px;color:green;"></i></span>
