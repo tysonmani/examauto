@@ -399,7 +399,9 @@ savenext(quesid:string)
         }
       else
          {
-
+          this.spinner = true;
+        setTimeout(()=>{
+         this.spinner = false;
       const db = firebase.firestore();
   localStorage.setItem('paperber'+localStorage.getItem("epid2")+localStorage.getItem("user213"),'true');
   this.paperber = true;
@@ -421,12 +423,15 @@ savenext(quesid:string)
       this.quest = this.lost[this.temp]; 
   //console.log(this.paperber,this.numblimit);
   //console.log("jimik",this.OptionForm.value.opt);
-
+}, 1500)
 }
 
 }
 previous()
 {
+            this.spinner = true;
+        setTimeout(()=>{
+         this.spinner = false;
   this.temp = parseInt(this.numblimit) -1;
         this.numblimit = this.temp.toString();
    localStorage.setItem('numblimit'+localStorage.getItem("epid2")+localStorage.getItem("user213"),this.numblimit);
@@ -443,7 +448,7 @@ previous()
         this.optchecker1(this.lost[this.temp].qid);
         this.quest = this.lost[this.temp]; 
         //console.log(this.paperber,this.numblimit);
-
+}, 1500)
 }
 
 deselect(quesid:string)

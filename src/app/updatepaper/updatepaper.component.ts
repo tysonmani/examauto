@@ -40,7 +40,7 @@ ran = Math.floor(10000 + Math.random() * 90000);
 strnum1 = this.ran.toString();
 strnum = this.strnum1 + 'QP';
 overlimit = JSON.parse(localStorage.getItem('over1'+localStorage.getItem('ques')+this.auth.getuser()) || '0');
-nostatus = JSON.parse(localStorage.getItem('noques1'+localStorage.getItem('ques')+this.auth.getuser()) || '30');
+nostatus = JSON.parse(localStorage.getItem('noques1'+localStorage.getItem('ques')+this.auth.getuser()) || '60');
 questatus = JSON.parse(localStorage.getItem('quesno1'+localStorage.getItem('ques')+this.auth.getuser()) || '1');
 paperstatus = localStorage.getItem('ques');
   constructor(private router: Router,private formBuilder: FormBuilder,private afs: AngularFirestore,private auth:AuthService) { }

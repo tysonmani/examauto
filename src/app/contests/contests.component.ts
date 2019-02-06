@@ -211,20 +211,6 @@ if(hello.papid1 == false)
     .catch(function(error) {
         //console.error("Error adding document: ", error);
       });
-            //console.log(hello.ptime);
-    //console.log(hr,hello.alive.toString(),day,month,year);
-      /*localStorage.setItem("dayD1"
-  +localStorage.getItem("keypap"),day);
-      localStorage.setItem("monthD1"
-  +localStorage.getItem("keypap"),month);
-      localStorage.setItem("yearD1"
-  +localStorage.getItem("keypap"),year);
-      localStorage.setItem("hrs1"
-  +localStorage.getItem("keypap"),hr);
-      localStorage.setItem("mins1"
-  +localStorage.getItem("keypap"),hello.alive.toString());
-      localStorage.setItem("secs1"
-  +localStorage.getItem("keypap"),sec);*/
     localStorage.setItem("case1"
   +localStorage.getItem("keypap"),'true');
 }
@@ -249,6 +235,7 @@ else{
 
 leader()
 {
+  console.log("jump");
   $('#myModal3').modal('hide');
   this.router.navigate(['leaderboard']);
 }
@@ -258,33 +245,12 @@ alive123(pid:string)
   $('#myModal2').modal('show');
           const db = firebase.firestore();
   var hello = this;
-/*const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-];
-
- var d = new Date();*/
- /*var day, month, year,min,hr,sec;
-  day = d.getDate();
-  month = monthNames[d.getMonth()];
-  year = d.getFullYear();
-  min = d.getMinutes();
-  hr = d.getHours();
-  sec = d.getSeconds();*/
-
-
-// Set the date we're counting down to
-/*console.log("hello",parseInt(localStorage.getItem("hrs1"
-  +pid)),parseInt(localStorage.getItem("mins1"
-  +pid)),parseInt(localStorage.getItem("dayD1"
-  +pid)),localStorage.getItem("monthD1"
-  +pid),parseInt(localStorage.getItem("yearD1"
-  +pid)));*/
 
  hello.aliveline = JSON.parse(localStorage.getItem('alive'
   +pid) || 'false');
     if(hello.aliveline == false)
 {
-  console.log("databasealive");
+  //console.log("databasealive");
       db.collection('AliveContestsTimes')
       .where('pid', '==', pid).get()
       .then((querySnapshot)=> {
@@ -464,7 +430,7 @@ hello.num1 = window.setInterval(()=> {
 }
 else
 {
-console.log("localalive");
+//console.log("localalive");
 var countDownDate = new Date(localStorage.getItem("monthD1"+pid)
   +localStorage.getItem("dayD1"+pid)+","
   +localStorage.getItem("yearD1"+pid)+" "
@@ -694,7 +660,7 @@ hello.middle = "Nothing";
   +pid) || 'false');
     if(hello.deadline == false)
 {
-  console.log("database");
+  //console.log("database");
       db.collection('ContestsTimes')
       .where('pid', '==', pid).get()
       .then((querySnapshot)=> {
@@ -773,7 +739,7 @@ hello.num = window.setInterval(() => {
 }
 else
 {
-console.log("local");
+//console.log("local");
 var countDownDate = new Date(localStorage.getItem("monthA1"+pid)
   +localStorage.getItem("dayA1"+pid)+","
   +localStorage.getItem("yearA1"+pid)+" "

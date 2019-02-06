@@ -40,7 +40,7 @@ spinner:boolean = true;
 ran = Math.floor(10000 + Math.random() * 90000);
 strnum = this.ran.toString();
 overlimit = JSON.parse(localStorage.getItem('over'+this.auth.getuser()) || '0');
-nostatus = JSON.parse(localStorage.getItem('noques'+this.auth.getuser()) || '30');
+nostatus = JSON.parse(localStorage.getItem('noques'+this.auth.getuser()) || '60');
 questatus = JSON.parse(localStorage.getItem('quesno'+this.auth.getuser()) || '1');
 paperstatus = JSON.parse(localStorage.getItem('paperno'+this.auth.getuser()) || this.strnum);
   constructor(private router: Router,private formBuilder: FormBuilder,private afs: AngularFirestore,private auth:AuthService) { }

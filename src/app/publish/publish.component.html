@@ -202,7 +202,7 @@
         <div class="modal-body">
 	   <form novalidate [formGroup]="NumForm" (ngSubmit)="onSubmit123()">
    <label for="ans" >Number of Questions :</label><br>
-  <input type="number" id="limit1" min="3" max="30"pattern="([3-9]|[1-2][0-9]|30)"   formControlName="num" placeholder="Questions number...." required><br *ngIf="!NumForm.invalid"><br>
+  <input type="number" id="limit1" min="3" max="60"pattern="([3-9]|[1-5][0-9]|60)"   formControlName="num" placeholder="Questions number...." required><br *ngIf="!NumForm.invalid"><br>
   <h4>Update Status :
     <span *ngIf="bool2"><i class="fa fa-check-square-o" style="font-size:24px;color:green;"></i></span>
 <span *ngIf="bool1"><i id="wro" class="fa fa-times-circle" style="font-size:36px"></i></span>
