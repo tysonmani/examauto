@@ -136,7 +136,7 @@
                   <h4><span style="color:#3CB371;">Exam</span>Duration(in Minutes)</h4>
          <input style="padding:1%;border-radius:5px;" data-toggle="tooltip" data-placement="right" type="number" id="limit1" min="1" max="60" pattern="([1-9]|[1-5][0-9]|60)" title="Maximum 60 minutes"  formControlName="dur" placeholder="ExamDuration....." required>
          <h4><span style="color:#3CB371;">Exam</span>Alive</h4>
-         <input style="padding:1%;border-radius:5px;" data-toggle="tooltip" data-placement="top" title="Maximum 60 minutes and Exam will be discarded from contests after this time exhausts" type="number" id="limit1" min="1" max="60" pattern="([1-9]|[1-5][0-9]|60)"   formControlName="alive" placeholder="ExamAlive....." required>
+         <input style="padding:1%;border-radius:5px;" data-toggle="tooltip" data-placement="top" title="Maximum 180 minutes and Exam will be discarded from contests after this time exhausts" type="number" id="limit1" min="1" max="180" pattern="([1-9]|[1-9][0-9]|1[0-7][0-9]|180)"   formControlName="alive" placeholder="ExamAlive....." required>
       <br *ngIf="!NumForm.invalid"><br>
   <h4><span style="color:#3CB371;">Proccess</span> Status :
     <span *ngIf="bool1"><i class="fa fa-check-square-o" style="font-size:24px;color:green;"></i></span>

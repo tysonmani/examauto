@@ -138,7 +138,7 @@ if(hello.papid1 == false)
 {
         hello.alive = doc.data().alive;
         hello.alive+=min;
-        if(hello.alive>=60)
+        if(hello.alive>=60 && hello.alive<=119)
         {
           if((hr+1)>23)
           {
@@ -194,6 +194,267 @@ if(hello.papid1 == false)
             hr+=1;
           }
           hello.alive%=60;
+        }
+        else if(hello.alive>=120 && hello.alive<=179)
+        {
+          if((hr+2)>23 && (hr+2)<=24)
+          {
+            hr=0;
+            if(((day+1)>30) && (month=="April"||
+              month=="June"||
+              month=="September"||month=="November"))
+            {
+              if(d.getMonth()+1>11)
+              {
+                year+=1;day=1;
+                month = monthNames[d.getMonth()+1];
+              }
+              else
+              {
+              day=1;month = monthNames[d.getMonth()+1];
+              }
+            }
+            else if(((day+1)>28) && (month=="February"))
+            {
+              if(d.getMonth()+1>11)
+              {
+                year+=1;day=1;
+                month = monthNames[d.getMonth()+1];
+              }
+              else
+              {
+              day=1;month = monthNames[d.getMonth()+1];
+              }
+            }
+            else if(((day+1)>31) && (month=="January"||
+              month=="March"||month=="May"||
+              month=="July"||month=="August"||
+              month=="October"||month=="December"))
+            {
+              if(d.getMonth()+1>11)
+              {
+                year+=1;
+                day=1;month = monthNames[d.getMonth()+1];
+              }
+              else
+              {
+              day=1;month = monthNames[d.getMonth()+1];
+              }
+            }
+            else
+            {
+              day+=1;
+            }
+          }
+          else if((hr+2)>24 && (hr+2)<=25)
+          {
+            hr=1;
+            if(((day+1)>30) && (month=="April"||
+              month=="June"||
+              month=="September"||month=="November"))
+            {
+              if(d.getMonth()+1>11)
+              {
+                year+=1;day=1;
+                month = monthNames[d.getMonth()+1];
+              }
+              else
+              {
+              day=1;month = monthNames[d.getMonth()+1];
+              }
+            }
+            else if(((day+1)>28) && (month=="February"))
+            {
+              if(d.getMonth()+1>11)
+              {
+                year+=1;day=1;
+                month = monthNames[d.getMonth()+1];
+              }
+              else
+              {
+              day=1;month = monthNames[d.getMonth()+1];
+              }
+            }
+            else if(((day+1)>31) && (month=="January"||
+              month=="March"||month=="May"||
+              month=="July"||month=="August"||
+              month=="October"||month=="December"))
+            {
+              if(d.getMonth()+1>11)
+              {
+                year+=1;
+                day=1;month = monthNames[d.getMonth()+1];
+              }
+              else
+              {
+              day=1;month = monthNames[d.getMonth()+1];
+              }
+            }
+            else
+            {
+              day+=1;
+            }
+          }
+          else
+          {
+            hr+=2;
+          }
+          hello.alive%=120;
+        }
+        else if(hello.alive>=180 && hello.alive<=239)
+        {
+          if((hr+3)>23 && (hr+3)<=24)
+          {
+            hr=0;
+            if(((day+1)>30) && (month=="April"||
+              month=="June"||
+              month=="September"||month=="November"))
+            {
+              if(d.getMonth()+1>11)
+              {
+                year+=1;day=1;
+                month = monthNames[d.getMonth()+1];
+              }
+              else
+              {
+              day=1;month = monthNames[d.getMonth()+1];
+              }
+            }
+            else if(((day+1)>28) && (month=="February"))
+            {
+              if(d.getMonth()+1>11)
+              {
+                year+=1;day=1;
+                month = monthNames[d.getMonth()+1];
+              }
+              else
+              {
+              day=1;month = monthNames[d.getMonth()+1];
+              }
+            }
+            else if(((day+1)>31) && (month=="January"||
+              month=="March"||month=="May"||
+              month=="July"||month=="August"||
+              month=="October"||month=="December"))
+            {
+              if(d.getMonth()+1>11)
+              {
+                year+=1;
+                day=1;month = monthNames[d.getMonth()+1];
+              }
+              else
+              {
+              day=1;month = monthNames[d.getMonth()+1];
+              }
+            }
+            else
+            {
+              day+=1;
+            }
+          }
+          else if((hr+3)>24 && (hr+3)<=25)
+          {
+            hr=1;
+            if(((day+1)>30) && (month=="April"||
+              month=="June"||
+              month=="September"||month=="November"))
+            {
+              if(d.getMonth()+1>11)
+              {
+                year+=1;day=1;
+                month = monthNames[d.getMonth()+1];
+              }
+              else
+              {
+              day=1;month = monthNames[d.getMonth()+1];
+              }
+            }
+            else if(((day+1)>28) && (month=="February"))
+            {
+              if(d.getMonth()+1>11)
+              {
+                year+=1;day=1;
+                month = monthNames[d.getMonth()+1];
+              }
+              else
+              {
+              day=1;month = monthNames[d.getMonth()+1];
+              }
+            }
+            else if(((day+1)>31) && (month=="January"||
+              month=="March"||month=="May"||
+              month=="July"||month=="August"||
+              month=="October"||month=="December"))
+            {
+              if(d.getMonth()+1>11)
+              {
+                year+=1;
+                day=1;month = monthNames[d.getMonth()+1];
+              }
+              else
+              {
+              day=1;month = monthNames[d.getMonth()+1];
+              }
+            }
+            else
+            {
+              day+=1;
+            }
+          }
+          else if((hr+3)>25 && (hr+3)<=26)
+          {
+            hr=2;
+            if(((day+1)>30) && (month=="April"||
+              month=="June"||
+              month=="September"||month=="November"))
+            {
+              if(d.getMonth()+1>11)
+              {
+                year+=1;day=1;
+                month = monthNames[d.getMonth()+1];
+              }
+              else
+              {
+              day=1;month = monthNames[d.getMonth()+1];
+              }
+            }
+            else if(((day+1)>28) && (month=="February"))
+            {
+              if(d.getMonth()+1>11)
+              {
+                year+=1;day=1;
+                month = monthNames[d.getMonth()+1];
+              }
+              else
+              {
+              day=1;month = monthNames[d.getMonth()+1];
+              }
+            }
+            else if(((day+1)>31) && (month=="January"||
+              month=="March"||month=="May"||
+              month=="July"||month=="August"||
+              month=="October"||month=="December"))
+            {
+              if(d.getMonth()+1>11)
+              {
+                year+=1;
+                day=1;month = monthNames[d.getMonth()+1];
+              }
+              else
+              {
+              day=1;month = monthNames[d.getMonth()+1];
+              }
+            }
+            else
+            {
+              day+=1;
+            }
+          }
+          else
+          {
+            hr+=3;
+          }
+          hello.alive%=180;
         }
           
           db.collection('AliveContestsTimes')

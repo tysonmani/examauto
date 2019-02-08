@@ -404,18 +404,27 @@ onSubmit123()
   }
   if(this.drink == true)
   {
-    localStorage.setItem("%day"+localStorage.getItem("papid"),day);
-      localStorage.setItem("%month"+localStorage.getItem("papid"),monthNames[date.getMonth()]);
-      localStorage.setItem("%year"+localStorage.getItem("papid"),year);
-      localStorage.setItem("%hour"+localStorage.getItem("papid"),ion[0]);
-      localStorage.setItem("%min"+localStorage.getItem("papid"),ion[1]);
-      this.ero = "Timings are setted perfectly!!";
-    this.bool1 = true;
+      db.collection('ContestsTimes')
+      .add({
+      pid:localStorage.getItem("papid"),
+      day:day,
+      month:monthNames[date.getMonth()],
+      year:year,
+      hour:ion[0],
+      min:ion[1]
+    }).then(function(docRef) {
+    hello.spinner1=true;  
+    hello.ero = "Timings are setted perfectly!!";
+    hello.bool1 = true;
       setTimeout(()=>{
     $('#myModal1').modal('hide');
-    this.router.navigate(['contests']);
-      }, 2000)       
-
+    hello.router.navigate(['contests']);
+      }, 500) 
+        //console.log("Document written with ID: ", docRef.id);
+    })
+    .catch(function(error) {
+        //console.error("Error adding document: ", error);
+      }); 
   }
 
 }
