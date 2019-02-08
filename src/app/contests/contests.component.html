@@ -164,8 +164,9 @@
         <!-- Modal body -->
         <div class="modal-body">
           
-    <h1 id ="sin" id="zoom" style="color: #3CB371;">{{days1}}days{{hours1}}hrs{{minutes1}}mins{{seconds1}}secs</h1>
-      
+    <h1 *ngIf="alivebool" id ="sin" id="zoom" style="color: #3CB371;">{{days1}}days{{hours1}}hrs{{minutes1}}mins{{seconds1}}secs</h1>
+      <h3 *ngIf="!alivebool" id ="sin" id="zoom" style="color: #3CB371;">Exam not <span style="color:black;">yet started!!</span></h3>
+
         </div>
         
         <!-- Modal footer -->

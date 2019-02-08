@@ -53,6 +53,9 @@ userc:string;
 middle:string = 'Nothing!!';
 spinner:boolean = true;
 spinner1:boolean = true;
+alivebool:boolean = false;
+zoomalive:boolean;
+zoomboom:boolean;
 PassForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder,private router: Router,private afs: AngularFirestore,private auth:AuthService) { }
@@ -108,7 +111,619 @@ const db = firebase.firestore();
         this.zip1 = false;
         this.spinner = false;
         this.quest = data123;
-         const monthNames = ["January", "February", "March", "April", "May", "June",
+      }
+  else
+  {
+//console.log("hello")
+      this.zip1 = true;
+      this.zip = true;
+      this.spinner = false;
+      this.exists = "At Present No Competitions Are Available";
+  }
+    });
+
+  }
+
+leader()
+{
+  console.log("jump");
+  $('#myModal3').modal('hide');
+  this.router.navigate(['leaderboard']);
+}
+
+alive123(pid:string)
+{
+  this.alivebool = false;
+  this.zoomboom = JSON.parse(localStorage.getItem('zoom0'
+  +pid) || 'false');
+  this.zoomalive = JSON.parse(localStorage.getItem('zoom1'
+  +pid) || 'false');
+    $('#myModal2').modal('show');
+  if(this.zoomboom = true)
+  {
+      if(this.zoomalive == false)
+{
+this.alivebool=false;
+}
+else{
+this.alivebool=true;
+
+ const db = firebase.firestore();
+  var hello = this;
+
+ hello.aliveline = JSON.parse(localStorage.getItem('alive'
+  +pid) || 'false');
+    if(hello.aliveline == false)
+{
+  //console.log("databasealive");
+      db.collection('AliveContestsTimes')
+      .where('pid', '==', pid).get()
+      .then((querySnapshot)=> {
+   if (querySnapshot.size > 0) {
+     querySnapshot.forEach((doc)=> {
+localStorage.setItem("monthD1"+pid,doc.data().month);
+localStorage.setItem("dayD1"+pid,doc.data().day);
+localStorage.setItem("yearD1"+pid,doc.data().year);
+localStorage.setItem("hourD1"+pid,doc.data().hour);
+localStorage.setItem("minD1"+pid,doc.data().min);
+localStorage.setItem("secD1"+pid,doc.data().sec);
+localStorage.setItem('alive'+pid,'true');
+var countDownDate = new Date(doc.data().month
+  +doc.data().day+","
+  +doc.data().year+" "
+  +doc.data().hour+":"
+  +doc.data().min+":"+doc.data().sec).getTime();
+
+// Update the count down every 1 second
+      hello.papid123 = JSON.parse(localStorage.getItem('king11') || 'false');
+    if(hello.papid123 == 'false')
+    localStorage.setItem("king11",pid);
+  if(localStorage.getItem("king11") != pid)
+  {
+    clearInterval(hello.num1);
+  }
+
+// Update the count down every 1 second
+hello.num1 = window.setInterval(()=> {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days1 = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours1 = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes1 = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds1 = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+    hello.days1 = days1.toString();
+    hello.hours1 = hours1.toString();
+    hello.minutes1 = minutes1.toString();
+    hello.seconds1 = seconds1.toString();
+   // console.log(hello.days,hello.hours,hello.minutes,hello.seconds);
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(hello.num1);
+    localStorage.removeItem('king11');
+    localStorage.removeItem('alive'+pid);
+    localStorage.removeItem('dead'+pid);
+    localStorage.removeItem('case1'+pid);
+          //hello.yoyo3 = true;
+      db.collection('OldCommonQuestionPapers')
+      .where('pid', '==', pid)
+      .get()
+        .then((querySnapshot)=> {
+   if (querySnapshot.size > 0) {
+         querySnapshot.forEach((doc)=> {
+       doc.ref.update({time:hello.ptime});
+       //hello.yoyo4 = true;
+       db.collection('CommonQuestionPapers')
+      .where('pid', '==', pid)
+      .get()
+        .then((querySnapshot)=> {
+   if (querySnapshot.size > 0) {
+         querySnapshot.forEach((doc)=> {
+    doc.ref.delete();
+   // hello.yoyo4 = true;
+  //console.log("as","Document successfully deleted!");
+    });
+      } 
+    else {
+       
+      }
+         });
+        db.collection('ContestsTimes')
+      .where('pid', '==', pid).get()
+        .then((querySnapshot)=> {
+   if (querySnapshot.size > 0) {
+         querySnapshot.forEach(function(doc) {
+    doc.ref.delete();
+  //console.log("Document successfully deleted!");
+    });
+      } 
+    else {
+       
+      }
+         });
+        db.collection('AliveContestsTimes')
+      .where('pid', '==', pid).get()
+        .then((querySnapshot)=> {
+   if (querySnapshot.size > 0) {
+         querySnapshot.forEach(function(doc) {
+    doc.ref.delete();
+  //console.log("Document successfully deleted!");
+    });
+      } 
+    else {
+       
+      }
+         });
+    });
+      } 
+    else {
+       
+ db.collection('OldCommonQuestionPapers')
+      .add({
+      pid:pid,
+      pass:hello.passw,
+      time:hello.ptime,
+      user:hello.userc
+    }).then(function(docRef) {
+      db.collection('CommonQuestionPapers')
+      .where('pid', '==', pid)
+      .get()
+        .then((querySnapshot)=> {
+   if (querySnapshot.size > 0) {
+         querySnapshot.forEach((doc)=> {
+    doc.ref.delete();
+    });
+      } 
+    else {
+       
+      }
+         });
+        //console.log("Document written with ID: ", docRef.id);
+   db.collection('ContestsTimes')
+      .where('pid', '==', pid).get()
+        .then((querySnapshot)=> {
+   if (querySnapshot.size > 0) {
+         querySnapshot.forEach(function(doc) {
+    doc.ref.delete();
+  //console.log("Document successfully deleted!");
+    });
+      } 
+    else {
+       
+      }
+         });
+        db.collection('AliveContestsTimes')
+      .where('pid', '==', pid).get()
+        .then((querySnapshot)=> {
+   if (querySnapshot.size > 0) {
+         querySnapshot.forEach(function(doc) {
+    doc.ref.delete();
+  //console.log("Document successfully deleted!");
+    });
+      } 
+    else {
+       
+      }
+         });
+    })
+    .catch(function(error) {
+        //console.error("Error adding document: ", error);
+      });
+
+      }
+         });
+    $('#myModal2').modal('hide');
+  }
+}, 1000);
+           });
+      } 
+    else {
+
+      }
+    })
+    .catch(function(error) {
+        //console.log("Error getting documents: ", error);
+    });
+}
+else
+{
+//console.log("localalive");
+var countDownDate = new Date(localStorage.getItem("monthD1"+pid)
+  +localStorage.getItem("dayD1"+pid)+","
+  +localStorage.getItem("yearD1"+pid)+" "
+  +localStorage.getItem("hourD1"+pid)+":"
+  +localStorage.getItem("minD1"+pid)+":"+localStorage.getItem("secD1"+pid)).getTime();
+
+// Update the count down every 1 second
+      hello.papid123 = JSON.parse(localStorage.getItem('king11') || 'false');
+    if(hello.papid123 == 'false')
+    localStorage.setItem("king11",pid);
+  if(localStorage.getItem("king11") != pid)
+  {
+    clearInterval(hello.num1);
+  }
+
+// Update the count down every 1 second
+hello.num1 = window.setInterval(()=> {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days1 = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours1 = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes1 = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds1 = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+    hello.days1 = days1.toString();
+    hello.hours1 = hours1.toString();
+    hello.minutes1 = minutes1.toString();
+    hello.seconds1 = seconds1.toString();
+   // console.log(hello.days,hello.hours,hello.minutes,hello.seconds);
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(hello.num1);
+    localStorage.removeItem('king11');
+    localStorage.removeItem('alive'+pid);
+    localStorage.removeItem('dead'+pid);
+    localStorage.removeItem('case1'+pid);
+    localStorage.removeItem('zoom0'+pid);
+    localStorage.removeItem('zoom1'+pid);
+          //hello.yoyo3 = true;
+      db.collection('OldCommonQuestionPapers')
+      .where('pid', '==', pid)
+      .get()
+        .then((querySnapshot)=> {
+   if (querySnapshot.size > 0) {
+         querySnapshot.forEach((doc)=> {
+       doc.ref.update({time:hello.ptime});
+       //hello.yoyo4 = true;
+       db.collection('CommonQuestionPapers')
+      .where('pid', '==', pid)
+      .get()
+        .then((querySnapshot)=> {
+   if (querySnapshot.size > 0) {
+         querySnapshot.forEach((doc)=> {
+    doc.ref.delete();
+   // hello.yoyo4 = true;
+  //console.log("as","Document successfully deleted!");
+    });
+      } 
+    else {
+       
+      }
+         });
+        db.collection('ContestsTimes')
+      .where('pid', '==', pid).get()
+        .then((querySnapshot)=> {
+   if (querySnapshot.size > 0) {
+         querySnapshot.forEach(function(doc) {
+    doc.ref.delete();
+  //console.log("Document successfully deleted!");
+    });
+      } 
+    else {
+       
+      }
+         });
+        db.collection('AliveContestsTimes')
+      .where('pid', '==', pid).get()
+        .then((querySnapshot)=> {
+   if (querySnapshot.size > 0) {
+         querySnapshot.forEach(function(doc) {
+    doc.ref.delete();
+  //console.log("Document successfully deleted!");
+    });
+      } 
+    else {
+       
+      }
+         });
+    });
+      } 
+    else {
+       
+ db.collection('OldCommonQuestionPapers')
+      .add({
+      pid:pid,
+      pass:hello.passw,
+      time:hello.ptime,
+      user:hello.userc
+    }).then(function(docRef) {
+      db.collection('CommonQuestionPapers')
+      .where('pid', '==', pid)
+      .get()
+        .then((querySnapshot)=> {
+   if (querySnapshot.size > 0) {
+         querySnapshot.forEach((doc)=> {
+    doc.ref.delete();
+    });
+      } 
+    else {
+       
+      }
+         });
+        //console.log("Document written with ID: ", docRef.id);
+   db.collection('ContestsTimes')
+      .where('pid', '==', pid).get()
+        .then((querySnapshot)=> {
+   if (querySnapshot.size > 0) {
+         querySnapshot.forEach(function(doc) {
+    doc.ref.delete();
+  //console.log("Document successfully deleted!");
+    });
+      } 
+    else {
+       
+      }
+         });
+        db.collection('AliveContestsTimes')
+      .where('pid', '==', pid).get()
+        .then((querySnapshot)=> {
+   if (querySnapshot.size > 0) {
+         querySnapshot.forEach(function(doc) {
+    doc.ref.delete();
+  //console.log("Document successfully deleted!");
+    });
+      } 
+    else {
+       
+      }
+         });
+    })
+    .catch(function(error) {
+        //console.error("Error adding document: ", error);
+      });
+
+      }
+         });
+    $('#myModal2').modal('hide');
+  }
+}, 1000);
+      }
+
+}
+  }
+}
+
+  createform()
+{
+this.PassForm = this.formBuilder.group({
+     password: ['', [Validators.required, Validators.pattern,Validators.min(10000),, Validators.max(99999)] ]
+    });
+}
+
+  onKey(event: any)
+{
+  let q = event.target.value;
+  //console.log(q);
+      if (q != '') {
+      this.startAt.next(q);
+      this.endAt.next(q + "\uf8ff");
+    }
+    else {
+     this.auth.getquescon().subscribe(data123 => {
+    this.zip = false;
+    this.quest = data123
+    });
+    }
+}
+
+  firequery(start, end): Observable<any>
+{
+    return this.afs.collection('CommonQuestionPapers', ref => ref.limit(4).orderBy('pid').startAt(start).endAt(end)).valueChanges();
+}
+
+
+  contest(pid:string)
+  {
+  const db = firebase.firestore();
+  var hello = this;
+
+    if(hello.auth.isloggedin())
+    {
+          db.collection('ExamComp').doc(this.auth.getuser())
+    .collection(pid).where('exam','==',1)
+    .get()
+        .then((querySnapshot)=> {
+   if (querySnapshot.size > 0) {
+     $('#myModal3').modal('show');
+      } 
+    else {
+    hello.cool(pid);
+    }
+    });  
+    }
+    else
+    { 
+    hello.cool(pid);       
+    }
+      }
+      
+cool(pid:string)
+{
+    const db = firebase.firestore();
+  var hello = this;
+ hello.bool1 = false;
+hello.bool2  =false;
+hello.middle = "Nothing";
+    localStorage.setItem("epid",pid);
+    hello.bomb = false;
+    hello.bomb1 =false;
+    hello.bomb2 =false;
+    $('#myModal').modal('show');
+        // Set the date we're counting down to
+    hello.deadline = JSON.parse(localStorage.getItem('dead'
+  +pid) || 'false');
+    if(hello.deadline == false)
+{
+  //console.log("database");
+      db.collection('ContestsTimes')
+      .where('pid', '==', pid).get()
+      .then((querySnapshot)=> {
+   if (querySnapshot.size > 0) {
+     querySnapshot.forEach((doc)=> {
+localStorage.setItem("monthA1"+pid,doc.data().month);
+localStorage.setItem("dayA1"+pid,doc.data().day);
+localStorage.setItem("yearA1"+pid,doc.data().year);
+localStorage.setItem("hourA1"+pid,doc.data().hour);
+localStorage.setItem("minA1"+pid,doc.data().min);
+localStorage.setItem('dead'+pid,'true');
+var countDownDate = new Date(doc.data().month
+  +doc.data().day+","
+  +doc.data().year+" "
+  +doc.data().hour+":"
+  +doc.data().min+":"+"0").getTime();
+
+// Update the count down every 1 second
+      hello.papid = JSON.parse(localStorage.getItem('king44') || 'false');
+    if(hello.papid == 'false')
+    localStorage.setItem("king44",pid);
+  if(localStorage.getItem("king44") != pid)
+  {
+    clearInterval(hello.num);
+  }
+
+hello.num = window.setInterval(() => {
+
+  // Get todays date and time
+
+  var now = new Date().getTime();
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    hello.days = days.toString();
+    hello.hours = hours.toString();
+    hello.minutes = minutes.toString();
+    hello.seconds = seconds.toString();
+  // Output the result in an element with id="demo"
+
+   //console.log(hello.days,hello.hours,hello.minutes,hello.seconds);
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(hello.num);
+    localStorage.removeItem('king44');
+    //localStorage.removeItem('dead'+pid);
+     hello.bomb1 = true;
+     hello.bomb2 = true;
+     hello.alivebool = true;
+     hello.startalive(pid);
+     localStorage.setItem('zoom0'+pid,'true');
+     localStorage.setItem('zoom1'+pid,'true');
+     hello.exp = "ExamStarted HurryUp!!";
+    if(hello.auth.isloggedin())
+    {
+      hello.bomb = true;
+      hello.jog = false;
+    }
+    
+  else
+  {
+    hello.jog = true;
+  }
+  }
+}, 1000);
+           });
+      } 
+    else {
+
+      }
+    })
+    .catch(function(error) {
+        //console.log("Error getting documents: ", error);
+    });
+}
+else
+{
+//console.log("local");
+var countDownDate = new Date(localStorage.getItem("monthA1"+pid)
+  +localStorage.getItem("dayA1"+pid)+","
+  +localStorage.getItem("yearA1"+pid)+" "
+  +localStorage.getItem("hourA1"+pid)+":"
+  +localStorage.getItem("minA1"+pid)+":"+"0").getTime();
+
+// Update the count down every 1 second
+      hello.papid = JSON.parse(localStorage.getItem('king44') || 'false');
+    if(hello.papid == 'false')
+    localStorage.setItem("king44",pid);
+  if(localStorage.getItem("king44") != pid)
+  {
+    clearInterval(hello.num);
+  }
+
+hello.num = window.setInterval(() => {
+
+  // Get todays date and time
+
+  var now = new Date().getTime();
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    hello.days = days.toString();
+    hello.hours = hours.toString();
+    hello.minutes = minutes.toString();
+    hello.seconds = seconds.toString();
+  // Output the result in an element with id="demo"
+
+   //console.log(hello.days,hello.hours,hello.minutes,hello.seconds);
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(hello.num);
+    localStorage.removeItem('king44');
+    //localStorage.removeItem('dead'+pid);
+     hello.bomb1 = true;
+     hello.bomb2 = true;
+     hello.alivebool = true;
+     hello.startalive(pid);
+     localStorage.setItem('zoom0'+pid,'true');
+     localStorage.setItem('zoom1'+pid,'true');
+     hello.exp = "ExamStarted HurryUp!!";
+    if(hello.auth.isloggedin())
+    {
+      hello.bomb = true;
+      hello.jog = false;
+    }
+    
+  else
+  {
+    hello.jog = true;
+  }
+  }
+}, 1000);
+
+}
+}
+
+startalive(pid:string)
+{
+
+  const db = firebase.firestore();
+  var hello = this;
+
+           const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
@@ -122,7 +737,7 @@ const db = firebase.firestore();
   sec = d.getSeconds();
 
 db.collection('CommonQuestionPapers')
-  .where("pid", "==", localStorage.getItem("keypap"))
+  .where("pid", "==", pid)
   .get()
   .then((querySnapshot)=> {
    if (querySnapshot.size > 0) {
@@ -132,8 +747,8 @@ db.collection('CommonQuestionPapers')
     hello.passw = doc.data().pass;
     hello.userc = doc.data().user;
     hello.papid1 = JSON.parse(localStorage.getItem('case1'
-  +localStorage.getItem("keypap")) || 'false');
-//console.log("jon",hello.papid1,localStorage.getItem("keypap"));
+  +pid) || 'false');
+//console.log("jon",hello.papid1,pid);
 if(hello.papid1 == false)
 {
         hello.alive = doc.data().alive;
@@ -459,7 +1074,7 @@ if(hello.papid1 == false)
           
           db.collection('AliveContestsTimes')
       .add({
-      pid:localStorage.getItem("keypap"),
+      pid:pid,
       day:day,
       month:month,
       year:year,
@@ -473,7 +1088,7 @@ if(hello.papid1 == false)
         //console.error("Error adding document: ", error);
       });
     localStorage.setItem("case1"
-  +localStorage.getItem("keypap"),'true');
+  +pid,'true');
 }
 else{
 
@@ -481,583 +1096,7 @@ else{
 });
   }
 });
-      }
-  else
-  {
-//console.log("hello")
-      this.zip1 = true;
-      this.zip = true;
-      this.spinner = false;
-      this.exists = "At Present No Competitions Are Available";
-  }
-    });
 
-  }
-
-leader()
-{
-  console.log("jump");
-  $('#myModal3').modal('hide');
-  this.router.navigate(['leaderboard']);
-}
-
-alive123(pid:string)
-{
-  $('#myModal2').modal('show');
-          const db = firebase.firestore();
-  var hello = this;
-
- hello.aliveline = JSON.parse(localStorage.getItem('alive'
-  +pid) || 'false');
-    if(hello.aliveline == false)
-{
-  //console.log("databasealive");
-      db.collection('AliveContestsTimes')
-      .where('pid', '==', pid).get()
-      .then((querySnapshot)=> {
-   if (querySnapshot.size > 0) {
-     querySnapshot.forEach((doc)=> {
-localStorage.setItem("monthD1"+pid,doc.data().month);
-localStorage.setItem("dayD1"+pid,doc.data().day);
-localStorage.setItem("yearD1"+pid,doc.data().year);
-localStorage.setItem("hourD1"+pid,doc.data().hour);
-localStorage.setItem("minD1"+pid,doc.data().min);
-localStorage.setItem("secD1"+pid,doc.data().sec);
-localStorage.setItem('alive'+pid,'true');
-var countDownDate = new Date(doc.data().month
-  +doc.data().day+","
-  +doc.data().year+" "
-  +doc.data().hour+":"
-  +doc.data().min+":"+doc.data().sec).getTime();
-
-// Update the count down every 1 second
-      hello.papid123 = JSON.parse(localStorage.getItem('king11') || 'false');
-    if(hello.papid123 == 'false')
-    localStorage.setItem("king11",pid);
-  if(localStorage.getItem("king11") != pid)
-  {
-    clearInterval(hello.num1);
-  }
-
-// Update the count down every 1 second
-hello.num1 = window.setInterval(()=> {
-
-  // Get todays date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
-  var days1 = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours1 = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes1 = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds1 = Math.floor((distance % (1000 * 60)) / 1000);
-    
-  // Output the result in an element with id="demo"
-    hello.days1 = days1.toString();
-    hello.hours1 = hours1.toString();
-    hello.minutes1 = minutes1.toString();
-    hello.seconds1 = seconds1.toString();
-   // console.log(hello.days,hello.hours,hello.minutes,hello.seconds);
-    
-  // If the count down is over, write some text 
-  if (distance < 0) {
-    clearInterval(hello.num1);
-    localStorage.removeItem('king11');
-    localStorage.removeItem('alive'+pid);
-    localStorage.removeItem('dead'+pid);
-    localStorage.removeItem('case1'+pid);
-          //hello.yoyo3 = true;
-      db.collection('OldCommonQuestionPapers')
-      .where('pid', '==', pid)
-      .get()
-        .then((querySnapshot)=> {
-   if (querySnapshot.size > 0) {
-         querySnapshot.forEach((doc)=> {
-       doc.ref.update({time:hello.ptime});
-       //hello.yoyo4 = true;
-       db.collection('CommonQuestionPapers')
-      .where('pid', '==', pid)
-      .get()
-        .then((querySnapshot)=> {
-   if (querySnapshot.size > 0) {
-         querySnapshot.forEach((doc)=> {
-    doc.ref.delete();
-   // hello.yoyo4 = true;
-  //console.log("as","Document successfully deleted!");
-    });
-      } 
-    else {
-       
-      }
-         });
-        db.collection('ContestsTimes')
-      .where('pid', '==', pid).get()
-        .then((querySnapshot)=> {
-   if (querySnapshot.size > 0) {
-         querySnapshot.forEach(function(doc) {
-    doc.ref.delete();
-  //console.log("Document successfully deleted!");
-    });
-      } 
-    else {
-       
-      }
-         });
-        db.collection('AliveContestsTimes')
-      .where('pid', '==', pid).get()
-        .then((querySnapshot)=> {
-   if (querySnapshot.size > 0) {
-         querySnapshot.forEach(function(doc) {
-    doc.ref.delete();
-  //console.log("Document successfully deleted!");
-    });
-      } 
-    else {
-       
-      }
-         });
-    });
-      } 
-    else {
-       
- db.collection('OldCommonQuestionPapers')
-      .add({
-      pid:pid,
-      pass:hello.passw,
-      time:hello.ptime,
-      user:hello.userc
-    }).then(function(docRef) {
-      db.collection('CommonQuestionPapers')
-      .where('pid', '==', pid)
-      .get()
-        .then((querySnapshot)=> {
-   if (querySnapshot.size > 0) {
-         querySnapshot.forEach((doc)=> {
-    doc.ref.delete();
-    });
-      } 
-    else {
-       
-      }
-         });
-        //console.log("Document written with ID: ", docRef.id);
-   db.collection('ContestsTimes')
-      .where('pid', '==', pid).get()
-        .then((querySnapshot)=> {
-   if (querySnapshot.size > 0) {
-         querySnapshot.forEach(function(doc) {
-    doc.ref.delete();
-  //console.log("Document successfully deleted!");
-    });
-      } 
-    else {
-       
-      }
-         });
-        db.collection('AliveContestsTimes')
-      .where('pid', '==', pid).get()
-        .then((querySnapshot)=> {
-   if (querySnapshot.size > 0) {
-         querySnapshot.forEach(function(doc) {
-    doc.ref.delete();
-  //console.log("Document successfully deleted!");
-    });
-      } 
-    else {
-       
-      }
-         });
-    })
-    .catch(function(error) {
-        //console.error("Error adding document: ", error);
-      });
-
-      }
-         });
-    $('#myModal2').modal('hide');
-  }
-}, 1000);
-           });
-      } 
-    else {
-
-      }
-    })
-    .catch(function(error) {
-        //console.log("Error getting documents: ", error);
-    });
-}
-else
-{
-//console.log("localalive");
-var countDownDate = new Date(localStorage.getItem("monthD1"+pid)
-  +localStorage.getItem("dayD1"+pid)+","
-  +localStorage.getItem("yearD1"+pid)+" "
-  +localStorage.getItem("hourD1"+pid)+":"
-  +localStorage.getItem("minD1"+pid)+":"+localStorage.getItem("secD1"+pid)).getTime();
-
-// Update the count down every 1 second
-      hello.papid123 = JSON.parse(localStorage.getItem('king11') || 'false');
-    if(hello.papid123 == 'false')
-    localStorage.setItem("king11",pid);
-  if(localStorage.getItem("king11") != pid)
-  {
-    clearInterval(hello.num1);
-  }
-
-// Update the count down every 1 second
-hello.num1 = window.setInterval(()=> {
-
-  // Get todays date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
-  var days1 = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours1 = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes1 = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds1 = Math.floor((distance % (1000 * 60)) / 1000);
-    
-  // Output the result in an element with id="demo"
-    hello.days1 = days1.toString();
-    hello.hours1 = hours1.toString();
-    hello.minutes1 = minutes1.toString();
-    hello.seconds1 = seconds1.toString();
-   // console.log(hello.days,hello.hours,hello.minutes,hello.seconds);
-    
-  // If the count down is over, write some text 
-  if (distance < 0) {
-    clearInterval(hello.num1);
-    localStorage.removeItem('king11');
-    localStorage.removeItem('alive'+pid);
-    localStorage.removeItem('dead'+pid);
-    localStorage.removeItem('case1'+pid);
-          //hello.yoyo3 = true;
-      db.collection('OldCommonQuestionPapers')
-      .where('pid', '==', pid)
-      .get()
-        .then((querySnapshot)=> {
-   if (querySnapshot.size > 0) {
-         querySnapshot.forEach((doc)=> {
-       doc.ref.update({time:hello.ptime});
-       //hello.yoyo4 = true;
-       db.collection('CommonQuestionPapers')
-      .where('pid', '==', pid)
-      .get()
-        .then((querySnapshot)=> {
-   if (querySnapshot.size > 0) {
-         querySnapshot.forEach((doc)=> {
-    doc.ref.delete();
-   // hello.yoyo4 = true;
-  //console.log("as","Document successfully deleted!");
-    });
-      } 
-    else {
-       
-      }
-         });
-        db.collection('ContestsTimes')
-      .where('pid', '==', pid).get()
-        .then((querySnapshot)=> {
-   if (querySnapshot.size > 0) {
-         querySnapshot.forEach(function(doc) {
-    doc.ref.delete();
-  //console.log("Document successfully deleted!");
-    });
-      } 
-    else {
-       
-      }
-         });
-        db.collection('AliveContestsTimes')
-      .where('pid', '==', pid).get()
-        .then((querySnapshot)=> {
-   if (querySnapshot.size > 0) {
-         querySnapshot.forEach(function(doc) {
-    doc.ref.delete();
-  //console.log("Document successfully deleted!");
-    });
-      } 
-    else {
-       
-      }
-         });
-    });
-      } 
-    else {
-       
- db.collection('OldCommonQuestionPapers')
-      .add({
-      pid:pid,
-      pass:hello.passw,
-      time:hello.ptime,
-      user:hello.userc
-    }).then(function(docRef) {
-      db.collection('CommonQuestionPapers')
-      .where('pid', '==', pid)
-      .get()
-        .then((querySnapshot)=> {
-   if (querySnapshot.size > 0) {
-         querySnapshot.forEach((doc)=> {
-    doc.ref.delete();
-    });
-      } 
-    else {
-       
-      }
-         });
-        //console.log("Document written with ID: ", docRef.id);
-   db.collection('ContestsTimes')
-      .where('pid', '==', pid).get()
-        .then((querySnapshot)=> {
-   if (querySnapshot.size > 0) {
-         querySnapshot.forEach(function(doc) {
-    doc.ref.delete();
-  //console.log("Document successfully deleted!");
-    });
-      } 
-    else {
-       
-      }
-         });
-        db.collection('AliveContestsTimes')
-      .where('pid', '==', pid).get()
-        .then((querySnapshot)=> {
-   if (querySnapshot.size > 0) {
-         querySnapshot.forEach(function(doc) {
-    doc.ref.delete();
-  //console.log("Document successfully deleted!");
-    });
-      } 
-    else {
-       
-      }
-         });
-    })
-    .catch(function(error) {
-        //console.error("Error adding document: ", error);
-      });
-
-      }
-         });
-    $('#myModal2').modal('hide');
-  }
-}, 1000);
-      }
-}
-
-  createform()
-{
-this.PassForm = this.formBuilder.group({
-     password: ['', [Validators.required, Validators.pattern,Validators.min(10000),, Validators.max(99999)] ]
-    });
-}
-
-  onKey(event: any)
-{
-  let q = event.target.value;
-  //console.log(q);
-      if (q != '') {
-      this.startAt.next(q);
-      this.endAt.next(q + "\uf8ff");
-    }
-    else {
-     this.auth.getquescon().subscribe(data123 => {
-    this.zip = false;
-    this.quest = data123
-    });
-    }
-}
-
-  firequery(start, end): Observable<any>
-{
-    return this.afs.collection('CommonQuestionPapers', ref => ref.limit(4).orderBy('pid').startAt(start).endAt(end)).valueChanges();
-}
-
-
-  contest(pid:string)
-  {
-  const db = firebase.firestore();
-  var hello = this;
-
-    if(hello.auth.isloggedin())
-    {
-          db.collection('ExamComp').doc(this.auth.getuser())
-    .collection(pid).where('exam','==',1)
-    .get()
-        .then((querySnapshot)=> {
-   if (querySnapshot.size > 0) {
-     $('#myModal3').modal('show');
-      } 
-    else {
-    hello.cool(pid);
-    }
-    });  
-    }
-    else
-    { 
-    hello.cool(pid);       
-    }
-      }
-      
-cool(pid:string)
-{
-    const db = firebase.firestore();
-  var hello = this;
- hello.bool1 = false;
-hello.bool2  =false;
-hello.middle = "Nothing";
-    localStorage.setItem("epid",pid);
-    hello.bomb = false;
-    hello.bomb1 =false;
-    hello.bomb2 =false;
-    $('#myModal').modal('show');
-        // Set the date we're counting down to
-    hello.deadline = JSON.parse(localStorage.getItem('dead'
-  +pid) || 'false');
-    if(hello.deadline == false)
-{
-  //console.log("database");
-      db.collection('ContestsTimes')
-      .where('pid', '==', pid).get()
-      .then((querySnapshot)=> {
-   if (querySnapshot.size > 0) {
-     querySnapshot.forEach((doc)=> {
-localStorage.setItem("monthA1"+pid,doc.data().month);
-localStorage.setItem("dayA1"+pid,doc.data().day);
-localStorage.setItem("yearA1"+pid,doc.data().year);
-localStorage.setItem("hourA1"+pid,doc.data().hour);
-localStorage.setItem("minA1"+pid,doc.data().min);
-localStorage.setItem('dead'+pid,'true');
-var countDownDate = new Date(doc.data().month
-  +doc.data().day+","
-  +doc.data().year+" "
-  +doc.data().hour+":"
-  +doc.data().min+":"+"0").getTime();
-
-// Update the count down every 1 second
-      hello.papid = JSON.parse(localStorage.getItem('king44') || 'false');
-    if(hello.papid == 'false')
-    localStorage.setItem("king44",pid);
-  if(localStorage.getItem("king44") != pid)
-  {
-    clearInterval(hello.num);
-  }
-
-hello.num = window.setInterval(() => {
-
-  // Get todays date and time
-
-  var now = new Date().getTime();
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    hello.days = days.toString();
-    hello.hours = hours.toString();
-    hello.minutes = minutes.toString();
-    hello.seconds = seconds.toString();
-  // Output the result in an element with id="demo"
-
-   //console.log(hello.days,hello.hours,hello.minutes,hello.seconds);
-  // If the count down is over, write some text 
-  if (distance < 0) {
-    clearInterval(hello.num);
-    localStorage.removeItem('king44');
-    //localStorage.removeItem('dead'+pid);
-     hello.bomb1 = true;
-     hello.bomb2 = true;
-     hello.exp = "ExamStarted HurryUp!!"
-    if(hello.auth.isloggedin())
-    {
-      hello.bomb = true;
-      hello.jog = false;
-    }
-    
-  else
-  {
-    hello.jog = true;
-  }
-  }
-}, 1000);
-           });
-      } 
-    else {
-
-      }
-    })
-    .catch(function(error) {
-        //console.log("Error getting documents: ", error);
-    });
-}
-else
-{
-//console.log("local");
-var countDownDate = new Date(localStorage.getItem("monthA1"+pid)
-  +localStorage.getItem("dayA1"+pid)+","
-  +localStorage.getItem("yearA1"+pid)+" "
-  +localStorage.getItem("hourA1"+pid)+":"
-  +localStorage.getItem("minA1"+pid)+":"+"0").getTime();
-
-// Update the count down every 1 second
-      hello.papid = JSON.parse(localStorage.getItem('king44') || 'false');
-    if(hello.papid == 'false')
-    localStorage.setItem("king44",pid);
-  if(localStorage.getItem("king44") != pid)
-  {
-    clearInterval(hello.num);
-  }
-
-hello.num = window.setInterval(() => {
-
-  // Get todays date and time
-
-  var now = new Date().getTime();
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    hello.days = days.toString();
-    hello.hours = hours.toString();
-    hello.minutes = minutes.toString();
-    hello.seconds = seconds.toString();
-  // Output the result in an element with id="demo"
-
-   //console.log(hello.days,hello.hours,hello.minutes,hello.seconds);
-  // If the count down is over, write some text 
-  if (distance < 0) {
-    clearInterval(hello.num);
-    localStorage.removeItem('king44');
-    //localStorage.removeItem('dead'+pid);
-     hello.bomb1 = true;
-     hello.bomb2 = true;
-     hello.exp = "ExamStarted HurryUp!!"
-    if(hello.auth.isloggedin())
-    {
-      hello.bomb = true;
-      hello.jog = false;
-    }
-    
-  else
-  {
-    hello.jog = true;
-  }
-  }
-}, 1000);
-
-}
 }
 
 start()
@@ -1178,6 +1217,8 @@ localStorage.removeItem('king11');
 localStorage.removeItem('king44');
 localStorage.removeItem('dead'+pid1);
 localStorage.removeItem('alive'+pid1);
+localStorage.removeItem('zoom0'+pid1);
+localStorage.removeItem('zoom1'+pid1);
   //console.log("Document successfully deleted!");
     });
       } 
