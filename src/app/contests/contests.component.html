@@ -20,29 +20,29 @@
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
 </div>
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-  	<br><br>
-  	<h1 id ="sin" style="color: #3CB371;">EXAM<span style="color:black">AUTOMATA</span></h1><br>
+    <br><br>
+    <h1 id ="sin" style="color: #3CB371;">EXAM<span style="color:black">AUTOMATA</span></h1><br>
       <h1 id ="sin"><a id = "fur" id ="fasak1" routerLink="/oldcontests" class="button button1">Archived Contests</a></h1><br>
-  	<h1 id ="sin" style="color: #3CB371;">Active Contests<span style="color:black">!!</span></h1>
-  	<br>
-  	 <input class="form-control" *ngIf="!zip1" (keyup)="onKey($event)" type="text" placeholder="Search By QuestionPaper Name....."><br *ngIf="!zip1">
+    <h1 id ="sin" style="color: #3CB371;">Active Contests<span style="color:black">!!</span></h1>
+    <br>
+     <input class="form-control" *ngIf="!zip1" (keyup)="onKey($event)" type="text" placeholder="Search By QuestionPaper Name....."><br *ngIf="!zip1">
       <div *ngIf="!zip">
-  	<ng-container *ngFor="let que of quest">
-  	<div class="heck">
-  		<a id = "fur"*ngIf="boom" id ="fasak1" (click)="deletecont(que.pid)" class="button button1" ><i class="fa fa-close" style="font-size:36px"></i></a>
-	<h2>
-		<span id = "ping">Id:</span>
-		<span id = "ging">{{que.pid}}</span>
-	</h2>	
+    <ng-container *ngFor="let que of quest">
+    <div class="heck">
+      <a id = "fur"*ngIf="boom" id ="fasak1" (click)="deletecont(que.pid)" class="button button1" ><i class="fa fa-close" style="font-size:36px"></i></a>
+  <h2>
+    <span id = "ping">Id:</span>
+    <span id = "ging">{{que.pid}}</span>
+  </h2> 
 <br>
 <a id = "fur" id ="fasak" (click)="contest(que.pid)" class="button button1">TakeTest</a>&nbsp;&nbsp;
 <a id = "fur" id ="fasak" (click)="alive123(que.pid)" class="button button1">AliveTime</a>
-  	</div>
-  		<br><br>
+    </div>
+      <br><br>
   </ng-container>
 </div>
-  	  <h1 *ngIf="zip" id = "sin">{{exists}}</h1>
-  	  <br>
+      <h1 *ngIf="zip" id = "sin">{{exists}}</h1>
+      <br>
 </div>
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
 </div>
@@ -128,8 +128,8 @@
         
         <!-- Modal body -->
         <div class="modal-body">
-        	
-		<h1 id ="sin" style="color: #3CB371;">Only the Admin who created<span style="color:black"> this contest has rights</span> to delete!!</h1>
+          
+    <h1 id ="sin" style="color: #3CB371;">Only the Admin who created<span style="color:black"> this contest has rights</span> to delete!!</h1>
       
         </div>
         
@@ -164,9 +164,8 @@
         <!-- Modal body -->
         <div class="modal-body">
           
-    <h1 *ngIf="alivebool" id ="sin" id="zoom" style="color: #3CB371;">{{days1}}days{{hours1}}hrs{{minutes1}}mins{{seconds1}}secs</h1>
-      <h3 *ngIf="!alivebool" id ="sin" id="zoom" style="color: #3CB371;">Exam not <span style="color:black;">yet started!!</span></h3>
-
+    <h1 id ="sin" id="zoom" style="color: #3CB371;">{{days1}}days{{hours1}}hrs{{minutes1}}mins{{seconds1}}secs</h1>
+      
         </div>
         
         <!-- Modal footer -->

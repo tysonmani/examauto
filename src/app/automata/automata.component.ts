@@ -190,6 +190,17 @@ localStorage.removeItem('secs'+hello.auth.getuser()
 localStorage.removeItem('examin'+localStorage.getItem("epid"));
 localStorage.removeItem('paperber'+localStorage.getItem("epid")+localStorage.getItem("user123"));
 localStorage.removeItem('numblimit'+localStorage.getItem("epid")+localStorage.getItem("user123"));
+ localStorage.removeItem('case1'+pid1);
+localStorage.removeItem('dayD1'+pid1);
+localStorage.removeItem('monthD1'+pid1);
+localStorage.removeItem('yearD1'+pid1);
+localStorage.removeItem('hrs1'+pid1);
+localStorage.removeItem('mins1'+pid1);
+localStorage.removeItem('secs1'+pid1);
+localStorage.removeItem('king11');
+localStorage.removeItem('king44');
+localStorage.removeItem('dead'+pid1);
+localStorage.removeItem('alive'+pid1);
  // console.log("Document successfully deleted2!");
   });
 });
@@ -418,12 +429,6 @@ onSubmit123()
     .catch(function(error) {
         //console.error("Error adding document: ", error);
       });
-
-    /*localStorage.setItem("%day"+localStorage.getItem("papid"),day);
-      localStorage.setItem("%month"+localStorage.getItem("papid"),monthNames[date.getMonth()]);
-      localStorage.setItem("%year"+localStorage.getItem("papid"),year);
-      localStorage.setItem("%hour"+localStorage.getItem("papid"),ion[0]);
-      localStorage.setItem("%min"+localStorage.getItem("papid"),ion[1]);*/      
 
   }
 

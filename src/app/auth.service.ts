@@ -34,6 +34,10 @@ sendmail(email123:string) {
       {
       		return localStorage.getItem('check');
       }
+      getmail()
+      {
+          return localStorage.getItem('loggeduser123');
+      }
       getuser()
       {
       	return localStorage.getItem('loggeduser');

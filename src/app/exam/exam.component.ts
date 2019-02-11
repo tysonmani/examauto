@@ -518,7 +518,7 @@ localStorage.removeItem('numblimit'+localStorage.getItem("epid")+localStorage.ge
       user:hello.auth.getuser(),
       score:sco,
       totscore:totsco,
-      rank:0
+      email:hello.auth.getmail()
     }).then((docRef)=> {
            this.spinner = false;
     this.router.navigate(['results']);
@@ -556,7 +556,7 @@ localStorage.removeItem('numblimit'+localStorage.getItem("epid")+localStorage.ge
       user:hello.auth.getuser(),
       score:sco,
       totscore:totsco,
-      rank:0 
+      email:hello.auth.getmail() 
     }).then((docRef)=> {
            this.spinner = false;
     this.router.navigate(['results']);
@@ -574,10 +574,6 @@ localStorage.removeItem('numblimit'+localStorage.getItem("epid")+localStorage.ge
 
       }
          });
-         /*setTimeout(()=>{
-           this.spinner = false;
-    this.router.navigate(['results']);
-      }, 3500) */
 
 }
 
