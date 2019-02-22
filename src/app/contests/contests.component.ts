@@ -1085,15 +1085,6 @@ db.collection('UsersParticipatedExams').doc(hello.auth.getuser()).collection('Qu
     .catch(function(error) {
         //console.error("Error adding document: ", error);
       });
-           db.collection('ExamComp').doc(this.auth.getuser())
-    .collection(localStorage.getItem("epid")).add({
-      exam:1
-    }).then(function(docRef) {
-        //console.log("Document written with ID: ", docRef.id);
-    })
-    .catch(function(error) {
-        //console.error("Error adding document: ", error);
-      });
                  setTimeout(()=>{
                    hello.spinner1 = true;
                  $('#myModal').modal('hide');

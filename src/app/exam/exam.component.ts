@@ -490,6 +490,15 @@ localStorage.removeItem('examin'+localStorage.getItem("epid"));
 localStorage.removeItem('paperber'+localStorage.getItem("epid")+localStorage.getItem("user123"));
 localStorage.removeItem('numblimit'+localStorage.getItem("epid")+localStorage.getItem("user123"));
 
+           db.collection('ExamComp').doc(this.auth.getuser())
+    .collection(localStorage.getItem("epid")).add({
+      exam:1
+    }).then(function(docRef) {
+        //console.log("Document written with ID: ", docRef.id);
+    })
+    .catch(function(error) {
+        //console.error("Error adding document: ", error);
+      });
 
  db.collection('UsersAnswers').doc(this.auth.getuser())
   .collection(localStorage.getItem("epid"))

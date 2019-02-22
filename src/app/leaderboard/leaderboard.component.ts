@@ -80,7 +80,7 @@ onKey(event: any)
 
   firequery(start, end): Observable<any>
 {
-    return this.afs.collection('UsersResults').doc(localStorage.getItem("epid"))
+    return this.afs.collection('UsersResults').doc(this.QID)
        .collection('Results', ref => ref.orderBy('user').startAt(start).endAt(end)).valueChanges();
 }
 
