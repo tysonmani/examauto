@@ -128,11 +128,11 @@
   }
     a#fasak1
   {
-    font-size:70%;
+    font-size:40%;
   }
   button#fasak1
   {
-    font-size:70%;
+    font-size:40%;
   }
 h1#zoom
 {
@@ -147,6 +147,10 @@ h4#zoom
 {
   font-size:90%;
 }
+h2#zoom
+{
+  text-align: center;
+}
 }
 @media only screen and (min-width: 550px) and (max-width: 730px) 
 {
@@ -155,10 +159,18 @@ h1#zoom
   font-size:150%;
   text-align: center;
 }
+h2#zoom
+{
+  text-align: center;
+}
 }
 @media only screen and (min-width: 730px) 
 {
 h1#zoom
+{
+  text-align: center;
+}
+h2#zoom
 {
   text-align: center;
 }
@@ -214,6 +226,15 @@ a#fur:hover
 .button.button1:hover {
     color:white;
     background-color: black; 
+}
+.button.button2 {
+    background-color: white; 
+    color: #3CB371; 
+    border: 2px solid #3CB371;
+}
+.button.button2:hover {
+    color:white;
+    background-color: #3CB371; 
 }
 #fasak
 {

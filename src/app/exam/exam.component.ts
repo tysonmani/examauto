@@ -34,7 +34,7 @@ yoyo1:boolean = false;
 yoyo2:boolean = false;
 yoyo3:boolean = false;
 yoyo4:boolean = false;
-temp:number;
+temp:number=0;
 num:number;
 quest:object={};
 questq;
@@ -47,6 +47,9 @@ zip:boolean = false;
 zip1:boolean = false;
 exists:string;
 spinner:boolean = true;
+attempt=[0];
+queso:string;
+counto:number=0;
   constructor(private router: Router,private formBuilder: FormBuilder,private afs: AngularFirestore,private auth:AuthService) { }
 
   ngOnInit() {
@@ -55,19 +58,6 @@ spinner:boolean = true;
 /*var hello = this;*/
 
 //console.log(localStorage.getItem("epid"));
-
-    		const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-];
-
-  	  	var d = new Date();
-  	  var day, month, year,min,hr,sec;
-  	  day = d.getDate();
-  month = monthNames[d.getMonth()];
-  year = d.getFullYear();
-  min = d.getMinutes();
-  hr = d.getHours();
-  sec = d.getSeconds();
 
   const db = firebase.firestore();
   var hello = this;
@@ -82,6 +72,7 @@ spinner:boolean = true;
           localStorage.setItem("user123",doc.data().user);
 hello.paperber = JSON.parse(localStorage.getItem('paperber'+localStorage.getItem("epid")+localStorage.getItem("user123")) || 'false');
 hello.numblimit = JSON.parse(localStorage.getItem('numblimit'+localStorage.getItem("epid")+localStorage.getItem("user123")) || '0');
+hello.temp = parseInt(hello.numblimit);
 if(hello.paperber == false)
 {
   //console.log(hello.paperber);
@@ -92,6 +83,29 @@ if(hello.paperber == false)
         localStorage.setItem("Data",JSON.stringify(data123));
         hello.lost=JSON.parse(localStorage.getItem("Data"));
         hello.optchecker1(hello.lost[parseInt(hello.numblimit)].qid);
+        db.collection('UsersAnswers').doc(hello.auth.getuser()).collection(localStorage.getItem("epid"))
+      .where('attempt', '==',1).get()
+      .then((querySnapshot)=> {
+   if (querySnapshot.size > 0) {
+     querySnapshot.forEach((doc)=> {
+        for(var e=0;e<hello.lost.length;e++)
+       {
+       if(doc.data().qid==hello.lost[e].qid)
+       {
+         hello.attempt[e]=1;
+         //console.log("hurray",e);
+         break;
+       }
+       }
+           });
+      } 
+    else {
+
+   }
+    })
+    .catch(function(error) {
+      //  console.log("Error getting documents: ", error);
+    });
         hello.count = data123.length;
         hello.quest = hello.lost[parseInt(hello.numblimit)];
                hello.spinner = false;
@@ -120,6 +134,29 @@ else
     hello.lost=JSON.parse(localStorage.getItem("Data"));
     hello.count = hello.lost.length;
     hello.optchecker1(hello.lost[parseInt(hello.numblimit)].qid);
+    db.collection('UsersAnswers').doc(hello.auth.getuser()).collection(localStorage.getItem("epid"))
+      .where('attempt', '==',1).get()
+      .then((querySnapshot)=> {
+   if (querySnapshot.size > 0) {
+     querySnapshot.forEach((doc)=> {
+        for(var e=0;e<hello.lost.length;e++)
+       {
+       if(doc.data().qid==hello.lost[e].qid)
+       {
+         hello.attempt[e]=1;
+         //console.log("hurray",e);
+         break;
+       }
+       }
+           });
+      } 
+    else {
+
+   }
+    })
+    .catch(function(error) {
+      //  console.log("Error getting documents: ", error);
+    });
     hello.quest = hello.lost[parseInt(hello.numblimit)];
             hello.spinner = false;
             if(parseInt(hello.numblimit)>0)
@@ -137,6 +174,18 @@ hello.papid = JSON.parse(localStorage.getItem('case'
 	+hello.auth.getuser()
 	+localStorage.getItem("epid")) || 'false');
 //console.log(hello.papid);
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+
+        var d = new Date();
+      var day, month, year,min,hr,sec;
+      day = d.getDate();
+  month = monthNames[d.getMonth()];
+  year = d.getFullYear();
+  min = d.getMinutes();
+  hr = d.getHours();
+  sec = d.getSeconds();
 if(hello.papid == false)
 {
     hello.ptime = doc.data().time;
@@ -200,6 +249,12 @@ if(hello.papid == false)
         }
     	  	
     	      //console.log(hello.ptime);
+          localStorage.setItem("IOday"+hello.auth.getuser()
+  +localStorage.getItem("epid"),day);
+          localStorage.setItem("IOmonth"+hello.auth.getuser()
+  +localStorage.getItem("epid"),month);
+          localStorage.setItem("IOyear"+hello.auth.getuser()
+  +localStorage.getItem("epid"),year);
     	localStorage.setItem("hrs"+hello.auth.getuser()
 	+localStorage.getItem("epid"),hr);
     	localStorage.setItem("mins"+hello.auth.getuser()
@@ -216,7 +271,10 @@ else{
 
 
 // Set the date we're counting down to
-var countDownDate = new Date(month+day+","+year+" "+parseInt(localStorage.getItem("hrs"+hello.auth.getuser()
+var countDownDate = new Date(localStorage.getItem("IOmonth"+hello.auth.getuser()
+  +localStorage.getItem("epid"))+parseInt(localStorage.getItem("IOday"+hello.auth.getuser()
+  +localStorage.getItem("epid")))+","+parseInt(localStorage.getItem("IOyear"+hello.auth.getuser()
+  +localStorage.getItem("epid")))+" "+parseInt(localStorage.getItem("hrs"+hello.auth.getuser()
 	+localStorage.getItem("epid")))+":"+parseInt(localStorage.getItem("mins"+hello.auth.getuser()
 	+localStorage.getItem("epid")))+":"+parseInt(localStorage.getItem("secs"+hello.auth.getuser()
 	+localStorage.getItem("epid")))).getTime();
@@ -311,7 +369,7 @@ var hello = this;
 
 }
 
-optchecker(quesid:string,answer:string)
+optchecker(quesid:string,answer:string,attemptid:number)
 {
 const db = firebase.firestore();
 var hello = this;
@@ -358,8 +416,10 @@ db.collection('UserQuestionPaper')
       qid:quesid,
       ans:answer,
       corans:oa,
-      corr:oc
+      corr:oc,
+      attempt:1
     }).then((docRef)=> {
+      hello.attempt[attemptid]=1;
         //console.log("Document written with ID: ", docRef.id);
     })
     .catch(function(error) {
@@ -373,6 +433,7 @@ db.collection('UserQuestionPaper')
       .then((querySnapshot)=> {
     querySnapshot.forEach((doc)=> {
     doc.ref.update({ans:answer,corr:oc});
+    hello.attempt[attemptid]=1;
   //console.log("Document successfully updated!");
   });
 });
@@ -385,19 +446,35 @@ db.collection('UserQuestionPaper')
 
 }
 
+savenext1()
+{
+  $('#myModal4').modal('hide');
+            this.spinner = true;
+        if(this.OptionForm.value.opt != '')
+        this.optchecker(this.queso,this.OptionForm.value.opt,parseInt(this.numblimit));
+        clearInterval(this.num);
+        setTimeout(()=>{
+        this.resultcal();
+        }, 1000) 
+}
+
 savenext(quesid:string)
 {
 
   const db = firebase.firestore();
       if(parseInt(this.numblimit)+1 == this.count)
           {
-            this.spinner = true;
-        if(this.OptionForm.value.opt != '')
-        this.optchecker(quesid,this.OptionForm.value.opt);
-        clearInterval(this.num);
-        setTimeout(()=>{
-        this.resultcal();
-        }, 1000) 
+           this.queso=quesid;
+          $('#myModal4').modal('show');
+          var count1=0;
+          for(var i=0;i<this.lost.length;i++)
+          {
+            if(this.attempt[i]==1)
+            {
+              count1++;
+            }
+          }
+          this.counto = count1; 
         }
       else
          {
@@ -405,6 +482,8 @@ savenext(quesid:string)
         setTimeout(()=>{
          this.spinner = false;
       const db = firebase.firestore();
+          if(this.OptionForm.value.opt != '')
+    this.optchecker(quesid,this.OptionForm.value.opt,parseInt(this.numblimit));
   localStorage.setItem('paperber'+localStorage.getItem("epid")+localStorage.getItem("user123"),'true');
   this.paperber = true;
   this.temp = parseInt(this.numblimit) + 1;
@@ -419,8 +498,6 @@ savenext(quesid:string)
         else
           this.horror1 = false;
         this.lost=JSON.parse(localStorage.getItem("Data"));
-        if(this.OptionForm.value.opt != '')
-    this.optchecker(quesid,this.OptionForm.value.opt);
     this.optchecker1(this.lost[this.temp].qid);
       this.quest = this.lost[this.temp]; 
  // console.log(this.paperber,this.numblimit);
@@ -429,11 +506,13 @@ savenext(quesid:string)
 }
 
 }
-previous()
+previous(quesid:string)
 {
           this.spinner = true;
         setTimeout(()=>{
          this.spinner = false;
+   if(this.OptionForm.value.opt != '')
+    this.optchecker(quesid,this.OptionForm.value.opt,parseInt(this.numblimit));
   this.temp = parseInt(this.numblimit) -1;
         this.numblimit = this.temp.toString();
    localStorage.setItem('numblimit'+localStorage.getItem("epid")+localStorage.getItem("user123"),this.numblimit);
@@ -453,14 +532,59 @@ previous()
 }, 1500);
 }
 
+
+navigate()
+{
+  $('#myModal').modal('show');
+}
+
+quesnavigate(quesid:string)
+{
+  $('#myModal').modal('hide');
+  //console.log(this.lost[0].qid);
+  this.spinner = true;
+  for(var i=0;i<this.lost.length;i++)
+  {
+    if(quesid == this.lost[i].qid)
+    {
+setTimeout(()=>{
+         this.spinner = false;
+      const db = firebase.firestore();
+  localStorage.setItem('paperber'+localStorage.getItem("epid")+localStorage.getItem("user123"),'true');
+  this.paperber = true;
+  this.temp = i;
+        this.numblimit = this.temp.toString();
+   localStorage.setItem('numblimit'+localStorage.getItem("epid")+localStorage.getItem("user123"),this.numblimit);
+                  if(parseInt(this.numblimit)>0)
+          this.horror = true;
+        else
+          this.horror = false;
+        if(parseInt(this.numblimit)+1 == this.count)
+          this.horror1 = true;
+        else
+          this.horror1 = false;
+        this.lost=JSON.parse(localStorage.getItem("Data"));
+    this.optchecker1(this.lost[this.temp].qid);
+      this.quest = this.lost[this.temp]; 
+  //console.log(this.numblimit);
+}, 1500);
+      //console.log(this.lost[i].qid,i);
+      break;
+    }
+  }
+}
+
+
 deselect(quesid:string)
 {
+  var hello = this;
   const db = firebase.firestore();
         db.collection('UsersAnswers').doc(this.auth.getuser()).collection(localStorage.getItem("epid"))
       .where('qid','==',quesid).get()
       .then((querySnapshot)=> {
     querySnapshot.forEach(function(doc) {
     doc.ref.delete();
+    hello.attempt[parseInt(hello.numblimit)]=0;
   });
 });
     this.OptionForm.setValue({
@@ -479,6 +603,12 @@ var sco=0,totsco=0;
   localStorage.removeItem('numblimit0'+localStorage.getItem("epid")+localStorage.getItem("user123"));
  localStorage.removeItem('examin'+localStorage.getItem("epid"));
  localStorage.removeItem('case'+hello.auth.getuser()
+  +localStorage.getItem("epid"));
+ localStorage.removeItem('IOday'+hello.auth.getuser()
+  +localStorage.getItem("epid"));
+ localStorage.removeItem('IOmonth'+hello.auth.getuser()
+  +localStorage.getItem("epid"));
+ localStorage.removeItem('IOyear'+hello.auth.getuser()
   +localStorage.getItem("epid"));
 localStorage.removeItem('hrs'+hello.auth.getuser()
   +localStorage.getItem("epid"));

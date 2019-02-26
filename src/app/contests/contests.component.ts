@@ -54,6 +54,7 @@ middle:string = 'Nothing!!';
 spinner:boolean = true;
 spinner1:boolean = true;
 PassForm: FormGroup;
+delete:string;
 
   constructor(private formBuilder: FormBuilder,private router: Router,private afs: AngularFirestore,private auth:AuthService) { }
 
@@ -1108,12 +1109,20 @@ login()
 this.router.navigate(['login']);
 }
 
-deletecont(pid1:string)
+deletecont1(pid1:string)
 {
+  this.delete = pid1;
+  $('#myModal4').modal('show');
+  //console.log(this.delete);
+}
+
+deletecont()
+{
+  $('#myModal4').modal('hide');
   const db = firebase.firestore();
   var hello = this;
       db.collection('ContestsTimes')
-      .where('pid', '==', pid1).get()
+      .where('pid', '==', this.delete).get()
         .then((querySnapshot)=> {
    if (querySnapshot.size > 0) {
          querySnapshot.forEach(function(doc) {
@@ -1126,7 +1135,7 @@ deletecont(pid1:string)
       }
          });
         db.collection('AliveContestsTimes')
-      .where('pid', '==', pid1).get()
+      .where('pid', '==', this.delete).get()
         .then((querySnapshot)=> {
    if (querySnapshot.size > 0) {
          querySnapshot.forEach(function(doc) {
@@ -1140,13 +1149,13 @@ deletecont(pid1:string)
          });
 
 db.collection('CommonQuestionPapers')
-      .where('pid', '==', pid1)
+      .where('pid', '==', this.delete)
       .where('user','==',this.auth.getuser()).get()
         .then((querySnapshot)=> {
    if (querySnapshot.size > 0) {
          querySnapshot.forEach(function(doc) {
     doc.ref.delete();
-    localStorage.removeItem('examin'+pid1);
+    localStorage.removeItem('examin'+hello.delete);
         localStorage.removeItem('case'+hello.auth.getuser()
   +localStorage.getItem("epid"));
 localStorage.removeItem('hrs'+hello.auth.getuser()
@@ -1158,17 +1167,17 @@ localStorage.removeItem('secs'+hello.auth.getuser()
 localStorage.removeItem('examin'+localStorage.getItem("epid"));
 localStorage.removeItem('paperber'+localStorage.getItem("epid")+localStorage.getItem("user123"));
 localStorage.removeItem('numblimit'+localStorage.getItem("epid")+localStorage.getItem("user123"));
-localStorage.removeItem('case1'+pid1);
-localStorage.removeItem('dayD1'+pid1);
-localStorage.removeItem('monthD1'+pid1);
-localStorage.removeItem('yearD1'+pid1);
-localStorage.removeItem('hrs1'+pid1);
-localStorage.removeItem('mins1'+pid1);
-localStorage.removeItem('secs1'+pid1);
+localStorage.removeItem('case1'+hello.delete);
+localStorage.removeItem('dayD1'+hello.delete);
+localStorage.removeItem('monthD1'+hello.delete);
+localStorage.removeItem('yearD1'+hello.delete);
+localStorage.removeItem('hrs1'+hello.delete);
+localStorage.removeItem('mins1'+hello.delete);
+localStorage.removeItem('secs1'+hello.delete);
 localStorage.removeItem('king11');
 localStorage.removeItem('king44');
-localStorage.removeItem('dead'+pid1);
-localStorage.removeItem('alive'+pid1);
+localStorage.removeItem('dead'+hello.delete);
+localStorage.removeItem('alive'+hello.delete);
   //console.log("Document successfully deleted!");
     });
       } 

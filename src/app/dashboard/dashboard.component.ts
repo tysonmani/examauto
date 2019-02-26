@@ -38,6 +38,7 @@ NumForm: FormGroup;
 	crisis:boolean = false;
   spinner1:boolean = true;
 	ero:string = 'Null';
+  delete:string;
 
   constructor(private router: Router,private formBuilder: FormBuilder,private afs: AngularFirestore,private auth:AuthService) { }
 
@@ -222,34 +223,41 @@ update(id:string)
 	$('#myModal').modal('hide');
 	this.router.navigate(['updatepaper']);
 }
-deletepap(pid1:string)
+deletepap1(pid1:string)
 {
-	const db = firebase.firestore();
+  this.delete = pid1;
+  $('#myModal4').modal('show');
+  //console.log(this.delete);
+}
+deletepap()
+{
+  $('#myModal4').modal('hide');
+  const db = firebase.firestore();
   var hello = this;
-      db.collection('UserQuestionPaper').doc(this.auth.getuser()).collection(pid1)
+      db.collection('UserQuestionPaper').doc(this.auth.getuser()).collection(hello.delete)
       .where('qid','>',0).get()
       .then(function(querySnapshot) {
-  	querySnapshot.forEach(function(doc) {
+    querySnapshot.forEach(function(doc) {
     doc.ref.delete();
-	//console.log("Document successfully deleted1!");
+  //console.log("Document successfully deleted1!");
   });
 });
 
       db.collection('UsersQuestionPapers').doc(this.auth.getuser()).collection('QuestionPapersID')
-      .where('pid','==',pid1).get()
+      .where('pid','==',hello.delete).get()
       .then(function(querySnapshot) {
-  	querySnapshot.forEach(function(doc) {
+    querySnapshot.forEach(function(doc) {
     doc.ref.delete();
-	//console.log("Document successfully deleted2!");
+  //console.log("Document successfully deleted2!");
   });
 });
 
       db.collection('CommonQuestionPapers')
-      .where('pid','==',pid1).get()
+      .where('pid','==',hello.delete).get()
       .then(function(querySnapshot) {
-  	querySnapshot.forEach(function(doc) {
+    querySnapshot.forEach(function(doc) {
     doc.ref.delete();
-   localStorage.removeItem('examin'+pid1);
+   localStorage.removeItem('examin'+hello.delete);
        localStorage.removeItem('case'+hello.auth.getuser()
   +localStorage.getItem("epid"));
 localStorage.removeItem('hrs'+hello.auth.getuser()
@@ -261,18 +269,18 @@ localStorage.removeItem('secs'+hello.auth.getuser()
 localStorage.removeItem('examin'+localStorage.getItem("epid"));
 localStorage.removeItem('paperber'+localStorage.getItem("epid")+localStorage.getItem("user123"));
 localStorage.removeItem('numblimit'+localStorage.getItem("epid")+localStorage.getItem("user123"));
-localStorage.removeItem('case1'+pid1);
-localStorage.removeItem('dayD1'+pid1);
-localStorage.removeItem('monthD1'+pid1);
-localStorage.removeItem('yearD1'+pid1);
-localStorage.removeItem('hrs1'+pid1);
-localStorage.removeItem('mins1'+pid1);
-localStorage.removeItem('secs1'+pid1);
+localStorage.removeItem('case1'+hello.delete);
+localStorage.removeItem('dayD1'+hello.delete);
+localStorage.removeItem('monthD1'+hello.delete);
+localStorage.removeItem('yearD1'+hello.delete);
+localStorage.removeItem('hrs1'+hello.delete);
+localStorage.removeItem('mins1'+hello.delete);
+localStorage.removeItem('secs1'+hello.delete);
 localStorage.removeItem('king11');
 localStorage.removeItem('king44');
-localStorage.removeItem('dead'+pid1);
-localStorage.removeItem('alive'+pid1);
-	//console.log("Document successfully deleted2!");
+localStorage.removeItem('dead'+hello.delete);
+localStorage.removeItem('alive'+hello.delete);
+  //console.log("Document successfully deleted2!");
   });
 });
 

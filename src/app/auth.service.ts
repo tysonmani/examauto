@@ -146,7 +146,7 @@ sendmail(email123:string) {
      }
      getpap(papid:string,puser:string): Observable<any>
      {
-       return this.afs.collection('UserQuestionPaper').doc(puser).collection(papid).valueChanges();
+       return this.afs.collection('UserQuestionPaper').doc(puser).collection(papid,ref => ref.orderBy('qid')).valueChanges();
      }
      getexamers(papid:string): Observable<any>
      {
