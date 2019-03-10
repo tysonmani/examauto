@@ -63,7 +63,7 @@
 </div>
 </div>
 <div class="modal fade" id="myModal">
-    <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
       
         <!-- Modal Header -->
@@ -88,18 +88,17 @@
 <div class="container-fluid" >
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <div class="hello1">
+      <div class="hello1 d-flex justify-content-center">
     <ng-container *ngFor="let queq of lost;let i = index">
     <!--<div class="heck3">-->
   <h2 id="zoom">
     <!--<img id="zoom" src="assets/1156977.svg" alt="Cinque Terre" width="50" height="50">
     <span id = "ping">Id:</span>
     <span id = "ging">{{i+1}}</span>&nbsp;-->
-    <span><a style="padding:35px;" id = "fur" id ="fasak" (click)="quesnavigate(queq.qid)" class="button button1" *ngIf="!attempt[i]">{{i+1}}</a></span>
-    <span><a style="padding:35px;" id = "fur" id ="fasak" (click)="quesnavigate(queq.qid)" class="button button2" *ngIf="attempt[i]">{{i+1}}</a></span>
+    <span><a style="padding:35px;width:100px;margin-right:14px;" id = "fur" id ="fasak" (click)="quesnavigate(queq.qid)" class="button button1" *ngIf="!attempt[i]">{{i+1}}</a></span>
+    <span><a style="padding:35px;width:100px;margin-right:14px;" id = "fur" id ="fasak" (click)="quesnavigate(queq.qid)" class="button button2" *ngIf="attempt[i]">{{i+1}}</a></span>
   </h2>
     <!--</div>-->
-      <br><br>
   </ng-container>
         </div>
     </div>
@@ -138,10 +137,21 @@
         
         <!-- Modal body -->
         <div class="modal-body">
-          <h2 id="spa"><i id="wro" class="fa fa-exclamation-circle" style="font-size:36px"></i>Are you sure you want to submit the answers</h2>
-            <h2 id="spa"><span style="color:#3CB371;">Attempted:</span> {{counto}}/{{count}}</h2>
+          <div *ngIf="!cuber">
+          <h2 id="spa"><i id="wro" class="fa fa-exclamation-circle" style="font-size:36px"></i>Are you sure you want to submit the answers?</h2>
+            <!-- <h2 id="spa"><span style="color:#3CB371;">Attempted:</span> {{counto}}/{{count}}</h2> -->
             <br><div id="spa"><a id = "fur" id ="fasak" (click)="savenext1()" data-dismiss="modal" class="button button1"><h3>Proceed</h3></a></div>
+          </div>
+        <h3 *ngIf="cuber" id ="sin" style="color: #3CB371;">Load<span style="color: black;">ing......</span></h3>
+          <div *ngIf="cuber" class="spinner1">
+  <div class="rect1"></div>
+  <div class="rect2"></div>
+  <div class="rect3"></div>
+  <div class="rect4"></div>
+  <div class="rect5"></div>
+</div>
         </div>
+        
         
         <!-- Modal footer -->
         <div class="modal-footer">

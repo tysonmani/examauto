@@ -78,7 +78,7 @@
 </div>
 </div>
 <div class="modal fade" id="myModal">
-    <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
       
         <!-- Modal Header -->
@@ -103,15 +103,15 @@
 <div class="container-fluid" >
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <div class="hello1">
+      <div class="hello1 d-flex justify-content-center">
     <ng-container *ngFor="let queq of lost;let i = index">
     <!--<div class="heck3">-->
   <h2 id="zoom">
     <!--<img id="zoom" src="assets/1156977.svg" alt="Cinque Terre" width="50" height="50">
     <span id = "ping">Id:</span>
     <span id = "ging">{{i+1}}</span>&nbsp;-->
-    <span><a style="padding:35px;" id = "fur" id ="fasak" (click)="quesnavigate(queq.qid)" class="button button1" *ngIf="!attempt[i]">{{i+1}}</a></span>
-    <span><a style="padding:35px;" id = "fur" id ="fasak" (click)="quesnavigate(queq.qid)" class="button button2" *ngIf="attempt[i]">{{i+1}}</a></span>
+    <span><a style="padding:35px;width:100px;margin-right:14px;" id = "fur" id ="fasak" (click)="quesnavigate(queq.qid)" class="button button1" *ngIf="!attempt[i]">{{i+1}}</a></span>
+    <span><a style="padding:35px;width:100px;margin-right:14px;" id = "fur" id ="fasak" (click)="quesnavigate(queq.qid)" class="button button2" *ngIf="attempt[i]">{{i+1}}</a></span>
   </h2>
     <!--</div>-->
       <br><br>

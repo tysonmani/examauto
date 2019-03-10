@@ -34,6 +34,7 @@ yoyo1:boolean = false;
 yoyo2:boolean = false;
 yoyo3:boolean = false;
 yoyo4:boolean = false;
+cuber:boolean= false;
 temp:number=0;
 num1:number;
 quest:object={};
@@ -445,8 +446,12 @@ savenext(quesid:string)
   const db = firebase.firestore();
       if(parseInt(this.numblimit)+1 == this.count)
           {
+            this.cuber=true;
           this.queso=quesid;
           $('#myModal4').modal('show');
+          setTimeout(()=>{
+            this.cuber=false;
+             }, 1500);
           var count1=0;
           for(var i=0;i<this.lost.length;i++)
           {
