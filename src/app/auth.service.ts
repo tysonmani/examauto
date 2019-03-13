@@ -16,6 +16,7 @@ demoexaminstatus = JSON.parse(localStorage.getItem('demoexamin'+localStorage.get
 demoresultstatus = JSON.parse(localStorage.getItem('demoresult'+localStorage.getItem("random")) || 'false');
 oldresultstatus = JSON.parse(localStorage.getItem('oldresult'+localStorage.getItem("epid2")) || 'false');
 resultstatus = JSON.parse(localStorage.getItem('result'+localStorage.getItem("epid")) || 'false');
+ data;
   constructor(private http: HttpClient,private afs: AngularFirestore) { }
 
 sendmail(email123:string) {
@@ -41,6 +42,10 @@ sendmail(email123:string) {
       getuser()
       {
       	return localStorage.getItem('loggeduser');
+      }
+      getnumber()
+      {
+        return localStorage.getItem('loggednumber');
       }
       issignedup()
       {
@@ -115,10 +120,11 @@ sendmail(email123:string) {
       {
       return JSON.parse(localStorage.getItem('result'+localStorage.getItem("epid")) || 'false');
       }
-      setloggeduser(data:string,email123:string)
+      setloggeduser(data:string,email123:string,num123:number)
       {
         localStorage.setItem('loggeduser123',email123);
       	localStorage.setItem('loggeduser',data);
+        localStorage.setItem('loggednumber',num123.toString());
       } 
      getques(quesno:string): Observable<any>
      {
@@ -157,5 +163,8 @@ sendmail(email123:string) {
      {
        return this.afs.collection('UserDetails', ref => ref.where('name', '==', this.getuser())).valueChanges();
      }
-
+     /*getnumber()
+      {
+        this.data = this.afs.collection('UserDetails', ref => ref.where('name', '==', this.getuser())).valueChanges();
+      }*/
 }

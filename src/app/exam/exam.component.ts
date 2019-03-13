@@ -662,7 +662,8 @@ localStorage.removeItem('numblimit'+localStorage.getItem("epid")+localStorage.ge
       user:hello.auth.getuser(),
       score:sco,
       totscore:totsco,
-      email:hello.auth.getmail()
+      email:hello.auth.getmail(),
+      number:hello.auth.getnumber()
     }).then((docRef)=> {
            this.spinner = false;
     this.router.navigate(['results']);
@@ -700,7 +701,8 @@ localStorage.removeItem('numblimit'+localStorage.getItem("epid")+localStorage.ge
       user:hello.auth.getuser(),
       score:sco,
       totscore:totsco,
-      email:hello.auth.getmail() 
+      email:hello.auth.getmail(),
+      number:hello.auth.getnumber() 
     }).then((docRef)=> {
            this.spinner = false;
     this.router.navigate(['results']);
