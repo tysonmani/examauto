@@ -55,7 +55,7 @@ spinner:boolean = true;
 spinner1:boolean = true;
 PassForm: FormGroup;
 delete:string;
-
+time;
   constructor(private formBuilder: FormBuilder,private router: Router,private afs: AngularFirestore,private auth:AuthService) { }
 
   ngOnInit() {
@@ -109,18 +109,22 @@ const db = firebase.firestore();
         this.zip1 = false;
         this.spinner = false;
         this.quest = data123;
+         
          const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
- var d = new Date();
- var day, month, year,min,hr,sec;
-  day = d.getDate();
-  month = monthNames[d.getMonth()];
-  year = d.getFullYear();
-  min = d.getMinutes();
-  hr = d.getHours();
-  sec = d.getSeconds();
+var day, month,monthno,year,min,hr,sec;
+
+this.auth.getDate().subscribe((data) => {
+
+day = data.day;
+month = data.month;
+monthno = data.monthno;
+year = data.year;
+hr = data.hr;
+min = data.min;
+sec = data.sec;
 
 db.collection('CommonQuestionPapers')
   .where("pid", "==", localStorage.getItem("keypap"))
@@ -148,26 +152,26 @@ if(hello.papid1 == false)
               month=="June"||
               month=="September"||month=="November"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;day=1;
-                month = monthNames[d.getMonth()+1];
+                month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else if(((day+1)>28) && (month=="February"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;day=1;
-                month = monthNames[d.getMonth()+1];
+                month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else if(((day+1)>31) && (month=="January"||
@@ -175,14 +179,14 @@ if(hello.papid1 == false)
               month=="July"||month=="August"||
               month=="October"||month=="December"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;
-                day=1;month = monthNames[d.getMonth()+1];
+                day=1;month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else
@@ -205,26 +209,26 @@ if(hello.papid1 == false)
               month=="June"||
               month=="September"||month=="November"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;day=1;
-                month = monthNames[d.getMonth()+1];
+                month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else if(((day+1)>28) && (month=="February"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;day=1;
-                month = monthNames[d.getMonth()+1];
+                month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else if(((day+1)>31) && (month=="January"||
@@ -232,14 +236,14 @@ if(hello.papid1 == false)
               month=="July"||month=="August"||
               month=="October"||month=="December"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;
-                day=1;month = monthNames[d.getMonth()+1];
+                day=1;month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else
@@ -254,26 +258,26 @@ if(hello.papid1 == false)
               month=="June"||
               month=="September"||month=="November"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;day=1;
-                month = monthNames[d.getMonth()+1];
+                month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else if(((day+1)>28) && (month=="February"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;day=1;
-                month = monthNames[d.getMonth()+1];
+                month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else if(((day+1)>31) && (month=="January"||
@@ -281,14 +285,14 @@ if(hello.papid1 == false)
               month=="July"||month=="August"||
               month=="October"||month=="December"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;
-                day=1;month = monthNames[d.getMonth()+1];
+                day=1;month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else
@@ -311,26 +315,26 @@ if(hello.papid1 == false)
               month=="June"||
               month=="September"||month=="November"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;day=1;
-                month = monthNames[d.getMonth()+1];
+                month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else if(((day+1)>28) && (month=="February"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;day=1;
-                month = monthNames[d.getMonth()+1];
+                month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else if(((day+1)>31) && (month=="January"||
@@ -338,14 +342,14 @@ if(hello.papid1 == false)
               month=="July"||month=="August"||
               month=="October"||month=="December"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;
-                day=1;month = monthNames[d.getMonth()+1];
+                day=1;month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else
@@ -360,26 +364,26 @@ if(hello.papid1 == false)
               month=="June"||
               month=="September"||month=="November"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;day=1;
-                month = monthNames[d.getMonth()+1];
+                month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else if(((day+1)>28) && (month=="February"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;day=1;
-                month = monthNames[d.getMonth()+1];
+                month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else if(((day+1)>31) && (month=="January"||
@@ -387,14 +391,14 @@ if(hello.papid1 == false)
               month=="July"||month=="August"||
               month=="October"||month=="December"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;
-                day=1;month = monthNames[d.getMonth()+1];
+                day=1;month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else
@@ -409,26 +413,26 @@ if(hello.papid1 == false)
               month=="June"||
               month=="September"||month=="November"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;day=1;
-                month = monthNames[d.getMonth()+1];
+                month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else if(((day+1)>28) && (month=="February"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;day=1;
-                month = monthNames[d.getMonth()+1];
+                month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else if(((day+1)>31) && (month=="January"||
@@ -436,14 +440,14 @@ if(hello.papid1 == false)
               month=="July"||month=="August"||
               month=="October"||month=="December"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;
-                day=1;month = monthNames[d.getMonth()+1];
+                day=1;month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else
@@ -473,6 +477,7 @@ if(hello.papid1 == false)
     .catch(function(error) {
         //console.error("Error adding document: ", error);
       });
+     console.log(day,month,monthno,year,hr,hello.alive,sec);
     localStorage.setItem("case1"
   +localStorage.getItem("keypap"),'true');
 }
@@ -482,6 +487,9 @@ else{
 });
   }
 });
+
+});
+
       }
   else
   {
@@ -525,11 +533,12 @@ localStorage.setItem("hourD1"+pid,doc.data().hour);
 localStorage.setItem("minD1"+pid,doc.data().min);
 localStorage.setItem("secD1"+pid,doc.data().sec);
 localStorage.setItem('alive'+pid,'true');
-var countDownDate = new Date(doc.data().month
-  +doc.data().day+","
-  +doc.data().year+" "
-  +doc.data().hour+":"
-  +doc.data().min+":"+doc.data().sec).getTime();
+
+// var countDownDate = new Date(doc.data().month
+//   +doc.data().day+","
+//   +doc.data().year+" "
+//   +doc.data().hour+":"
+//   +doc.data().min+":"+doc.data().sec).getTime();
 
 // Update the count down every 1 second
       hello.papid123 = JSON.parse(localStorage.getItem('king11') || 'false');
@@ -540,14 +549,19 @@ var countDownDate = new Date(doc.data().month
     clearInterval(hello.num1);
   }
 
-// Update the count down every 1 second
 hello.num1 = window.setInterval(()=> {
+  hello.auth.getDate1(doc.data().month,doc.data().day,
+    doc.data().year,doc.data().hour,doc.data().min,
+    doc.data().sec).subscribe((data) => {
 
-  // Get todays date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
+   console.log(data);
+   hello.time = data.time;
+
+    //Find the distance between now and the count down date
+var countDownDate = data.countDown;
+
+// Find the distance between now and the count down date
+  var distance = countDownDate - hello.time;
     
   // Time calculations for days, hours, minutes and seconds
   var days1 = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -679,7 +693,10 @@ hello.num1 = window.setInterval(()=> {
          });
     $('#myModal2').modal('hide');
   }
+
+  });
 }, 1000);
+
            });
       } 
     else {
@@ -693,11 +710,11 @@ hello.num1 = window.setInterval(()=> {
 else
 {
 //console.log("localalive");
-var countDownDate = new Date(localStorage.getItem("monthD1"+pid)
-  +localStorage.getItem("dayD1"+pid)+","
-  +localStorage.getItem("yearD1"+pid)+" "
-  +localStorage.getItem("hourD1"+pid)+":"
-  +localStorage.getItem("minD1"+pid)+":"+localStorage.getItem("secD1"+pid)).getTime();
+// var countDownDate = new Date(localStorage.getItem("monthD1"+pid)
+//   +localStorage.getItem("dayD1"+pid)+","
+//   +localStorage.getItem("yearD1"+pid)+" "
+//   +localStorage.getItem("hourD1"+pid)+":"
+//   +localStorage.getItem("minD1"+pid)+":"+localStorage.getItem("secD1"+pid)).getTime();
 
 // Update the count down every 1 second
       hello.papid123 = JSON.parse(localStorage.getItem('king11') || 'false');
@@ -710,14 +727,23 @@ var countDownDate = new Date(localStorage.getItem("monthD1"+pid)
 
 // Update the count down every 1 second
 hello.num1 = window.setInterval(()=> {
+  hello.auth.getDate1(localStorage.getItem("monthD1"+pid),
+    parseInt(localStorage.getItem("dayD1"+pid)),
+    parseInt(localStorage.getItem("yearD1"+pid)),
+    parseInt(localStorage.getItem("hourD1"+pid)),
+    parseInt(localStorage.getItem("minD1"+pid)),
+    parseInt(localStorage.getItem("secD1"+pid))).subscribe((data) => {
 
-  // Get todays date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
+   console.log(data);
+   hello.time = data.time;
+
+    //Find the distance between now and the count down date
+var countDownDate = data.countDown;
+
+// Find the distance between now and the count down date
+  var distance = countDownDate - hello.time;
+
+// Time calculations for days, hours, minutes and seconds
   var days1 = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours1 = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes1 = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -847,7 +873,10 @@ hello.num1 = window.setInterval(()=> {
          });
     $('#myModal2').modal('hide');
   }
-}, 1000);
+
+    });
+  },1000);
+    
       }
 }
 
@@ -934,11 +963,12 @@ localStorage.setItem("yearA1"+pid,doc.data().year);
 localStorage.setItem("hourA1"+pid,doc.data().hour);
 localStorage.setItem("minA1"+pid,doc.data().min);
 localStorage.setItem('dead'+pid,'true');
-var countDownDate = new Date(doc.data().month
-  +doc.data().day+","
-  +doc.data().year+" "
-  +doc.data().hour+":"
-  +doc.data().min+":"+"0").getTime();
+
+// var countDownDate = new Date(doc.data().month
+//   +doc.data().day+","
+//   +doc.data().year+" "
+//   +doc.data().hour+":"
+//   +doc.data().min+":"+"0").getTime();
 
 // Update the count down every 1 second
       hello.papid = JSON.parse(localStorage.getItem('king44') || 'false');
@@ -949,15 +979,21 @@ var countDownDate = new Date(doc.data().month
     clearInterval(hello.num);
   }
 
-hello.num = window.setInterval(() => {
+hello.num = window.setInterval(()=> {
+  hello.auth.getDate1(doc.data().month,doc.data().day,
+    doc.data().year,doc.data().hour,doc.data().min,
+    0).subscribe((data) => {
 
-  // Get todays date and time
+   console.log(data);
+   hello.time = data.time;
 
-  var now = new Date().getTime();
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
+    //Find the distance between now and the count down date
+var countDownDate = data.countDown;
+
+// Find the distance between now and the count down date
+  var distance = countDownDate - hello.time;
+
+// Time calculations for days, hours, minutes and seconds
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -988,7 +1024,10 @@ hello.num = window.setInterval(() => {
     hello.jog = true;
   }
   }
-}, 1000);
+
+});
+  },1000);
+
            });
       } 
     else {
@@ -1002,11 +1041,11 @@ hello.num = window.setInterval(() => {
 else
 {
 //console.log("local");
-var countDownDate = new Date(localStorage.getItem("monthA1"+pid)
-  +localStorage.getItem("dayA1"+pid)+","
-  +localStorage.getItem("yearA1"+pid)+" "
-  +localStorage.getItem("hourA1"+pid)+":"
-  +localStorage.getItem("minA1"+pid)+":"+"0").getTime();
+// var countDownDate = new Date(localStorage.getItem("monthA1"+pid)
+//   +localStorage.getItem("dayA1"+pid)+","
+//   +localStorage.getItem("yearA1"+pid)+" "
+//   +localStorage.getItem("hourA1"+pid)+":"
+//   +localStorage.getItem("minA1"+pid)+":"+"0").getTime();
 
 // Update the count down every 1 second
       hello.papid = JSON.parse(localStorage.getItem('king44') || 'false');
@@ -1017,15 +1056,24 @@ var countDownDate = new Date(localStorage.getItem("monthA1"+pid)
     clearInterval(hello.num);
   }
 
-hello.num = window.setInterval(() => {
+hello.num = window.setInterval(()=> {
+ hello.auth.getDate1(localStorage.getItem("monthA1"+pid),
+    parseInt(localStorage.getItem("dayA1"+pid)),
+    parseInt(localStorage.getItem("yearA1"+pid)),
+    parseInt(localStorage.getItem("hourA1"+pid)),
+    parseInt(localStorage.getItem("minA1"+pid)),
+    0).subscribe((data) => {
 
-  // Get todays date and time
+   console.log(data);
+   hello.time = data.time;
 
-  var now = new Date().getTime();
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
+    //Find the distance between now and the count down date
+var countDownDate = data.countDown;
+
+// Find the distance between now and the count down date
+  var distance = countDownDate - hello.time;
+
+// Time calculations for days, hours, minutes and seconds
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -1056,7 +1104,10 @@ hello.num = window.setInterval(() => {
     hello.jog = true;
   }
   }
-}, 1000);
+
+});
+  },1000);
+    
 
 }
 }
@@ -1128,6 +1179,7 @@ deletecont()
          querySnapshot.forEach(function(doc) {
     doc.ref.delete();
   //console.log("Document successfully deleted!");
+  console.log("yep");
     });
       } 
     else {
@@ -1155,6 +1207,8 @@ db.collection('CommonQuestionPapers')
    if (querySnapshot.size > 0) {
          querySnapshot.forEach(function(doc) {
     doc.ref.delete();
+     clearInterval(hello.num);
+     clearInterval(hello.num1);
     localStorage.removeItem('examin'+hello.delete);
         localStorage.removeItem('case'+hello.auth.getuser()
   +localStorage.getItem("epid"));
