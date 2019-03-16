@@ -35,6 +35,7 @@ NumForm: FormGroup;
   ero:string = 'Null';
   spinner1:boolean = true;
   delete:string;
+  vola:boolean = false;
   constructor(private router: Router,private formBuilder: FormBuilder,private afs: AngularFirestore,private auth:AuthService) { }
 
   ngOnInit() {
@@ -292,6 +293,30 @@ onSubmit123()
   const db = firebase.firestore();
   var hello = this;
   localStorage.setItem("keypap",this.pappo);
+     var time;
+     time = $('#myTime').val();
+   var ion = time.split(':');
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+  //$('#submit123').on('click', ()=>{
+    
+  var date = new Date($('#date-input').val());
+  var day, month,monthos,year,hr1,min1;
+  day = date.getDate();
+  month = date.getMonth();
+  monthos = date.getMonth()+1;
+  year = date.getFullYear();
+  var d = new Date();
+   var day1, month1, year1;
+  hr1 = d.getHours();
+  min1 = d.getMinutes();
+  day1 = d.getDate();
+  month1 = d.getMonth() + 1;
+  year1 = d.getFullYear();
+    //console.log(ion[0],ion[1]);
+
+
  db.collection('UsersQuestionPapers').doc(this.auth.getuser())
  .collection('QuestionPapersID')
  .where('pid','==',this.pappo).get().then((querySnapshot)=> {
@@ -307,14 +332,17 @@ onSubmit123()
         .then((querySnapshot)=> {
    if (querySnapshot.size > 0) {
          querySnapshot.forEach((doc)=> {
+
       db.collection('CommonQuestionPapers')
       .where('pid','==',hello.pappo).get()
       .then((querySnapshot)=> {
     querySnapshot.forEach((doc)=> {
-    doc.ref.update({time:hello.NumForm.value.dur});
+      $('#myModal1').modal('hide');
+      $('#myModalA').modal('show');
   //console.log("Document successfully updated!");
     });
 });
+
     });
       } 
     else {
@@ -325,99 +353,70 @@ onSubmit123()
       time:hello.NumForm.value.dur,
       alive:hello.NumForm.value.alive,
       user:hello.auth.getuser()
-    }).then(function(docRef) {
-        //console.log("Document written with ID: ", docRef.id);
+    }).then(function(docRef) {   
+
     })
     .catch(function(error) {
         //console.error("Error adding document: ", error);
       });
-      }
-         });
-      });
-      } 
-    else {
-       //$('#myModal1').modal('show');
-      }
-         });
 
+//console.log("dumb")
+  hello.bool1 = false;
+  hello.bool2 = false;
+  hello.drink = false;
 
-
-  this.bool1 = false;
-  this.bool2 = false;
-  this.drink = false;
-  const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-];
-  //$('#submit123').on('click', ()=>{
-    
-  var date = new Date($('#date-input').val());
-  var day, month,monthos,year,time,hr1,min1;
-  time = $('#myTime').val();
-  day = date.getDate();
-  month = date.getMonth();
-  monthos = date.getMonth()+1;
-  year = date.getFullYear();
-  var d = new Date();
-   var day1, month1, year1;
-  hr1 = d.getHours();
-  min1 = d.getMinutes();
-  day1 = d.getDate();
-  month1 = d.getMonth() + 1;
-  year1 = d.getFullYear();
-  var ion = time.split(':');
-    //console.log(day,month1,year,ion[0],ion[1]);
     if(year==year1 && monthos==month1 && day==day1)
     {
   if(ion[0]==hr1)
   {
     if(ion[1]>min1)
     {
-      this.drink = true;
+      hello.drink = true;
     }
     else
     {
-      this.spinner1=true;
-      this.ero = "Enter the Correct Time(Minutes)!!";
-      this.bool2 = true;
+      hello.spinner1=true;
+      hello.ero = "Enter the Correct Time(Minutes)!!";
+      hello.bool2 = true;
     }
   }
   else if (ion[0]>hr1) 
   {
-    this.drink = true;
+    hello.drink = true;
   }
   else
   {
-    this.spinner1=true;
-      this.ero = "Enter the Correct Time(Hours and Minutes)!!";
-      this.bool2 = true;
+    hello.spinner1=true;
+      hello.ero = "Enter the Correct Time(Hours and Minutes)!!";
+      hello.bool2 = true;
   }
   }
   else if(year<year1)
   {
-      this.spinner1=true;
-      this.ero = "Enter Correct Year!!";
-      this.bool2 = true;
+      hello.spinner1=true;
+      hello.ero = "Enter Correct Year!!";
+      hello.bool2 = true;
   }
     else if(monthos<month1)
   {
-      this.spinner1=true;
-      this.ero = "Enter Correct Month!!";
-      this.bool2 = true;
+      hello.spinner1=true;
+      hello.ero = "Enter Correct Month!!";
+      hello.bool2 = true;
   }
   else if(day<day1)
   {
-      this.spinner1=true;
-      this.ero = "Enter Correct Day!!";
-      this.bool2 = true;
+      hello.spinner1=true;
+      hello.ero = "Enter Correct Day!!";
+      hello.bool2 = true;
   }
 
   else
   {
-    this.drink = true;
+    hello.drink = true;
   }
-  if(this.drink == true)
+  if(hello.drink == true)
   {
-      db.collection('ContestsTimes')
+ db.collection('ContestsTimes')
       .add({
       pid:localStorage.getItem("papid"),
       day:day,
@@ -440,6 +439,16 @@ onSubmit123()
       });
 
   }
+
+      }
+         });
+      });
+      } 
+    else {
+       //$('#myModal1').modal('show');
+      }
+         });
+
 
 }
 
