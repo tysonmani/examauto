@@ -770,7 +770,9 @@ hello.middle = "Nothing";
     hello.bomb1 =false;
     hello.bomb2 =false;
     $('#myModal').modal('show');
-
+     hello.PassForm.reset({
+     password: ''
+     });
       db.collection('ContestsTimes')
       .where('pid', '==', pid).get()
       .then((querySnapshot)=> {
@@ -853,6 +855,7 @@ this.spinner1 = false;
 const db = firebase.firestore();
   var hello = this;
 db.collection('CommonQuestionPapers')
+      .where('pid', '==', localStorage.getItem("epid"))
       .where('pass', '==', this.PassForm.value.password)
      .get()
         .then((querySnapshot)=> {

@@ -51,6 +51,7 @@ exists:string;
 spinner:boolean = true;
 queso:string;
 counto:number=0;
+time;
   constructor(private router: Router,private formBuilder: FormBuilder,private afs: AngularFirestore,private auth:AuthService) { }
 
   ngOnInit() {
@@ -173,24 +174,28 @@ else
          hello.horror1 = false;
    // console.log(hello.quest,hello.count,hello.lost[0]);
 }
-         // console.log(localStorage.getItem("user213"));
+
+         const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+
+var day, month,monthno,year,min,hr,sec;
+
+this.auth.getDate().subscribe((data) => {
+
+day = data.day;
+month = data.month;
+monthno = data.monthno;
+year = data.year;
+hr = data.hr;
+min = data.min;
+sec = data.sec;
+
+ // console.log(localStorage.getItem("user213"));
 hello.papid = JSON.parse(localStorage.getItem('case'
   +hello.auth.getuser()
   +localStorage.getItem("epid2")) || 'false');
 //console.log(hello.papid);
-        const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-];
-
-        var d = new Date();
-      var day, month, year,min,hr,sec;
-      day = d.getDate();
-  month = monthNames[d.getMonth()];
-  year = d.getFullYear();
-  min = d.getMinutes();
-  hr = d.getHours();
-  sec = d.getSeconds();
-
 if(hello.papid == false)
 {
   //console.log("kick2");
@@ -205,26 +210,26 @@ if(hello.papid == false)
               month=="June"||
               month=="September"||month=="November"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;day=1;
-                month = monthNames[d.getMonth()+1];
+                month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else if(((day+1)>28) && (month=="February"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;day=1;
-                month = monthNames[d.getMonth()+1];
+                month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else if(((day+1)>31) && (month=="January"||
@@ -232,14 +237,14 @@ if(hello.papid == false)
               month=="July"||month=="August"||
               month=="October"||month=="December"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;
-                day=1;month = monthNames[d.getMonth()+1];
+                day=1;month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else
@@ -275,15 +280,16 @@ else{
 
 }
 
+});
 
 // Set the date we're counting down to
-var countDownDate = new Date(localStorage.getItem("monthZ"+hello.auth.getuser()
-  +localStorage.getItem("epid2"))+parseInt(localStorage.getItem("dayZ"+hello.auth.getuser()
-  +localStorage.getItem("epid2")))+","+parseInt(localStorage.getItem("yearZ"+hello.auth.getuser()
-  +localStorage.getItem("epid2")))+" "+parseInt(localStorage.getItem("hrs"+hello.auth.getuser()
-  +localStorage.getItem("epid2")))+":"+parseInt(localStorage.getItem("mins"+hello.auth.getuser()
-  +localStorage.getItem("epid2")))+":"+parseInt(localStorage.getItem("secs"+hello.auth.getuser()
-  +localStorage.getItem("epid2")))).getTime();
+// var countDownDate = new Date(localStorage.getItem("monthZ"+hello.auth.getuser()
+//   +localStorage.getItem("epid2"))+parseInt(localStorage.getItem("dayZ"+hello.auth.getuser()
+//   +localStorage.getItem("epid2")))+","+parseInt(localStorage.getItem("yearZ"+hello.auth.getuser()
+//   +localStorage.getItem("epid2")))+" "+parseInt(localStorage.getItem("hrs"+hello.auth.getuser()
+//   +localStorage.getItem("epid2")))+":"+parseInt(localStorage.getItem("mins"+hello.auth.getuser()
+//   +localStorage.getItem("epid2")))+":"+parseInt(localStorage.getItem("secs"+hello.auth.getuser()
+//   +localStorage.getItem("epid2")))).getTime();
 
       hello.papid123 = JSON.parse(localStorage.getItem('king123') || 'false');
     if(hello.papid123 == 'false')
@@ -293,13 +299,24 @@ var countDownDate = new Date(localStorage.getItem("monthZ"+hello.auth.getuser()
 
 // Update the count down every 1 second
 hello.num = window.setInterval(()=> {
+  hello.auth.getDate1(
+localStorage.getItem("monthZ"+hello.auth.getuser()
+  +localStorage.getItem("epid2")),parseInt(localStorage.getItem("dayZ"+hello.auth.getuser()
+  +localStorage.getItem("epid2"))),parseInt(localStorage.getItem("yearZ"+hello.auth.getuser()
+  +localStorage.getItem("epid2"))),parseInt(localStorage.getItem("hrs"+hello.auth.getuser()
+  +localStorage.getItem("epid2"))),parseInt(localStorage.getItem("mins"+hello.auth.getuser()
+  +localStorage.getItem("epid2"))),parseInt(localStorage.getItem("secs"+hello.auth.getuser()
+  +localStorage.getItem("epid2")))).subscribe((data) => {
 
-  // Get todays date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
+   console.log(data);
+   hello.time = data.time;
+
+    //Find the distance between now and the count down date
+var countDownDate = data.countDown;
+
+// Find the distance between now and the count down date
+  var distance = countDownDate - hello.time;
+
   // Time calculations for days, hours, minutes and seconds
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -323,7 +340,10 @@ hello.num = window.setInterval(()=> {
     hello.resultcal();
     }, 1000);
   }
-}, 1000);
+
+  });
+},1000);    
+
   });
          
      }

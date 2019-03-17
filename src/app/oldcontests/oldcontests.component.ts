@@ -146,6 +146,7 @@ this.PassForm = this.formBuilder.group({
   {
       this.bool1 = false;
       this.bool2  =false;
+      this.middle="Nothing!!";
     localStorage.setItem("epid2",pid);
     $('#myModal').modal('show');
      this.PassForm.reset({
@@ -169,6 +170,7 @@ const db = firebase.firestore();
   });
 });
 db.collection('OldCommonQuestionPapers')
+.where('pid', '==', localStorage.getItem("epid2"))
       .where('pass', '==', this.PassForm.value.password)
      .get()
         .then((querySnapshot)=> {

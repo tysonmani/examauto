@@ -51,6 +51,7 @@ spinner:boolean = true;
 attempt=[0];
 queso:string;
 counto:number=0;
+time;
   constructor(private router: Router,private formBuilder: FormBuilder,private afs: AngularFirestore,private auth:AuthService) { }
 
   ngOnInit() {
@@ -62,6 +63,7 @@ counto:number=0;
 
   const db = firebase.firestore();
   var hello = this;
+
  db.collection('CommonQuestionPapers')
  .where('pid','==',localStorage.getItem("epid")).get()
  .then((querySnapshot)=> {
@@ -129,9 +131,6 @@ if(hello.paperber == false)
 }
 else
 {
-  //localStorage.removeItem('paperber'+localStorage.getItem("epid")+localStorage.getItem("user123"));
-//localStorage.removeItem('numblimit'+localStorage.getItem("epid")+localStorage.getItem("user123"));
-    //console.log(hello.numblimit);
     hello.lost=JSON.parse(localStorage.getItem("Data"));
     hello.count = hello.lost.length;
     hello.optchecker1(hello.lost[parseInt(hello.numblimit)].qid);
@@ -171,26 +170,32 @@ else
     //console.log(hello.quest,hello.count,hello.lost[0]);
 }
          // console.log(localStorage.getItem("user123"));
-hello.papid = JSON.parse(localStorage.getItem('case'
-	+hello.auth.getuser()
-	+localStorage.getItem("epid")) || 'false');
-//console.log(hello.papid);
-        const monthNames = ["January", "February", "March", "April", "May", "June",
+
+         const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
-        var d = new Date();
-      var day, month, year,min,hr,sec;
-      day = d.getDate();
-  month = monthNames[d.getMonth()];
-  year = d.getFullYear();
-  min = d.getMinutes();
-  hr = d.getHours();
-  sec = d.getSeconds();
+var day, month,monthno,year,min,hr,sec;
+
+this.auth.getDate().subscribe((data) => {
+
+day = data.day;
+month = data.month;
+monthno = data.monthno;
+year = data.year;
+hr = data.hr;
+min = data.min;
+sec = data.sec;
+
+hello.papid = JSON.parse(localStorage.getItem('case'
+  +hello.auth.getuser()
+  +localStorage.getItem("epid")) || 'false');
+//console.log(hello.papid);
+
 if(hello.papid == false)
 {
     hello.ptime = doc.data().time;
-    	  hello.ptime+=min;
+        hello.ptime+=min;
         if(hello.ptime>=60)
         {
           if((hr+1)>23)
@@ -200,26 +205,26 @@ if(hello.papid == false)
               month=="June"||
               month=="September"||month=="November"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;day=1;
-                month = monthNames[d.getMonth()+1];
+                month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else if(((day+1)>28) && (month=="February"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;day=1;
-                month = monthNames[d.getMonth()+1];
+                month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else if(((day+1)>31) && (month=="January"||
@@ -227,14 +232,14 @@ if(hello.papid == false)
               month=="July"||month=="August"||
               month=="October"||month=="December"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;
-                day=1;month = monthNames[d.getMonth()+1];
+                day=1;month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else
@@ -248,37 +253,38 @@ if(hello.papid == false)
           }
           hello.ptime%=60;
         }
-    	  	
-    	      //console.log(hello.ptime);
+          
+            //console.log(hello.ptime);
           localStorage.setItem("IOday"+hello.auth.getuser()
   +localStorage.getItem("epid"),day);
           localStorage.setItem("IOmonth"+hello.auth.getuser()
   +localStorage.getItem("epid"),month);
           localStorage.setItem("IOyear"+hello.auth.getuser()
   +localStorage.getItem("epid"),year);
-    	localStorage.setItem("hrs"+hello.auth.getuser()
-	+localStorage.getItem("epid"),hr);
-    	localStorage.setItem("mins"+hello.auth.getuser()
-	+localStorage.getItem("epid"),hello.ptime.toString());
-    	localStorage.setItem("secs"+hello.auth.getuser()
-	+localStorage.getItem("epid"),sec);
-	  localStorage.setItem("case"+hello.auth.getuser()
-	+localStorage.getItem("epid"),'true');
+      localStorage.setItem("hrs"+hello.auth.getuser()
+  +localStorage.getItem("epid"),hr);
+      localStorage.setItem("mins"+hello.auth.getuser()
+  +localStorage.getItem("epid"),hello.ptime.toString());
+      localStorage.setItem("secs"+hello.auth.getuser()
+  +localStorage.getItem("epid"),sec);
+    localStorage.setItem("case"+hello.auth.getuser()
+  +localStorage.getItem("epid"),'true');
 
 }
 else{
 
 }
 
+});
 
 // Set the date we're counting down to
-var countDownDate = new Date(localStorage.getItem("IOmonth"+hello.auth.getuser()
-  +localStorage.getItem("epid"))+parseInt(localStorage.getItem("IOday"+hello.auth.getuser()
-  +localStorage.getItem("epid")))+","+parseInt(localStorage.getItem("IOyear"+hello.auth.getuser()
-  +localStorage.getItem("epid")))+" "+parseInt(localStorage.getItem("hrs"+hello.auth.getuser()
-	+localStorage.getItem("epid")))+":"+parseInt(localStorage.getItem("mins"+hello.auth.getuser()
-	+localStorage.getItem("epid")))+":"+parseInt(localStorage.getItem("secs"+hello.auth.getuser()
-	+localStorage.getItem("epid")))).getTime();
+// var countDownDate = new Date(localStorage.getItem("IOmonth"+hello.auth.getuser()
+//   +localStorage.getItem("epid"))+parseInt(localStorage.getItem("IOday"+hello.auth.getuser()
+//   +localStorage.getItem("epid")))+","+parseInt(localStorage.getItem("IOyear"+hello.auth.getuser()
+//   +localStorage.getItem("epid")))+" "+parseInt(localStorage.getItem("hrs"+hello.auth.getuser()
+// 	+localStorage.getItem("epid")))+":"+parseInt(localStorage.getItem("mins"+hello.auth.getuser()
+// 	+localStorage.getItem("epid")))+":"+parseInt(localStorage.getItem("secs"+hello.auth.getuser()
+// 	+localStorage.getItem("epid")))).getTime();
 
       hello.papid123 = JSON.parse(localStorage.getItem('king123') || 'false');
     if(hello.papid123 == 'false')
@@ -287,15 +293,27 @@ var countDownDate = new Date(localStorage.getItem("IOmonth"+hello.auth.getuser()
     clearInterval(hello.num);
 
 // Update the count down every 1 second
-hello.num = window.setInterval(()=> {
 
-  // Get todays date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
+hello.num = window.setInterval(()=> {
+  hello.auth.getDate1(
+localStorage.getItem("IOmonth"+hello.auth.getuser()
+  +localStorage.getItem("epid")),parseInt(localStorage.getItem("IOday"+hello.auth.getuser()
+  +localStorage.getItem("epid"))),parseInt(localStorage.getItem("IOyear"+hello.auth.getuser()
+  +localStorage.getItem("epid"))),parseInt(localStorage.getItem("hrs"+hello.auth.getuser()
+  +localStorage.getItem("epid"))),parseInt(localStorage.getItem("mins"+hello.auth.getuser()
+  +localStorage.getItem("epid"))),parseInt(localStorage.getItem("secs"+hello.auth.getuser()
+  +localStorage.getItem("epid")))).subscribe((data) => {
+
+   console.log(data);
+   hello.time = data.time;
+
+    //Find the distance between now and the count down date
+var countDownDate = data.countDown;
+
+// Find the distance between now and the count down date
+  var distance = countDownDate - hello.time;
+
+ // Time calculations for days, hours, minutes and seconds
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -318,7 +336,10 @@ hello.num = window.setInterval(()=> {
     hello.resultcal();
     }, 1000);
   }
-}, 1000);
+
+});
+},1000); 
+
   });
          
      }
@@ -328,7 +349,6 @@ hello.num = window.setInterval(()=> {
      }
          });
           this.createform();
-
         //this.optchecker1(this.lost[parseInt(this.numblimit)].qid);
   }
 

@@ -51,27 +51,31 @@ spinner:boolean = true;
 attempt=[0];
 queso:string;
 counto:number=0;
+time;
   constructor(private router: Router,private formBuilder: FormBuilder,private afs: AngularFirestore,private auth:AuthService) { }
 
   ngOnInit() {
 
     this.paperID = "QP59212";
 
-        const monthNames = ["January", "February", "March", "April", "May", "June",
+         const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
-        var d = new Date();
-      var day, month, year,min,hr,sec;
-      day = d.getDate();
-  month = monthNames[d.getMonth()];
-  year = d.getFullYear();
-  min = d.getMinutes();
-  hr = d.getHours();
-  sec = d.getSeconds();
+var day, month,monthno,year,min,hr,sec;
 
   const db = firebase.firestore();
   var hello = this;
+
+this.auth.getDate().subscribe((data) => {
+
+day = data.day;
+month = data.month;
+monthno = data.monthno;
+year = data.year;
+hr = data.hr;
+min = data.min;
+sec = data.sec;
 
           localStorage.setItem("user321",'DemoUser');
          // console.log(localStorage.getItem("user321"));
@@ -92,26 +96,26 @@ if(hello.papid == false)
               month=="June"||
               month=="September"||month=="November"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;day=1;
-                month = monthNames[d.getMonth()+1];
+                month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else if(((day+1)>28) && (month=="February"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;day=1;
-                month = monthNames[d.getMonth()+1];
+                month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else if(((day+1)>31) && (month=="January"||
@@ -119,14 +123,14 @@ if(hello.papid == false)
               month=="July"||month=="August"||
               month=="October"||month=="December"))
             {
-              if(d.getMonth()+1>11)
+              if(monthno+1>11)
               {
                 year+=1;
-                day=1;month = monthNames[d.getMonth()+1];
+                day=1;month = monthNames[monthno+1];
               }
               else
               {
-              day=1;month = monthNames[d.getMonth()+1];
+              day=1;month = monthNames[monthno+1];
               }
             }
             else
@@ -162,15 +166,17 @@ else{
 
 }
 
+});
+
 
 // Set the date we're counting down to
-var countDownDate = new Date(localStorage.getItem("Umonth"+localStorage.getItem("random")
-  +'QP59212')+parseInt(localStorage.getItem("Uday"+localStorage.getItem("random")
-  +'QP59212'))+","+parseInt(localStorage.getItem("Uyear"+localStorage.getItem("random")
-  +'QP59212'))+" "+parseInt(localStorage.getItem("hrs"+localStorage.getItem("random")
-  +'QP59212'))+":"+parseInt(localStorage.getItem("mins"+localStorage.getItem("random")
-  +'QP59212'))+":"+parseInt(localStorage.getItem("secs"+localStorage.getItem("random")
-  +'QP59212'))).getTime();
+// var countDownDate = new Date(localStorage.getItem("Umonth"+localStorage.getItem("random")
+//   +'QP59212')+parseInt(localStorage.getItem("Uday"+localStorage.getItem("random")
+//   +'QP59212'))+","+parseInt(localStorage.getItem("Uyear"+localStorage.getItem("random")
+//   +'QP59212'))+" "+parseInt(localStorage.getItem("hrs"+localStorage.getItem("random")
+//   +'QP59212'))+":"+parseInt(localStorage.getItem("mins"+localStorage.getItem("random")
+//   +'QP59212'))+":"+parseInt(localStorage.getItem("secs"+localStorage.getItem("random")
+//   +'QP59212'))).getTime();
 
       hello.papid123 = JSON.parse(localStorage.getItem('king123') || 'false');
     if(hello.papid123 == 'false')
@@ -180,13 +186,24 @@ var countDownDate = new Date(localStorage.getItem("Umonth"+localStorage.getItem(
 
 // Update the count down every 1 second
 hello.num1 = window.setInterval(()=> {
+  hello.auth.getDate1(
+localStorage.getItem("Umonth"+localStorage.getItem("random")
++'QP59212'),parseInt(localStorage.getItem("Uday"+localStorage.getItem("random")
+ +'QP59212')),parseInt(localStorage.getItem("Uyear"+localStorage.getItem("random")
+ +'QP59212')),parseInt(localStorage.getItem("hrs"+localStorage.getItem("random")
++'QP59212')),parseInt(localStorage.getItem("mins"+localStorage.getItem("random")
++'QP59212')),parseInt(localStorage.getItem("secs"+localStorage.getItem("random")
++'QP59212'))).subscribe((data) => {
 
-  // Get todays date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
+   console.log(data);
+   hello.time = data.time;
+
+    //Find the distance between now and the count down date
+var countDownDate = data.countDown;
+
+// Find the distance between now and the count down date
+  var distance = countDownDate - hello.time;
+
   // Time calculations for days, hours, minutes and seconds
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -210,7 +227,9 @@ hello.num1 = window.setInterval(()=> {
     hello.resultcal();
     }, 1000);
   }
-}, 1000);
+
+     });
+},1000);
 
 this.createform();
 this.paperber = JSON.parse(localStorage.getItem('paperber'+localStorage.getItem("epid1")+localStorage.getItem("user321")) || 'false');
