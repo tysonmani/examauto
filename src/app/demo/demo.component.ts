@@ -602,7 +602,7 @@ resultcal()
   var hello = this;
 
 var sco=0,totsco=0;
-
+clearInterval(hello.num1);
 localStorage.removeItem('paperber1'+localStorage.getItem("epid1")+localStorage.getItem("user321"));
   localStorage.removeItem('numblimit1'+localStorage.getItem("epid1")+localStorage.getItem("user321"));
 localStorage.removeItem('demoexamin'+localStorage.getItem("epid1"));

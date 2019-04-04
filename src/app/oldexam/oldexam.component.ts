@@ -277,7 +277,7 @@ if(hello.papid == false)
 
 }
 else{
-
+//console.log("Nokick2");
 }
 
 });
@@ -293,9 +293,15 @@ else{
 
       hello.papid123 = JSON.parse(localStorage.getItem('king123') || 'false');
     if(hello.papid123 == 'false')
+    {
     localStorage.setItem("king123",localStorage.getItem("epid2"));
+      //console.log("ginger"); 
+    }
   else
+  {
+     //console.log("Noginger"); 
     clearInterval(hello.num);
+  }
 
 // Update the count down every 1 second
 hello.num = window.setInterval(()=> {
@@ -308,7 +314,6 @@ localStorage.getItem("monthZ"+hello.auth.getuser()
   +localStorage.getItem("epid2"))),parseInt(localStorage.getItem("secs"+hello.auth.getuser()
   +localStorage.getItem("epid2")))).subscribe((data) => {
 
-   console.log(data);
    hello.time = data.time;
 
     //Find the distance between now and the count down date
@@ -332,6 +337,7 @@ var countDownDate = data.countDown;
     
   // If the count down is over, write some text 
   if (distance < 0) {
+    //console.log(distance);
     clearInterval(hello.num);
     hello.mess = "ExamOver!!";
     hello.bool = true;
@@ -626,6 +632,8 @@ this.auth.setoldresult(true);
   var hello = this;
 
 var sco=0,totsco=0;
+//console.log("JaiHind");
+clearInterval(hello.num);
   localStorage.removeItem('paperber2'+localStorage.getItem("epid2")+localStorage.getItem("user213"));
   localStorage.removeItem('numblimit2'+localStorage.getItem("epid2")+localStorage.getItem("user213"));
  localStorage.removeItem('oldexamin'+localStorage.getItem("epid2"));

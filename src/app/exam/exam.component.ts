@@ -622,7 +622,7 @@ resultcal()
   this.auth.setresult(true);
   const db = firebase.firestore();
   var hello = this;
-
+clearInterval(hello.num);
 var sco=0,totsco=0;
   localStorage.removeItem('paperber0'+localStorage.getItem("epid")+localStorage.getItem("user123"));
   localStorage.removeItem('numblimit0'+localStorage.getItem("epid")+localStorage.getItem("user123"));
