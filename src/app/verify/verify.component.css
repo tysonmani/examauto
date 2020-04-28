@@ -122,6 +122,9 @@ a#fur:hover
     background-color: black; 
     color: white;
 }
+.button1:disabled {
+  cursor:not-allowed;
+}
 #fasak
 {
     font-size: 120%;

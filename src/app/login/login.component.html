@@ -13,10 +13,10 @@
 <label for="password" >Password :</label>
   <input data-toggle="tooltip" data-placement="bottom" type="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  formControlName="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Password...." required>
 
-    		     	<br><br *ngIf="!LoginForm.invalid">
+    		     	<br><br>
 
-  <button type="submit" id ="fasak" class="button button1" *ngIf="!LoginForm.invalid">Login</button><br>
-  <br *ngIf="!LoginForm.invalid">
+  <button type="submit" id ="fasak" class="button button1" [disabled]="LoginForm.invalid">Login</button><br>
+  <br>
 	<h3 style="color:black;">ForgotPassword?</h3>
 <a id = "fur" routerLink="/password" class="button button1"><h3>Generate</h3></a><br><br>
 <a routerLink="/verify" style="color:white;font-size: 130%;">NewUser?SignUp</a><br><br>

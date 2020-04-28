@@ -323,6 +323,9 @@ a#fur:hover
     color:white;
     background-color: black; 
 }
+.button1:disabled {
+  cursor:not-allowed;
+}
 input
 {
   border-radius:6px;

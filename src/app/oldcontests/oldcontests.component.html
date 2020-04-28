@@ -81,12 +81,12 @@
         <div *ngIf="spinner1">
           <form *ngIf="bomb" novalidate [formGroup]="PassForm" (ngSubmit)="start()">
    <h4><span style="color:#3CB371;">Enter</span> SecretKey</h4>
-    <input style="padding:1%;border-radius:5px;" type="password" pattern="[0-9]*" formControlName="password" title="SecretKey!!" placeholder="SecretKey...." required><br *ngIf="!PassForm.invalid"><br>
+    <input style="padding:1%;border-radius:5px;" type="password" pattern="[0-9]*" formControlName="password" title="SecretKey!!" placeholder="SecretKey...." required><br><br>
   <h4><span style="color:#3CB371;">Process</span> Status :
     <span *ngIf="bool2"><i class="fa fa-check-square-o" style="font-size:24px;color:green;"></i></span>
 <span *ngIf="bool1"><i id="wro" class="fa fa-times-circle" style="font-size:36px"></i></span>
   {{middle}}</h4>
-  <button type="submit" id ="fasak" class="button button1" *ngIf="!PassForm.invalid">StartTest</button><br *ngIf="!PassForm.invalid"><br>
+  <button type="submit" id ="fasak" class="button button1" [disabled]="PassForm.invalid">StartTest</button><br><br>
     </form>
   </div>
           <h1 *ngIf="jog"><a id = "fur" id ="fasak" (click)="login()" class="button button1">login</a></h1>

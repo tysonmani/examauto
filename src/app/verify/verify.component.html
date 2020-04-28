@@ -11,15 +11,15 @@
      <form novalidate *ngIf="!emailsuc" [formGroup]="EmailForm" (ngSubmit)="onSubmit()">
      	<label for="email" >Email :</label><br>
   <input type="email" formControlName="email" placeholder="Email.." email required><br><br>
-  <button type="submit" id ="fasak" class="button button1"  *ngIf="!EmailForm.invalid">Proceed</button><br>
-  <br *ngIf="!EmailForm.invalid"><br>
+  <button type="submit" id ="fasak" class="button button1"  [disabled]="EmailForm.invalid">Proceed</button><br>
+  <br><br>
     <p id ="sin" style="color:white;font-size: 120%;
 	font-weight: 700;">@ 2018<span style="color: black;">ExamAutomata</span></p>
 </form>
      <form novalidate *ngIf="emailsuc" [formGroup]="OtpForm" (ngSubmit)="onSubmitotp()">
      <input formControlName="otp" placeholder="OTP..." type="otp" pattern="[0-9]*" required><br><br>
-  <button type="submit" id ="fasak" class="button button1" *ngIf="!OtpForm.invalid">Proceed</button><br>
-  <br *ngIf="!OtpForm.invalid"><br>
+  <button type="submit" id ="fasak" class="button button1" [disabled]="OtpForm.invalid">Proceed</button><br>
+  <br><br>
       <p id ="sin" style="color:white;font-size: 120%;
 	font-weight: 700;">@ 2018<span style="color: black;">ExamAutomata</span></p>
 </form>

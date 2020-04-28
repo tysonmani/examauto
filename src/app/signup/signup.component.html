@@ -18,8 +18,8 @@
     		     	<label for="cpassword" >ConfirmPassword :</label>
   <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  formControlName="cpassword" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="ConfirmPassword...." required><br><br>
 
-  <button type="submit" id ="fasak" class="button button1" *ngIf="!SignupForm.invalid">SignUp</button><br>
-  <br *ngIf="!SignupForm.invalid">
+  <button type="submit" id ="fasak" class="button button1" [disabled]="SignupForm.invalid">SignUp</button><br>
+  <br>
 	<h3 style="color:black;">AlreadySignedUp?</h3><a id = "fur" routerLink="/login" class="button button1"><h3>Login</h3></a><br><br>
   <p id ="sin" style="color:white;font-size: 120%;
 	font-weight: 700;">@ 2018<span style="color: black;">ExamAutomata</span></p>

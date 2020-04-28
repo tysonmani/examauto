@@ -137,12 +137,12 @@
          <input style="padding:1%;border-radius:5px;" data-toggle="tooltip" data-placement="right" type="number" id="limit1" min="1" max="60" pattern="([1-9]|[1-5][0-9]|60)" title="Maximum 60 minutes"  formControlName="dur" placeholder="ExamDuration....." required>
          <h4><span style="color:#3CB371;">Exam</span>Alive</h4>
          <input style="padding:1%;border-radius:5px;" data-toggle="tooltip" data-placement="top" title="Maximum 180 minutes and Exam will be discarded from contests after this time exhausts" type="number" id="limit1" min="1" max="180" pattern="([1-9]|[1-9][0-9]|1[0-7][0-9]|180)"   formControlName="alive" placeholder="ExamAlive....." required>
-      <br *ngIf="!NumForm.invalid"><br>
+      <br><br>
   <h4><span style="color:#3CB371;">Proccess</span> Status :
     <span *ngIf="bool1"><i class="fa fa-check-square-o" style="font-size:24px;color:green;"></i></span>
 <span *ngIf="bool2"><i id="wro" class="fa fa-times-circle" style="font-size:36px"></i></span>
   {{ero}}</h4>
-  <button type="submit" id="submit123" id ="fasak5" class="button button1" *ngIf="!NumForm.invalid">Set</button><br *ngIf="!NumForm.invalid"><br>
+  <button type="submit" id="submit123" id ="fasak5" class="button button1" [disabled]="NumForm.invalid">Set</button><br><br>
     </form>
   </div>
         </div>
@@ -258,7 +258,7 @@
     <form novalidate [formGroup]="NumForm2" (ngSubmit)="onNumber()">
           <span id = "ping" id="shake">ContactNo:</span>
       <input id="pink" data-toggle="tooltip" data-placement="top" min="1" max="9999999999" pattern=".{10}" title="Must contain 10 digits" type="number" value={{udet.number}} formControlName="number" placeholder="Number...." required>&nbsp;&nbsp;
-        <button type="submit" id ="fasak6" class="button button1" *ngIf="!NumForm2.invalid">Update</button>
+        <button type="submit" id ="fasak6" class="button button1" [disabled]="NumForm2.invalid">Update</button>
     </form>
   </h2>
     </div>

@@ -338,6 +338,9 @@ a#fur:hover
     color:white;
     background-color: black; 
 }
+.button1:disabled {
+  cursor:not-allowed;
+}
 #fasak
 {
     font-size: 120%;
